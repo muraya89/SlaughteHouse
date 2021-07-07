@@ -135,7 +135,7 @@ body {
 
 
 .top{
-  background-image: url("../images/img15.jpg");
+  background-image: url("images/img15.jpg");
   height: 300px;
   background-position: center;
   background-size: cover;
@@ -307,8 +307,29 @@ input[type=text]:focus{
   margin-left: 200px;
 }
 
+.column{
+  display: grid;
+  grid-template-columns: auto auto;
+  align-content: center;
+  padding: 40px;
+}
 
-
+.item{
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 12px;
+}
+.item >a, a:hover{
+  color: #626262;
+}
+.item1{
+  padding: 20px;
+  text-align: left;
+}
+.item1>h2, .item2 >h2{
+  color: #cd5759;
+}
 
 
 
