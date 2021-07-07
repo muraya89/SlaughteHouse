@@ -1,0 +1,33 @@
+.input-box{
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  border: 1px solid #999;
+  outline: none;
+}
+.tapin{
+  padding: 50px 50px;
+  margin-right: 300px;
+  margin-left: 300px;
+}
+form{
+  text-align: center;
+}
+input[type=text]:focus{
+  border:3px solid #cd5759;
+}
+button{
+  color: #fff;
+  width: 100%;
+  padding: 10px;border-radius: 20px;
+  font-size: 15px;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+}
+.sendbtn{
+  background-color: #cd5759;
+  border-radius: 20px;
+  align-items: center;
+}
