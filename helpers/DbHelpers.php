@@ -35,6 +35,23 @@ class DbHelpers {
     }
  }
 
+ public function CheckIfMatch ($tableName, $field) {
+   $result = mysqli_query(
+     $this->db,
+    "SELECT * FROM $tableName WHERE ".array_key_first($field)." = '".$field[array_key_first($field)]."'");
+   if (!$result) {
+    return (object)[
+      "response" => 'Field not found',
+      "message" => mysqli_error($this->db)
+    ];
+  } else {
+      return (object)[
+        "response" => $result,
+        "message" => "success"
+      ];
+  }
+ }
+
  public function PasswordChecker ($password) {
     // password variables
     $uppercase = preg_match('@[A-Z]@', $password);

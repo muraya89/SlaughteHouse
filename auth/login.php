@@ -27,24 +27,23 @@ if (isset($_GET['error'])) {
 	<h1>LOGIN AS A CUSTOMER</h1>
 	<p>Welcome back.</p>
 	<!-- insert session -->
-	<form action="includes/login.inc.php" class="login" method="POST">
+	<form action="../app/auth/Login.php" class="login" method="POST">
 		<input type="text" name="email" class="input-box" placeholder="Email"></br>
-		<input type="text" name="password" class="input-box" placeholder="Password"></br>
+		<input type="passowrd" name="password" class="input-box" placeholder="Password"></br>
 		<button name="login_submit" class="sendbtn" type="submit">Login</button>
 	</form>
 	<p>Don't have an account?<a href="signup.php">JOIN</a></p>
 </div>
-<div class="item">
+<!-- <div class="item">
 	<h1>LOGIN AS A SUPPLIER</h1>
 	<p>Welcome back.</p>
-	<!-- insert session -->
 	<form action="includes/login.inc.php" class="login" method="POST">
 		<input type="text" name="email" class="input-box" placeholder="Email"></br>
 		<input type="text" name="password" class="input-box" placeholder="Password"></br>
 		<button name="login_submit" class="sendbtn" type="submit">Login</button>
 	</form>
 	<p>Don't have an account?<a href="signup.php">JOIN</a></p>
-</div>
+</div> -->
 </div>
 </body>
 

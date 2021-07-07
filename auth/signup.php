@@ -41,7 +41,7 @@
     <h1>JOIN THE SLAUGHTERHOUSE AS A CUSTOMER</h1>
     <p>Already have an account? <a href="login.php">LOGIN</a></p>
     <form method="POST" action="../app/auth/Register.php">
-      <input type="text" name="sname" class="input-box" placeholder="Company Name" >
+      <input type="text" name="cname" class="input-box" placeholder="Company Name" >
       <br>
       <input type="text" name="email" class="input-box" placeholder="Email">
       <br>
@@ -56,7 +56,7 @@
       <button type="submit" class="sendbtn" name="signup_submit">Sign up</button>
     </form>
   </div>
-    <div class="item">
+    <!-- <div class="item">
     <h1>JOIN THE SLAUGHTERHOUSE AS A SUPPLIER</h1>
     <p>Already have an account? <a href="login.php">LOGIN</a></p>
     <form method="POST" action="../app/auth/Register.php">
@@ -74,7 +74,7 @@
       <br>
       <button type="submit" class="sendbtn" name="signup_submit">Sign up</button>
     </form>
-  </div>
+  </div> -->
 </div>
 </body>
 
