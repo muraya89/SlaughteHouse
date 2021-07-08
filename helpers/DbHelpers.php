@@ -60,6 +60,11 @@ class DbHelpers {
     $specialChars = preg_match('@[^\w]@', $password);
     return !$uppercase || !$number ||!$lowercase || !$specialChars || strlen($password)<8;
  }
+
+ public function errorFunction ($errorMessage) {
+  header("Location: ../../supplier/supply.php?error=$errorMessage");
+  exit();
+ }
 }
 
 $db_helpers = new DbHelpers($conn);

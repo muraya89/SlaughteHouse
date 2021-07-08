@@ -29,7 +29,7 @@ class Login {
                     $_SESSION['id'] = $associativeArray['id'];
                     $_SESSION['name'] = $associativeArray['cname'];
                     // redirect here
-                    header('Location: ../../index.php');
+                    header('Location: ../../supplier/supply.php');
                 }
             }
             
