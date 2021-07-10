@@ -16,7 +16,7 @@ require('autoload.php');
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 			<div class="nav-title">
-				Slaughterhouse
+				<a href="index.php">Slaughterhouse</a>
 			</div>
 		</div>
 		<div class="nav-btn">

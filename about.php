@@ -38,7 +38,7 @@
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 			<div class="nav-title">
-				Slaughterhouse
+				<a href="index.php">Slaughterhouse</a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -50,7 +50,7 @@
 		</div>
 		<div class="nav-links">
 			<a href="about.php">About</a>
-			<a href="signup.php">Sign In</a>
+			<a href="auth/signup.php">Sign In</a>
 			<a href="faq.php">FAQ</a>
 
 			<!-- search bar -->

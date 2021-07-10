@@ -8,26 +8,26 @@
 	<link rel="stylesheet" type="text/css" href="../public/css/sstyles.css">
 </head>
 <body>
-	<div class="tapin">
+	<div class="effect">
+		<h3>Add Products</h3>
 		<?php 
 
 			if(isset($_GET['error'])) {
     			if($_GET['error'] == "emptyfields") {
-      				echo '<p class=signuperror>Fill in all fields</p>';
+      				echo '<p class=err>Fill in all fields</p>';
    			 	}
    			 	if($_GET['error'] == "excessweight") {
-      				echo '<p class=signuperror>The weight you entered is excess</p>';
+      				echo '<p class=err>The weight you entered is excess</p>';
    			 	}
 				if($_GET['error'] == "notsaved") {
-      				echo '<p class=signuperror>Data not saved, please try again</p>';
+      				echo '<p class=err>Data not saved, please try again</p>';
    			 	}
    			}
 
 		 ?>
-		<h3>Add Products</h3>
 		<form method="POST" action="../app/supplier/Products.php">
 			<select class="input-box" name="breed">
-				<option value="">--choose the breed of your supply</option>
+				<option value="">--choose the breed of your supply--</option>
 				<option value="angus">Angus catle</option>
 				<option value="holstein">Holstein Cattle</option>
 				<option value="hereford">Hereford cattle</option>
@@ -44,7 +44,7 @@
 			<input type="number" name="age" placeholder="Enter the age" class="input-box">
 			<br>
 			<select class="input-box" name="type">
-				<option value="">--select the type of meat</option>
+				<option value="">--select the type of meat--</option>
 				<option value="redmeat">Red meat</option>
 				<option value="whitemeat">White Meat</option>
 			</select>

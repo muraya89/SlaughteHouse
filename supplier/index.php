@@ -8,13 +8,13 @@
 	<link rel="stylesheet" type="text/css" href="../public/css/sstyles.css">
 </head>
 <body>
-	<div class="tapin">
-        <div>
-            <button class="btnClass">Add Product</button>
+	<div class="index">
+        <div class="addp">
+            <a href="../supplier/supply.php"><button class="btnClass">Add Product</button></a>
         </div>
 	 <div class="supplierTable">
-        <table class="tableTag">
-         <tr class="tableRow">
+        <table>
+         <tr>
             <th>#</th>
             <th>Breed</th>
             <th>Weight</th>
@@ -26,7 +26,7 @@
             <th>Status</th>
             <th>Actions</th>
          </tr>
-         <tr class="tableRow">
+         <tr>
              <td>1</td>
              <td>Asher</td>
              <td>600kg</td>
@@ -42,12 +42,23 @@
              </td>
              <td>
                  <div class="flex-box">
-                    <button>Edit</button>
+                    <a href=""><button class= "btn"> Edit</button></a>
                  </div>
              </td>
          </tr>
         </table>
      </div>
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="" class="active">1</a>
+        <a href="">2</a>
+        <a href="">3</a>
+        <a href="">4</a>
+        <a href="">5</a>
+        <a href="">6</a>
+        <a href="">7</a>
+        <a href="#">&raquo</a>
+    </div>
 	</div>
 </body>
 </html>

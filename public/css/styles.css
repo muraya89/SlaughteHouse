@@ -15,7 +15,10 @@ body {
   position: fixed;
   opacity: 0.5;
 }
-
+.nav-title >a{
+  text-decoration: none;
+  color: #ffffff;
+}
 .nav > .nav-header {
   display: inline;
 }
@@ -99,7 +102,7 @@ body {
 }
 
 /*search bar styles*/
-.search{
+/* .search{
 	border: 1px solid #c4c4c4;
     width: 500px;
     overflow-x: hidden;
@@ -131,7 +134,7 @@ body {
     background-color: #00CC00;
     color: #ffffff;
     font-size: 18px;
-}
+} */
 
 
 .top{
@@ -232,7 +235,7 @@ h3{
 }
 button{
   color: #fff;
-  width: 100%;
+  width: 80%;
   padding: 10px;border-radius: 20px;
   font-size: 15px;
   margin: 10px 0;
@@ -248,7 +251,7 @@ button{
   border-radius: 20px;
   padding: 10px;
   margin: 10px 0;
-  width: 100%;
+  width: 80%;
   border: 1px solid #999;
   outline: none;
 }
@@ -331,13 +334,48 @@ input[type=text]:focus{
   color: #cd5759;
 }
 
+.body{
+  background-image: url('../images/img17.jpg');
+}
 
+.effect{
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-right: 200px;
+  margin-left: 200px;
+  margin-top: 10px;
+  background-color: #ffffff;
+}
+.effect1{
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-right: 200px;
+  margin-left: 200px;
+  margin-top: 100px;
+  background-color: #ffffff;
+}
+.radio{
+  text-align: left;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.radio1{
+  padding: 1px;
+  text-align: center;
+  margin: 5px;
+  color: rgb(92, 92, 92);
+}
 
-
-
-
-
-
+/* faq styling */
+.faq{
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 100px 200px 0;
+  background-color: #ffffff;
+}
 
 
 
