@@ -13,7 +13,7 @@ class Login {
         // login logic
         if (isset($postData['login_submit'])) {
             // check if the email match
-            $res = $this->db_instance->CheckIfMatch(/** table name */'users', ['email' => $postData['email']]);
+            $res = $this->db_instance->CheckIfMatch(/** table name */'user', ['email' => $postData['email']]);
             if (mysqli_num_rows($res->response) < 1) {
                 // no email found
                 echo "email not found $res";

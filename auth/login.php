@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
-<body>
+<body class="body">
 
 <?php 
 // create an error message if the user made an error when trying to login
@@ -22,28 +22,26 @@ if (isset($_GET['error'])) {
 }
 
  ?>
- <div class="container">
-<div class="item" >
-	<h1>LOGIN AS A CUSTOMER</h1>
+<div class="effect1" >
+	<h1>LOGIN</h1>
 	<p>Welcome back.</p>
 	<!-- insert session -->
 	<form action="../app/auth/Login.php" class="login" method="POST">
 		<input type="text" name="email" class="input-box" placeholder="Email"></br>
+      <div class="radio">
+        <div class="radio1">
+        <input type="radio" value="supplier" name="accounttype">
+        <label for="supplier">Supplier</label>
+        </div>
+        <div class="radio1">
+        <input type="radio" name="accounttype" >
+        <label for="customer">Customer</label>
+        </div>
+      </div>
 		<input type="passowrd" name="password" class="input-box" placeholder="Password"></br>
 		<button name="login_submit" class="sendbtn" type="submit">Login</button>
 	</form>
 	<p>Don't have an account?<a href="signup.php">JOIN</a></p>
-</div>
-<!-- <div class="item">
-	<h1>LOGIN AS A SUPPLIER</h1>
-	<p>Welcome back.</p>
-	<form action="includes/login.inc.php" class="login" method="POST">
-		<input type="text" name="email" class="input-box" placeholder="Email"></br>
-		<input type="text" name="password" class="input-box" placeholder="Password"></br>
-		<button name="login_submit" class="sendbtn" type="submit">Login</button>
-	</form>
-	<p>Don't have an account?<a href="signup.php">JOIN</a></p>
-</div> -->
 </div>
 </body>
 

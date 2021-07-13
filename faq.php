@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Red meat produce</title>
+	<title>Frequently Asked Questions</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="./public/css/styles.css">
 </head>
@@ -12,7 +12,7 @@
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 			<div class="nav-title">
-				Slaughterhouse
+				<a href="index.php">Slaughterhouse</a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -24,7 +24,7 @@
 		</div>
 		<div class="nav-links">
 			<a href="about.php">About</a>
-			<a href="signin.php">Sign In</a>
+			<a href="auth/signup.php">Sign Up</a>
 			<a href="faq.php">FAQ</a>
 
 			<!-- search bar -->
@@ -38,8 +38,9 @@
 			</div> -->
 		</div>
 	</div>
+<div class="faq">
 
-
+</div>
 
 </body>
 </html>
