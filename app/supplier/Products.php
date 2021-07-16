@@ -1,15 +1,11 @@
 <?php 
-require('../../helpers/DbHelpers.php');
+include('../../helpers/DbHelpers.php');
 
 class Products {
     protected $db_instance;
     
     public function __construct($db_helpers) {
         $this->db_instance = $db_helpers;
-    }
-
-    public function index () {
-
     }
 
     public function storeProducts ($data) {

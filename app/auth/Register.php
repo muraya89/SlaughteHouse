@@ -34,7 +34,7 @@ class Register {
                 header("Location: ../../auth/signup.php?error=passwordCheck&cname=".$postData['cname']."&email=".$postData['email']."&address=".$postData['address']."&phoneno=".$postData['phoneno']);
                 exit();
             }else{
-                $saveUser = $this->db_instance->postData(/** table name */'user', [
+                $saveUser = $this->db_instance->postData(/** table name */'users', [
                     'cname' => $postData['cname'],
                     'email' => $postData['email'],
                     'phoneno' => $postData['phoneno'],

@@ -1,5 +1,11 @@
 <?php
-require("../../config/db.conf.php");
+function GetRelativePath($path)
+{
+    $npath = str_replace('\\', '/', $path);
+    return str_replace('DOCUMENT_ROOT', '', $npath);
+}
+
+require(GetRelativePath(dirname(__FILE__))."../../config/db.conf.php");
 
 class DbHelpers {
  public $db;
@@ -11,7 +17,7 @@ class DbHelpers {
  public function getAll ($table) {
     $result = mysqli_query($this->db, "SELECT * FROM " . $table);
     if ($result) {
-        return mysqli_fetch_assoc($result);
+        return $result;
     } else {
         return 'table not found';
     }
@@ -25,7 +31,7 @@ class DbHelpers {
     if (!$result) {
         return (object)[
           "response" => $result,
-          "message" => mysqli_error($this->db)
+          "message" => 'error message'
         ];
     } else {
         return (object)[

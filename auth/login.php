@@ -18,6 +18,8 @@ if (isset($_GET['error'])) {
 		echo "<p class='err'>Fill in all fields</p>";
 	}elseif ($_GET['error']== "pwderr") {
 		echo "<p class='err'>Wrong password</p>";
+	}elseif ($_GET['error']== "403") {
+		echo "<p class='err'>Unauthorized</p>";
 	}
 }
 
@@ -38,7 +40,7 @@ if (isset($_GET['error'])) {
         <label for="customer">Customer</label>
         </div>
       </div>
-		<input type="passowrd" name="password" class="input-box" placeholder="Password"></br>
+		<input type="password" name="password" class="input-box" placeholder="Password"></br>
 		<button name="login_submit" class="sendbtn" type="submit">Login</button>
 	</form>
 	<p>Don't have an account?<a href="signup.php">JOIN</a></p>
