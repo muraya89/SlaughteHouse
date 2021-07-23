@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +13,41 @@
 
 </head>
 <body class="body">
+
+<div class="nav">
+		<input type="checkbox" id="nav-check">
+		<div class="nav-header">
+			<div class="nav-title">
+				<a href="../index.php">Slaughterhouse</a>
+			</div>
+		</div>
+		<div class="nav-btn">
+			<label for="nav-check">
+				<span></span>
+				<span></span>
+				<span></span>
+			</label>
+		</div>
+		<div class="nav-links">
+			<a href="../about.php">About</a>
+            <div class="div_logout">
+                <form method="post" action="../app/auth/Logout.php">
+                    <button type="submit" name="logout" class="logout">Logout</button>
+                </form>
+            </div>
+			<a href="faq.php">FAQ</a>
+
+			<!-- search bar -->
+			<!-- <div class="search">
+					<form action="">
+						<input type="text" placeholder="Search...">
+					<div class="searchbtn">
+						<button type="submit" name="Submit">Submit</button>
+					</div>
+					</form>
+			</div> -->
+		</div>
+	</div>
 
 <?php 
 // create an error message if the user made an error when trying to login

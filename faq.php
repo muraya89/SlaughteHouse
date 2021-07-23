@@ -38,9 +38,15 @@
 			</div> -->
 		</div>
 	</div>
-<div class="faq">
+	
+	<div class="">
+		<input type="checkbox" id="collapsible" class="toggle">
+		<label for="collapsible" class="lbl-toggle">Animal Welfare Policy</label>
+		<div>
+			
+		</div>
+	</div>
 
-</div>
 
 </body>
 </html>

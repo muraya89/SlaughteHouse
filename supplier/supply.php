@@ -8,6 +8,41 @@
 	<link rel="stylesheet" type="text/css" href="../public/css/sstyles.css">
 </head>
 <body>
+
+<div class="nav">
+		<input type="checkbox" id="nav-check">
+		<div class="nav-header">
+			<div class="nav-title">
+				<a href="index.php">Slaughterhouse</a>
+			</div>
+		</div>
+		<div class="nav-btn">
+			<label for="nav-check">
+				<span></span>
+				<span></span>
+				<span></span>
+			</label>
+		</div>
+		<div class="nav-links">
+			<a href="../about.php">About</a>
+            <div class="div_logout">
+                <form method="post" action="../app/auth/Logout.php">
+                    <button type="submit" name="logout" class="logout">Logout</button>
+                </form>
+            </div>
+			<a href="../faq.php">FAQ</a>
+
+			<!-- search bar -->
+			<!-- <div class="search">
+					<form action="">
+						<input type="text" placeholder="Search...">
+					<div class="searchbtn">
+						<button type="submit" name="Submit">Submit</button>
+					</div>
+					</form>
+			</div> -->
+		</div>
+	</div>
 	<div class="effect">
 		<h3>Add Products</h3>
 		<?php 
@@ -39,8 +74,11 @@
 			<br>
 			<input type="text" name="weight" placeholder="Enter the weight" class="input-box">
 			<br>
-			<input type="text" name="sex" placeholder="Enter the sex" class="input-box">
-			<br>
+			<select class="input-box" name="sex">
+				<option value="">--select the sex of the animal--</option>
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+			</select>
 			<input type="number" name="age" placeholder="Enter the age" class="input-box">
 			<br>
 			<select class="input-box" name="type">

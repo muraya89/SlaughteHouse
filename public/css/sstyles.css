@@ -1,8 +1,12 @@
+body{
+  margin: auto;
+}
+
 .nav {
-  height: 50px;
+  height: 55px;
   width: 100%;
   background-color: #000000;
-  position: fixed;
+  position: relative;
   opacity: 0.5;
 }
 .nav-title >a{
@@ -25,9 +29,9 @@
 }
 
 .nav > .nav-links {
-  display: inline;
+  display: flex;
   float: right;
-  font-size: 18px;
+  font-size: 25px;
 }
 
 .nav > .nav-links > a {
@@ -75,6 +79,20 @@ input[type=text]:focus{
   color: #cd5759;
   text-align: center;
 }
+.logout{
+  color: #ffffff;
+  width: 100%;
+  padding: 4px;
+  background: none;
+  font-size: 20px;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+}
+.div_logout:hover{  
+  background-color: #cd5759;
+}
+
 /* button{
   color: #fff;
   width: 100%;
@@ -103,14 +121,14 @@ input[type=text]:focus{
   border-radius: 20px;
   border: none;
   outline: none;
-  height: 80px;
+  height: 30px;
   width: 100px;
 }
 .index{
   margin: 10px 7px 70px;
 }
 .addp{
-  margin-left: 1100px;
+  float: right;
   width: 100px;
   padding: 20px;
 }
@@ -168,8 +186,12 @@ table tr:last-child td:first-child{
 
 /* pagination */
 .pagination{
-  display: inline-block;
-  margin: 0 450px;
+  display: flex;
+  margin: auto;
+  padding: inherit;
+  padding-right: inherit;
+  padding-left: inherit;
+  width: 20%;
 }
 .pagination >a{
   color: #000;
