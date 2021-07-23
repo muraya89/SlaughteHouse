@@ -41,6 +41,26 @@ class DbHelpers {
     }
  }
 
+ public function updateData ($table, $data) {
+    $values = '';
+    foreach($data as $key => $value) {
+      $values .= $key.' = "'.$value.'", ';
+    }
+    $result = mysqli_query($this->db, "UPDATE `".$table."` SET ".rtrim($values, ", ")." WHERE id = ".$data['id']);
+    mysqli_close($this->db);
+    if (!$result) {
+        return (object)[
+          "response" => $result,
+          "message" => 'error message'
+        ];
+    } else {
+        return (object)[
+          "response" => $result,
+          "message" => "success"
+        ];
+    }
+ }
+
  public function CheckIfMatch ($tableName, $field) {
    $result = mysqli_query($this->db,"SELECT * FROM $tableName WHERE ".array_key_first($field)." = '".$field[array_key_first($field)]."'");
    if (!$result) {

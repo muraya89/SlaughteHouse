@@ -93,8 +93,11 @@ $value = $db_helpers->getAll('animals');
                   <?php endif; ?>
              </td>
              <td>
+                 <?php 
+                    $base64UrlString = base64_encode(json_encode(array_merge($product, ['isEdit' => true]))); 
+                 ?>
                  <div class="flex-box">
-                    <a href=""><button class= "btn"> Edit</button></a>
+                    <a href="supply.php?edit=<?=$base64UrlString;?>"><button class= "btn"> Edit</button></a>
                  </div>
              </td>
          </tr>
