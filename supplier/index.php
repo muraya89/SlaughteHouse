@@ -13,9 +13,8 @@ $value = $db_helpers->getAll('animals');
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Apply to supply</title>
-	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../public/css/sstyles.css">
+	<title>Apply to supply</title>
 </head>
 <body>
 
@@ -94,7 +93,7 @@ $value = $db_helpers->getAll('animals');
              </td>
              <td>
                  <div class="flex-box">
-                    <a href=""><button class= "btn"> Edit</button></a>
+                    <a href="edit.php"><button class= "btn"> Edit</button></a>
                  </div>
              </td>
          </tr>
