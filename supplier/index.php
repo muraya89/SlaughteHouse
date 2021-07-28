@@ -13,8 +13,9 @@ $value = $db_helpers->getAll('animals');
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../public/css/sstyles.css">
 	<title>Apply to supply</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../public/css/sstyles.css">
 </head>
 <body>
 
@@ -92,8 +93,11 @@ $value = $db_helpers->getAll('animals');
                   <?php endif; ?>
              </td>
              <td>
+                 <?php 
+                    $base64UrlString = base64_encode(json_encode(array_merge($product, ['isEdit' => true]))); 
+                 ?>
                  <div class="flex-box">
-                    <a href="edit.php"><button class= "btn"> Edit</button></a>
+                    <a href="supply.php?edit=<?=$base64UrlString;?>"><button class= "btn"> Edit</button></a>
                  </div>
              </td>
          </tr>
