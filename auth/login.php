@@ -18,6 +18,9 @@ session_start();
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 			<div class="nav-title">
+				<div class="logo">
+					<img src="public/images/slaughterhouse.jpeg" alt="">
+				</div>
 				<a href="../index.php">Slaughterhouse</a>
 			</div>
 		</div>
@@ -35,7 +38,7 @@ session_start();
                     <button type="submit" name="logout" class="logout">Logout</button>
                 </form>
             </div>
-			<a href="faq.php">FAQ</a>
+			<a href="../faq.php">FAQ</a>
 
 			<!-- search bar -->
 			<!-- <div class="search">

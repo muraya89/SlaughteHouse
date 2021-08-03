@@ -40,7 +40,7 @@ $value = $db_helpers->getAll('animals');
                     <button type="submit" name="logout" class="logout">Logout</button>
                 </form>
             </div>
-			<a href="faq.php">FAQ</a>
+			<a href="../faq.php">FAQ</a>
 
 			<!-- search bar -->
 			<!-- <div class="search">
