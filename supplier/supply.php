@@ -59,6 +59,7 @@
 	}
 	$data = [];
 	if (isset($_GET['edit'])) {
+		//for decoding stored data
 		$data = json_decode(base64_decode($_GET['edit']));
 	}
 
@@ -98,6 +99,7 @@
 			<br>
 			<input type="hidden" value="<?= isset($_GET['edit']) ? 'edit' : 'add'; ?>" name="submitType" />
 			<input type="hidden" value="<?= isset($_GET['edit']) && isset($data->id) ? $data->id : ''; ?>" name="id" />
+
 			<button type="submit" name="supply_submit" class="sendbtn"><?= isset($_GET['edit']) ? 'Edit' : 'Submit'; ?></button>
 		</form>
 	</div>

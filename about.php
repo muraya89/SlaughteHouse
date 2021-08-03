@@ -37,6 +37,9 @@
 <div class="nav">
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
+				<div class="logo">
+					<img src="public/images/slaughterhouse.jpeg" alt="">
+				</div>
 			<div class="nav-title">
 				<a href="index.php">Slaughterhouse</a>
 			</div>
