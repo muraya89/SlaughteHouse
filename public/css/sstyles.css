@@ -1,0 +1,291 @@
+body{
+  margin: auto;
+}
+
+.nav {
+  height: 55px;
+  width: 100%;
+  background-color: #000000;
+  position: relative;
+  opacity: 0.5;
+}
+.nav-title >a{
+  text-decoration: none;
+  color: #ffffff;
+}
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: flex;
+  float: right;
+  font-size: 25px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: #cd5759;
+}
+
+.nav > #nav-check {
+  display: none;
+}
+/* logo styling */
+.logo{
+  display: inline-block;
+}
+.logo >img{
+  height: 50px;
+  width: 50px;
+  margin-top: -7px;
+}
+input.input-box{
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 90%;
+  border: 1px solid #999;
+  outline: none;
+}
+select.input-box{
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 92%;
+  border: 1px solid #999;
+  outline: none;
+}
+input.disabled-box{
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 60%;
+  border: 1px solid #999;
+  outline: none;
+}
+select.disabled-box{
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 61%;
+  border: 1px solid #999;
+  outline: none;
+}
+.content label{
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+}
+.tapin{
+  padding: 50px 50px;
+  margin-right: 300px;
+  margin-left: 300px;
+}
+form{
+  text-align: center;
+}
+input[type=text]:focus{
+  border:3px solid #cd5759;
+}
+.err{
+  color: #cd5759;
+  text-align: center;
+}
+.logout{
+  color: #ffffff;
+  width: 100%;
+  padding: 4px;
+  background: none;
+  font-size: 20px;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+}
+.div_logout:hover{  
+  background-color: #cd5759;
+}
+
+/* button{
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 15px;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+} */
+.sendbtn{
+  background-color: #cd5759;
+  color: #ffffff;
+  border-radius: 20px;
+  align-items: center;
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 50%;
+}
+
+/* table css */
+.btnClass{
+  background-color: #cd5759;
+  color: #f2f2f2;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  height: 30px;
+  width: 100px;
+}
+.index{
+  margin: 10px 7px 70px;
+}
+.addp{
+  float: right;
+  width: 100px;
+  padding: 20px;
+}
+.supplierTable{  
+  margin: 10px 7px 100px;
+  padding-bottom: 20px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+table{
+  border-collapse: collapse;
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  margin: auto;
+}
+th, td{
+  padding: 20px;
+  border-bottom: 1px solid #000;
+}
+.btn{
+  background-color: #cd5759;
+  color: #f2f2f2;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  height: 30px;
+  width: 50px;
+}
+th{
+  background-color: #ca8a8b;
+  color: #f2f2f2;
+} 
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+tr:hover{
+  background-color: #ddd;
+}
+/* table tr:last-child td:first-child{
+  border-bottom-left-radius: 10px;
+}
+table tr:last-child td:first-child{
+  border-bottom-right-radius: 10px;
+} */
+
+.effect{
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 70%  ;
+  margin: auto;
+  background-color: #ffffff;
+}
+
+/* pagination */
+.pagination{
+  display: flex;
+  margin: auto;
+  padding: inherit;
+  padding-right: inherit;
+  padding-left: inherit;
+  width: 20%;
+}
+.pagination >a{
+  color: #000;
+  float: left;
+  padding: 10px 10px;
+  text-decoration: none;
+}
+.pagination >a.active{
+  background-color: #cd5759;
+  color: #ffffff;
+  border-radius: 20px;
+}
+.pagination >a:hover:not(active){
+  background-color: #eeeeee;
+  border-radius: 5px;
+}
+.container{
+  text-align: center;
+  padding: 20px;
+}
+
+
+.accordion > input[type="checkbox"]{
+  position: absolute;
+  left: -100vw;
+}
+.accordion > input[type="checkbox"]:checked ~ .content{
+  height: auto;
+  overflow: visible;
+  padding: 15px;
+  border: 1px solid #e8e8e8;
+  border-top: 0;
+}
+.accordion .content{
+  overflow-y: hidden;
+  height: 0;
+  transition: height 0.3s ease-in-out;
+}
+/* .accordion label{
+  display: block;
+} */
+.accordion{
+  margin-top: 16px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.handle2{
+  margin: 0;
+  line-height: 19px;
+}
+.handle{
+  color: #333;
+  cursor: pointer;
+  padding: 15px;
+  background: #e7d4d4;
+}
+
+.delivery{
+  width: 61%;
+  margin: auto;
+  text-align: left;
+  padding: 20px;
+  padding-bottom: 1px;
+}
+.delivery label{
+  text-align: left;
+}

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>CONTACT US</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="./public/css/styles.css">
 </head>
 <body>
 
@@ -13,7 +13,7 @@
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 			<div class="nav-title">
-				Slaughterhouse
+				<a href="index.php">Slaughterhouse</a>
 			</div>
 		</div>
 		<div class="nav-btn">
