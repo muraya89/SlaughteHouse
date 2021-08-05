@@ -21,7 +21,7 @@ session_start();
 				<div class="logo">
 					<img src="public/images/slaughterhouse.jpeg" alt="">
 				</div>
-				<a href="../index.php">Slaughterhouse</a>
+				<a href="../index.php"><b><strong> Slaughterhouse</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -33,11 +33,11 @@ session_start();
 		</div>
 		<div class="nav-links">
 			<a href="../about.php">About</a>
-            <div class="div_logout">
+            <!-- <div class="div_logout">
                 <form method="post" action="../app/auth/Logout.php">
                     <button type="submit" name="logout" class="logout">Logout</button>
                 </form>
-            </div>
+            </div> -->
 			<a href="../faq.php">FAQ</a>
 
 			<!-- search bar -->

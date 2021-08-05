@@ -23,7 +23,7 @@ $value = $db_helpers->getAll('animals');
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 			<div class="nav-title">
-				<a href="../index.php">Slaughterhouse</a>
+				<a href="../index.php"><b><strong> Slaughterhouse</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">

@@ -41,7 +41,7 @@
 					<img src="public/images/slaughterhouse.jpeg" alt="">
 				</div>
 			<div class="nav-title">
-				<a href="index.php">Slaughterhouse</a>
+				<a href="index.php"><b><strong> Slaughterhouse</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -84,12 +84,12 @@
 		<li>Consideration of the wastes we produce into the environment</li>
 	</div>
 	<div class="item2">
-		<img src="images/img3.jpg" >
+		<img src="public/images/img5.jfif" >
 	</div>
 </div>
 	<div class="container">
 		<div class="item1">
-			<img src="images/img2.jpg">
+			<img src="public/images/img4.jfif">
 		</div>
 	<div class="item2">
 		<h2>The Slaughterhouse is proud to supply:</h2>
@@ -102,8 +102,6 @@
 		</ol>
 	</div>
 </div>
-
-<hr class="hr">
 
 <h1> Learn more on how we treat our animals</h1>
 	<p class="paragraph">The Slaughterhouse complies with all the necessary rules and regulations governing the red meat industry and our certifications are a testament of this. The video shown below shows just how much we take the health issue very seriously.</p>

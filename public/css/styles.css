@@ -16,6 +16,7 @@ body{
 .nav-title >a{
   text-decoration: none;
   color: #ffffff;
+  font-size: 45px;
 }
 .nav > .nav-header {
   display: inline;
@@ -160,7 +161,7 @@ body{
 
 
 .top{
-  background-image: url("images/img15.jpg");
+  background-image: url('../images/img15.jpg');
   height: 300px;
   background-position: center;
   background-size: cover;
@@ -183,7 +184,9 @@ body{
 	display: grid;
 	grid-template-columns: auto auto;
 	align-content: center;
-	padding: 40px;
+  padding: 70px;
+  margin: auto;
+  width: 70%;
 }
 .item{
 	padding: 20px;
@@ -220,10 +223,10 @@ h3{
 
 
 .header{
-  background-image: url("images/img1.jpg");
-  height: 250px;
+  background-image: url("../images/img19.jpg");
+  height: 300px;
   background-position: center;
-  background-size: cover;
+  background-size: 100% 100%;
   padding: 20px 20px;
   color: #FFFFFF;
 }

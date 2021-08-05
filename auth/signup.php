@@ -36,6 +36,39 @@
       }
     }
   ?>
+
+  <div class="nav">
+      <input type="checkbox" id="nav-check">
+      <div class="nav-header">
+          <div class="logo">
+            <img src="../public/images/slaughterhouse.jpeg" alt="">
+          </div>
+        <div class="nav-title">
+          <a href="../index.php"><b><strong> Slaughterhouse</strong></b></a>
+        </div>
+      </div>
+      <div class="nav-btn">
+        <label for="nav-check">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+      <div class="nav-links">
+        <a href="../about.php">About</a>
+        <a href="../faq.php">FAQ</a>
+  
+        <!-- search bar -->
+        <!-- <div class="search">
+            <form action="">
+              <input type="text" placeholder="Search...">
+            <div class="searchbtn">
+              <button type="submit" name="Submit">Submit</button>
+            </div>
+            </form>
+        </div> -->
+      </div>
+    </div>
   <div class="effect">    
     <h1>JOIN THE SLAUGHTERHOUSE</h1>
     <p>Already have an account? <a href="login.php">LOGIN</a></p>
