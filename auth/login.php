@@ -63,6 +63,10 @@ if (isset($_GET['error'])) {
 		echo "<p class='err'>Wrong password</p>";
 	}elseif ($_GET['error']== "403") {
 		echo "<p class='err'>Unauthorized</p>";
+	} elseif ($_GET['error'] == "accountError") {
+		echo "<p class='err'>Account Type required</p>";
+	} elseif ($_GET['error'] == "accountError2") {
+		echo "<p class='err'>Sorry, you selected the wrong Account type</p>";
 	}
 }
 
@@ -79,7 +83,7 @@ if (isset($_GET['error'])) {
         <label for="supplier">Supplier</label>
         </div>
         <div class="radio1">
-        <input type="radio" name="accounttype" >
+        <input type="radio" value="customer" name="accounttype" >
         <label for="customer">Customer</label>
         </div>
       </div>

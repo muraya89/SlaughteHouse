@@ -30,8 +30,9 @@
       }elseif($_GET['error'] == "dberror") {
           // code...
       echo '<p class = "err">Unsuccessful Signup!</p>';
-      }
-      elseif($_GET['signup']== "success") {
+      } elseif ($_GET['error'] == "accountError") {
+        echo '<p class = "err">Account type required!</p>';
+      } elseif($_GET['signup']== "success") {
         echo '<p> class = "err"Signup Successful!</p>';
       }
     }
@@ -54,7 +55,7 @@
         <label for="supplier">Supplier</label>
         </div>
         <div class="radio1">
-        <input type="radio" name="accounttype" >
+        <input type="radio" value="customer" name="accounttype" >
         <label for="customer">Customer</label>
         </div>
       </div>
