@@ -111,7 +111,7 @@
                     <br>
                     
                     <label for="number">Number of animals: </label>
-                    <input type="number" value="<?= isset($_GET['edit']) && isset($data->number) ? $data->number : ''; ?>" name="number" placeholder="Enter the number of animals you want to sell" class="disabled-box">
+                    <input type="number" value="<?= isset($_GET['edit']) && isset($data->number) ? $data->number : ''; ?>" name="number" placeholder="Enter the number of animals you want to sell" max="10" class="disabled-box">
                     <br>
                     <label for="price">Price per animal: </label>
                     <input type="number" value="<?= isset($_GET['edit']) && isset($data->price) ? $data->price : ''; ?>" name="price" placeholder="Enter the price to sell the animal" class="disabled-box" disabled>

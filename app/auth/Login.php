@@ -2,45 +2,60 @@
 require('../../helpers/DbHelpers.php');
 
 class Login {
-
+    
     protected $db_instance;
-
+    
     public function __construct ($db_helpers) {
         $this->db_instance = $db_helpers;
     }
-
+    
     public function login ($postData) {
         // login logic
         if (isset($postData['login_submit'])) {
-            // check if the email match
-            $res = $this->db_instance->CheckIfMatch(/** table name */'users', ['email' => $postData['email']]);
-            if (mysqli_num_rows($res->response) < 1) {
-                // no email found
-                echo "email not found $res";
+            if (!isset($postData['accounttype'])) {
+                header("Location: ../../auth/login.php?error=accountError");
+                exit();
             } else {
-                // check if the password matches
-                $associativeArray = mysqli_fetch_assoc($res->response);
-                $result = password_verify($postData['password'], $associativeArray['password']);
-                if (!$result) {
-                    echo "Wrong password please try again";
-                    header("Location: ../../auth/login.php");
-                } else {
-                    /** start session */
-                    $_SESSION['id'] = $associativeArray['id'];
-                    $_SESSION['name'] = $associativeArray['cname'];
-                    // redirect here
-                    header('Location: ../../supplier/index.php');
+                // check if the email match
+                $res = $this->db_instance->CheckIfMatch(/** table name */'users', ['email' => $postData['email']]);
+                    if (mysqli_num_rows($res->response) < 1) {
+                        // no email found
+                        echo "email not found $res";
+                    } else {
+                        
+                        // check if the password matches
+                        $associativeArray = mysqli_fetch_assoc($res->response);
+                        $result = password_verify($postData['password'], $associativeArray['password']);
+                        
+                        if ($postData['accounttype'] !== $associativeArray['account']) {
+                            // account type validation
+                            header("Location: ../../auth/login.php?error=accountError2");
+                            exit();
+                        } else {
+                            if (!$result) {
+                                header("Location: ../../auth/login.php?error=403");
+                            } else {
+                                /** start session */
+                                $_SESSION['id'] = $associativeArray['id'];
+                                $_SESSION['name'] = $associativeArray['cname'];
+                                $_SESSION['account'] = $associativeArray['account'];
+                                // redirect here
+                                $associativeArray['account'] == 'supplier' 
+                                ? header('Location: ../../supplier/index.php') 
+                                : header('Location: ../../customer/index.php');
+                            }
+                        }
+                    }
                 }
+                
+            } else {
+                header('Location:', '../../index.php');
             }
-            
-        } else {
-            header('Location:', '../../index.php');
         }
+        
     }
-
-}
-session_start();
-$login = new Login($db_helpers);
-$login->login($_POST);
-
-?>
+    session_start();
+    $login = new Login($db_helpers);
+    $login->login($_POST);
+    
+    ?>
