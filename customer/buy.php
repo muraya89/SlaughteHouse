@@ -1,3 +1,12 @@
+<?php 
+
+session_start();
+
+if (!isset($_SESSION['id'])) {
+    header('Location: ../auth/login.php?error=403');
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -69,13 +78,13 @@
 	?>
 	<div class="effect">
 		<h3>Buy products</h3>
+		<form id="orders_form" method="POST" action="../app/customer/Orders.php">
 		<section class="accordion">
             <input type="checkbox" name="collapse" id="handle1">
             <h2 class="handle">
                 <label for="handle1" class="handle2">Product description</label>
             </h2>
             <div class="content">
-                <form method="POST" action="../app/supplier/Products.php">
                     <label for="breed">Breed: </label>
                     <select class="disabled-box" name="breed" disabled>
                         <option value="<?= isset($_GET['edit']) && isset($data->breed) ? $data->breed : ''; ?>">
@@ -111,14 +120,15 @@
                     <br>
                     
                     <label for="number">Number of animals: </label>
-                    <input type="number" value="<?= isset($_GET['edit']) && isset($data->number) ? $data->number : ''; ?>" name="number" placeholder="Enter the number of animals you want to sell" max="10" class="disabled-box">
+                    <input type="number" id="quantity" onkeyup="displayTotal()" name="quantity" placeholder="Enter the number of animals you want to sell" max="<?= (int)$data->number; ?>" min="1" class="disabled-box">
+					<!-- <p style="padding: 10px; color: red;" id="qError"></p> -->
                     <br>
                     <label for="price">Price per animal: </label>
-                    <input type="number" value="<?= isset($_GET['edit']) && isset($data->price) ? $data->price : ''; ?>" name="price" placeholder="Enter the price to sell the animal" class="disabled-box" disabled>
+                    <input type="number" id="price" value="<?= isset($_GET['edit']) && isset($data->price) ? $data->price : ''; ?>" name="price" placeholder="Enter the price to sell the animal" class="disabled-box" disabled>
                     <br>
-                    <input type="hidden" value="<?= isset($_GET['edit']) ? 'edit' : 'add'; ?>" name="submitType" />
-                    <input type="hidden" value="<?= isset($_GET['edit']) && isset($data->id) ? $data->id : ''; ?>" name="id" />
-                </form>
+                    <input type="hidden" value="<?= isset($_GET['edit']) && isset($data->id) ? $data->id : ''; ?>" name="product_id" />
+                    <input type="hidden" value="<?= isset($_GET['edit']) && isset($data->number) ? $data->number : ''; ?>" name="number" />
+					<input type="hidden" value="<?= $_SESSION['id']; ?>" name="user_id" />
             </div>
         </section>
         <section class="accordion">
@@ -127,8 +137,7 @@
                 <label for="handle2" class="handle2">Customer details</label>
             </h2>
             <div class="content">
-                <form action="post" action="">
-					<select name="mode" class="disabled-box">
+					<select name="mode_of_payment" class="disabled-box">
 						<option value="">--choose mode of payment--</option>
 						<option value="cash">Cash</option>
 						<option value="mpesa">M-pesa</option>
@@ -136,19 +145,45 @@
 					<br>
 					<div class="delivery">
 						<label for="delivery"> Delivery:</label><br><br>
-						<input type="radio" name="" value="yes">Yes
+						<input type="radio" name="delivery" value="true">Yes
 						<br><br>
-						<input type="radio" name="" value="no">No
+						<input type="radio" name="delivery" value="false">No
 					</div>
 					<br>
-					<input type="text" name="" class="disabled-box" placeholder="Enter your delivery address">
-                </form>
+					<input type="text" name="address" class="disabled-box" placeholder="Enter your delivery address">
+					<br>
+					<label for="total">Total Cost (in Ksh):</label>
+					<br>
+					<input type="text" readonly name="price" class="disabled-box" id="total" />
             </div>
         </section>
         <div class="container">
-		    <button type="submit" name="supply_submit" class="sendbtn">BUY</button>
+		    <button name="order_submit" type="submit" class="sendbtn">BUY</button>
         </div>
+		</form>
 	</div>
 </body>
+
+<script>
+
+	function displayTotal () {
+		const quantity = parseInt(document.getElementById('quantity').value)
+		const price = parseInt(document.getElementById('price').value)
+		document.getElementById('total').value = quantity*price
+	}
+
+	// function makeOrder () {
+	// 	const quantity = document.getElementsByName('quantity');
+	// 	const mode_of_payment = document.getElementsByName('mode_of_payment');
+	// 	const delivery = document.getElementsByName('delivery');
+		
+	// 	console.log(quantity[0].value);
+
+	// 	if (quantity[0].value.length === 0) {
+	// 		qError = document.getElementById('qError')
+	// 	}
+	// }
+
+</script>
 
 </html>
