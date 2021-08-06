@@ -19,7 +19,7 @@ session_start();
 		<div class="nav-header">
 			<div class="nav-title">
 				<div class="logo">
-					<img src="public/images/slaughterhouse.jpeg" alt="">
+					<img src="../public/images/slaughterhouse.jpeg" alt="">
 				</div>
 				<a href="../index.php"><b><strong> Slaughterhouse</strong></b></a>
 			</div>

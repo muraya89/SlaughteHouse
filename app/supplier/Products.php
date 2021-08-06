@@ -14,6 +14,7 @@ class Products {
         $newDataArray = [];
         unset($data['supply_submit']);
         unset($data['submitType']);
+        unset($data['id']);
         $keys = array_keys($data);
         
         // check for empty values
