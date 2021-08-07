@@ -4,7 +4,6 @@
 <head>
 	<meta charset="utf-8">
 	<title>Apply to supply</title>
-	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../public/css/sstyles.css">
 </head>
 
@@ -13,8 +12,11 @@
 	<div class="nav">
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
+          <div class="logo">
+            <img src="../public/images/slaughterhouse.jpeg" alt="">
+          </div>
 			<div class="nav-title">
-				<a href="index.php">Slaughterhouse</a>
+				<a href="index.php"><b><strong> Slaughterhouse</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">

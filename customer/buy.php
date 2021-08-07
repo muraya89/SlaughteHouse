@@ -17,7 +17,7 @@
 					<img src="public/images/slaughterhouse.jpeg" alt="">
 				</div>
 			<div class="nav-title">
-				<a href="index.php">Slaughterhouse</a>
+				<a href="index.php"><b><strong> Slaughterhouse</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">

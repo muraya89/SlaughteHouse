@@ -26,10 +26,10 @@ $value = $db_helpers->getAll('animals');
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 				<div class="logo">
-					<img src="public/images/slaughterhouse.jpeg" alt="">
+					<img src="../public/images/slaughterhouse.jpeg" alt="">
 				</div>
 			<div class="nav-title">
-				<a href="index.php">Slaughterhouse</a>
+				<a href="index.php"><b><strong> Slaughterhouse</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -41,8 +41,12 @@ $value = $db_helpers->getAll('animals');
 		</div>
 		<div class="nav-links">
 			<a href="about.php">About</a>
-			<a href="auth/signup.php">Sign Up</a>
-			<a href="faq.php">FAQ</a>
+              <div class="div_logout">
+                  <form method="post" action="../app/auth/Logout.php">
+                      <button type="submit" name="logout" class="logout">Logout</button>
+                  </form>
+              </div>
+			<a href="../faq.php">FAQ</a>
 
 			<!-- search bar -->
 			<!-- <div class="search">
