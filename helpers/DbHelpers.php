@@ -23,6 +23,16 @@ class DbHelpers {
     }
  }
 
+ public function show ($table, $data) {
+    $result = mysqli_query($this->db, "SELECT orders.*, animals.breed, animals.number, animals.type 
+    FROM $table JOIN animals ON animals.id = $table.product_id WHERE " . key($data) . " = " . $data[key($data)]);
+    if ($result) {
+        return $result;
+    } else {
+        return 'table not found';
+    }
+ }
+
  public function postData ($table, $data) {
     $fields = implode(", ", array_keys($data));
     $values  = "'".implode("', '", array_values($data))."'";

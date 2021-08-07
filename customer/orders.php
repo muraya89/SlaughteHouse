@@ -7,7 +7,7 @@ if (!isset($_SESSION['id'])) {
 
 
 include('../helpers/DbHelpers.php');
-$value = $db_helpers->getAll('animals');
+$value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
 
 ?>
 
@@ -29,7 +29,7 @@ $value = $db_helpers->getAll('animals');
 					<img src="../public/images/slaughterhouse.jpeg" alt="">
 				</div>
 			<div class="nav-title">
-				<a href="index.php"><b><strong> Slaughterhouse</strong></b></a>
+				<a href="index.php">Slaughterhouse</a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -41,12 +41,8 @@ $value = $db_helpers->getAll('animals');
 		</div>
 		<div class="nav-links">
 			<a href="about.php">About</a>
-              <div class="div_logout">
-                  <form method="post" action="../app/auth/Logout.php">
-                      <button type="submit" name="logout" class="logout">Logout</button>
-                  </form>
-              </div>
-			<a href="../faq.php">FAQ</a>
+			<a href="auth/signup.php">Sign Up</a>
+			<a href="faq.php">FAQ</a>
 
 			<!-- search bar -->
 			<!-- <div class="search">
@@ -65,44 +61,33 @@ $value = $db_helpers->getAll('animals');
         <table>
          <tr>
             <th>#</th>
-            <th>Breed</th>
-            <th>Weight</th>
-            <th>Sex</th>
-            <th>Age</th>
-            <th>Quantity</th>
             <th>Price</th>
+            <th>Product ID</th>
+            <th>Breed</th>
+            <th>Price Per Animal</th>
             <th>Type</th>
-            <th>Status</th>
+            <th>Quantity</th>
+            <th>Mode Of Payment</th>
+            <th>Delivery</th>
+            <th>address</th>
+            <th>Made on</th>
             <th>Actions</th>
          </tr>
-         <?php while($product = mysqli_fetch_assoc($value)) :?>
+         <?php while($order = mysqli_fetch_assoc($value)) :?>
          <tr>
-             <td><?= $product['id']; ?></td>
-             <td><?= $product['breed']; ?></td>
-             <td><?= $product['weight']; ?></td>
-             <td><?= $product['sex']; ?></td>
-             <td><?= $product['age']; ?></td>
-             <td><?= $product['number']; ?></td>
-             <td><?= $product['price']; ?></td>
-             <td><?= $product['type']; ?></td>
+             <td><?= $order['id']; ?></td>
+             <td><?= $order['price']; ?></td>
+             <td><?= $order['product_id']; ?></td>
+             <td><?= $order['breed']; ?></td>
+             <td><?= $order['number']; ?></td>
+             <td><?= $order['type']; ?></td>
+             <td><?= $order['quantity']; ?></td>
+             <td><?= $order['mode_of_payment']; ?></td>
+             <td><?= $order['delivery']; ?></td>
+             <td><?= $order['address']; ?></td>
+             <td><?= $order['created_at']; ?></td>
              <td>
-                 <?php if ($product['status'] == 0): ?>
-                 <div>
-                     <span>pending</span>
-                  </div>
-                  <?php else: ?>
-                    <div>
-                     <span>sold</span>
-                    </div>
-                  <?php endif; ?>
-             </td>
-             <td>
-                 <?php 
-                    $base64UrlString = base64_encode(json_encode(array_merge($product, ['isEdit' => true]))); 
-                 ?>
-                 <div class="flex-box">
-                    <a href="buy.php?edit=<?=$base64UrlString;?>"><button class= "btn"> BUY</button></a>
-                 </div>
+
              </td>
          </tr>
          <?php endwhile; ?>
