@@ -11,7 +11,7 @@
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 			<div class="nav-title">
-				<a href=""><b><strong> Dashboard</strong></b></a>
+				<a href=""><b><strong> Slaughterhouse</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -22,9 +22,10 @@
 			</label>
 		</div>
 		<div class="nav-links">
-			<a href="admin.php">Analytics</a>
-			<a href="users_report.php" style="background-color: #003366; color: #FFF">Users</a>
+			<a href="admin.php">Dashboard</a>
+			<a href="users_report.php" style="background-color: #007bff; color: #FFF">Users</a>
 			<a href="product_report.php">Products</a>
+			<a href="orders_report.php">Orders</a>
 			<a href="">Categories</a>
 		</div>
 	</div>

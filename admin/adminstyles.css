@@ -3,7 +3,7 @@
 .nav {
   width: 350px;
   height: 100%;
-  background-color: #FFFFFF;
+  background-color: #343a40;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   position: absolute;
   left: 0;
@@ -11,7 +11,7 @@
 }
 .nav-title >a{
   text-decoration: none;
-  color: #000000;
+  color: #a9a9a9 ;
   font-size: 45px;
 }
 .nav > .nav-header {
@@ -21,8 +21,9 @@
 .nav > .nav-header > .nav-title {
   display: inline-block;
   font-size: 22px;
-  color: #000000;
-  padding: 10px 10px 10px 10px;
+  color: #a9a9a9 ;
+  padding: 10px 42px 10px 10px;
+  border-bottom: 1px solid #4b545c;
 }
 
 .nav > .nav-btn {
@@ -39,11 +40,13 @@
   display: block;
   padding: 13px 10px 13px 10px;
   text-decoration: none;
-  color: #000000;
+  color: #a9a9a9 ;
 }
 
 .nav > .nav-links > a:hover {
-  background-color: #ddd ;
+  background-color: #737881;
+  color: white;
+  opacity: 50%;
 }
 
 .nav > #nav-check {

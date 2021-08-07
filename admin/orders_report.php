@@ -24,8 +24,8 @@
 		<div class="nav-links">
 			<a href="admin.php">Dashboard</a>
 			<a href="users_report.php">Users</a>
-			<a href="product_report.php" style="background-color: #007bff; color: #FFF">Products</a>
-			<a href="orders_report.php">Orders</a>
+			<a href="product_report.php">Products</a>
+			<a href="orders_report.php" style="background-color: #007bff; color: #FFF;">Orders</a>
 			<a href="">Categories</a>
 		</div>
 	</div>
@@ -33,7 +33,8 @@
 
 	<?php
 	include('../helpers/DbHelpers.php');
-	$value = $db_helpers->getAll('animals');
+	$value = $db_helpers->getAll('orders');
+    // $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
 	?>
 
 
@@ -42,35 +43,32 @@
         <table>
          <tr>
             <th>#</th>
-            <th>Breed</th>
-            <th>Weight</th>
-            <th>Sex</th>
-            <th>Age</th>
-            <th>Quantity</th>
             <th>Price</th>
+            <th>Product ID</th>
+            <th>Breed</th>
+            <th>Price Per Animal</th>
             <th>Type</th>
-            <th>Status</th>
+            <th>Quantity</th>
+            <th>Mode Of Payment</th>
+            <th>Delivery</th>
+            <th>address</th>
+            <th>Made on</th>
          </tr>
-         <?php while($product = mysqli_fetch_assoc($value)) :?>
+         <?php while($order = mysqli_fetch_assoc($value)) :?>
          <tr>
-             <td><?= $product['id']; ?></td>
-             <td><?= $product['breed']; ?></td>
-             <td><?= $product['weight']; ?></td>
-             <td><?= $product['sex']; ?></td>
-             <td><?= $product['age']; ?></td>
-             <td><?= $product['number']; ?></td>
-             <td><?= $product['price']; ?></td>
-             <td><?= $product['type']; ?></td>
+             <td><?= $order['id']; ?></td>
+             <td><?= $order['price']; ?></td>
+             <td><?= $order['product_id']; ?></td>
+             <td><?= $order['breed']; ?></td>
+             <td><?= $order['number']; ?></td>
+             <td><?= $order['type']; ?></td>
+             <td><?= $order['quantity']; ?></td>
+             <td><?= $order['mode_of_payment']; ?></td>
+             <td><?= $order['delivery']; ?></td>
+             <td><?= $order['address']; ?></td>
+             <td><?= $order['created_at']; ?></td>
              <td>
-                 <?php if ($product['status'] == 0): ?>
-                 <div>
-                     <span>pending</span>
-                  </div>
-                  <?php else: ?>
-                    <div>
-                     <span>sold</span>
-                    </div>
-                  <?php endif; ?>
+
              </td>
          </tr>
          <?php endwhile; ?>
