@@ -32,7 +32,6 @@ class DbHelpers {
         return 'table not found';
     }
  }
-
  public function postData ($table, $data) {
     $fields = implode(", ", array_keys($data));
     $values  = "'".implode("', '", array_values($data))."'";

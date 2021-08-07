@@ -23,7 +23,7 @@
 			<p>Welcome admin</p>
 		</div>
 		<!-- form for admin login -->
-		<form action="../includes/admin.inc.php" method="post">
+		<form action="../app/auth/login.php" method="post">
 			<input type="text" name="username" placeholder="Enter your username" class="input-box">
 			<br>
 			<input type="password" name="password" placeholder="Enter your password" class="input-box">
