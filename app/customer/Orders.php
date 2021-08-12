@@ -30,7 +30,8 @@ class Orders {
                 'animals', 
                 [
                     'status' => 2, 
-                    'number' => (int)$data['number'] - (int)$newDataArray['quantity']
+                    'number' => (int)$data['number'] - (int)$newDataArray['quantity'],
+                    'id' => $newDataArray['product_id']
                 ]
             );
 
