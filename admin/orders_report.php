@@ -4,14 +4,14 @@
 	<meta charset="utf-8">
 	<title>Landpage</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="adminstyles.css">
+	<link rel="stylesheet" type="text/css" href="../public/css/adminstyles.css">
 </head>
 <body style="display: grid; grid-auto-columns: auto auto">
 <div class="nav">
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 			<div class="nav-title">
-				<a href=""><b><strong> Slaughterhouse</strong></b></a>
+				<a href=""><b><strong> The Meat Hook</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -26,7 +26,8 @@
 			<a href="users_report.php">Users</a>
 			<a href="product_report.php">Products</a>
 			<a href="orders_report.php" style="background-color: #007bff; color: #FFF;">Orders</a>
-			<a href="">Categories</a>
+			<a href="categories_report.php">Categories</a>
+			<a href="admin_profile.php">Admin Profile</a>
 		</div>
 	</div>
     
@@ -74,7 +75,6 @@
          <?php endwhile; ?>
         </table>
 	</div>
-</div>
     <!-- <div class="pagination">
         <a href="#">&laquo;</a>
         <a href="" class="active">1</a>

@@ -1,9 +1,9 @@
 /*select all elements*/
-* {
-  box-sizing: border-box;
-}
-body{
-  margin: auto;
+body {
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
 }
 /* navigation styling */
 .nav {
@@ -191,7 +191,7 @@ body{
 .item{
 	padding: 20px;
 	text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin: 12px;
 }
 .item >a, a:hover{
@@ -256,7 +256,7 @@ h3{
   padding: 50px 50px;
   margin-right: 300px;
   margin-left: 300px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 button{
   color: #fff;
@@ -345,7 +345,7 @@ input[type=text]:focus{
 .item{
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin: 12px;
 }
 .item >a, a:hover{
@@ -359,16 +359,16 @@ input[type=text]:focus{
   color: #cd5759;
 }
 
-.body{
+/* .body{
   background-image: url('../images/img17.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 .effect{
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #ffffff;
   width: 1000px;
   /* margin-right: 200px;
@@ -382,7 +382,7 @@ input[type=text]:focus{
 .effect1{
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #ffffff;
   width: 1000px;
   height: 500px;
@@ -390,7 +390,15 @@ input[type=text]:focus{
   left: 50%;
   transform: translate3d(-45%,-45%, 0);
   position: absolute;
+  border-radius: 15px;
 }
+  /* .login {
+  padding-top: 20px;
+  color: #8C55AA;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 23px;
+} */
 .radio{
   text-align: left;
   display: grid;

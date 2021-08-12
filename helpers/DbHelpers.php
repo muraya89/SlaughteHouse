@@ -32,6 +32,15 @@ class DbHelpers {
         return 'table not found';
     }
  }
+
+ public function showAdmin ($table, $data) {
+  $result = mysqli_query($this->db, "SELECT * FROM $table  WHERE " . key($data) . " = " . $data[key($data)]);
+  if ($result) {
+      return $result;
+  } else {
+      return 'table not found';
+  }
+}
  public function postData ($table, $data) {
     $fields = implode(", ", array_keys($data));
     $values  = "'".implode("', '", array_values($data))."'";
@@ -50,6 +59,7 @@ class DbHelpers {
     }
  }
 
+ 
  public function updateData ($table, $data) {
     $values = '';
     foreach($data as $key => $value) {

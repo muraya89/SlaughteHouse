@@ -12,7 +12,7 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
-<body class="body">
+<body style="margin: auto; background-color: #F3EBF6;">
 
 <div class="nav">
 		<input type="checkbox" id="nav-check">
@@ -72,8 +72,8 @@ if (isset($_GET['error'])) {
 
  ?>
 <div class="effect1" >
-	<h1>LOGIN</h1>
-	<p>Welcome back.</p>
+	<h1 class="login">LOGIN</h1>
+	<p class="login">Welcome back.</p>
 	<!-- insert session -->
 	<form action="../app/auth/Login.php" class="login" method="POST">
 		<input type="text" name="email" class="input-box" placeholder="Email"></br>

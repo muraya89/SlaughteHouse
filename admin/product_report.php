@@ -4,14 +4,14 @@
 	<meta charset="utf-8">
 	<title>Landpage</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="adminstyles.css">
+	<link rel="stylesheet" type="text/css" href="../public/css/adminstyles.css">
 </head>
 <body style="display: grid; grid-auto-columns: auto auto">
 <div class="nav">
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 			<div class="nav-title">
-				<a href=""><b><strong> Slaughterhouse</strong></b></a>
+				<a href=""><b><strong> The Meat Hook</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -27,6 +27,7 @@
 			<a href="product_report.php" style="background-color: #007bff; color: #FFF">Products</a>
 			<a href="orders_report.php">Orders</a>
 			<a href="">Categories</a>
+			<a href="admin_profile.php">Admin Profile</a>
 		</div>
 	</div>
     
@@ -50,6 +51,7 @@
             <th>Price</th>
             <th>Type</th>
             <th>Status</th>
+            <th>Action</th>
          </tr>
          <?php while($product = mysqli_fetch_assoc($value)) :?>
          <tr>
@@ -72,6 +74,11 @@
                     </div>
                   <?php endif; ?>
              </td>
+            <td>
+              <form action="deleteUser.php">
+                <button type="" name="delete_btn" class="btn">Delete</button>
+              </form>
+            </td>
          </tr>
          <?php endwhile; ?>
         </table>
