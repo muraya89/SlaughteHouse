@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Landpage</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../public/css/adminstyles.css">
-</head>
-<body style="display: grid; grid-auto-columns: auto auto">
-<div class="nav">
-		<input type="checkbox" id="nav-check">
-		<div class="nav-header">
-			<div class="nav-title">
-				<a href=""><b><strong> The Meat Hook</strong></b></a>
-			</div>
-		</div>
-		<div class="nav-btn">
-			<label for="nav-check">
-				<span></span>
-				<span></span>
-				<span></span>
-			</label>
-		</div>
+<?php include_once('main.php'); ?>
 		<div class="nav-links">
 			<a href="admin.php">Dashboard</a>
 			<a href="users_report.php">Users</a>
@@ -32,12 +10,54 @@
 	</div>
 </div>
 
+<?php
+  include('../helpers/DbHelpers.php');
+  $category = $db_helpers->getAll('categories');
+?>
+
 <div class="box1">
-        <div class="left">
-            <a href="addUser.php"><button type="" class="addUser" name="add_user">+</button></a>
-            <p>Add Category</p>
-        </div>
-    </div>
+  <div class="left">
+    <a href="addCategories.php"><button type="" class="addUser" name="add_catefory">+</button></a>
+    <p>Add Category</p>
+  </div>
+</div>
+<div class="table">
+	<div class="supplierTable">
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Breed name</th>
+        <th>Type</th>
+        <th>Added on</th>
+        <th>Actions</th>
+      </tr>
+      <?php while($detail = mysqli_fetch_assoc($category)) :?>
+      <tr>
+        <td><?= $detail['id']; ?></td>
+        <td><?= $detail['name']; ?></td>
+        <td><?= $detail['type']; ?></td>
+        <td><?= $detail['date_created']; ?></td>
+        <td >
+          <div class="td">
+            <form action="AdminClass.php" method="post" class=action1>
+              <input type="hidden" name="id" value="<?= $detail['id'] ?>"/>
+              <input type="hidden" name="table" value="categories" />
+              <input type="hidden" name="redirect_to" value="categories_report.php" />
+              <button type="submit" name="deleteSubmit" class="btn">Delete</button>
+            </form>
+            <form action="../app/supplier/Products.php" method="post" class="action2">
+              <input type="hidden" name="id" value="<?= $detail['id'] ?>"/>
+              <input type="hidden" name="table" value="categories" />
+              <input type="hidden" name="redirect_to" value="categories_report.php" />
+              <button type="submit" name="supply_submit" class="edit_btn">Edit</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+      <?php endwhile; ?>
+    </table>
+	</div>
+</div>
 
 
 

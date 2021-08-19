@@ -40,9 +40,9 @@
 				<div class="logo">
 					<img src="public/images/slaughterhouse.jpeg" alt="">
 				</div>
-			<div class="nav-title">
-				<a href="index.php"><b><strong> Slaughterhouse</strong></b></a>
-			</div>
+		<div class="nav-title">
+			<a href="index.php"><b><strong> The Meat Hook</strong></b></a>
+		</div>
 		</div>
 		<div class="nav-btn">
 			<label for="nav-check">

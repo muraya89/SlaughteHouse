@@ -18,7 +18,7 @@ require('autoload.php');
 					<img src="public/images/slaughterhouse.jpeg" alt="">
 				</div>
 			<div class="nav-title">
-				<a href="index.php"><b><strong> Slaughterhouse</strong></b></a>
+				<a href="index.php"><b><strong> The Meat Hook</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -55,28 +55,34 @@ require('autoload.php');
 	<div class="item">
 		<img src="./public/images/img1.jpg" style="height: 300px;width: 300px;">
 		<br>
-		<a href="redmeat.php" style="text-decoration: none; color: #cd5759;">Red Meat</a>
+		<p style="text-decoration: none; color: #cd5759;">Red Meat</p>
 		<p>Red meat is commonly red when raw and after being cooked turns a dark color. Farm reared mammals are what are considered red meat. Examples include: pork, beef rabbit, lamb and goat...</p>
 	</div>
 	<div class="item">
 		<img src="./public/images/img16.jpg" style="height: 300px;width: 300px;">
 		<br>
-		<a href="whitemeat.php"style="text-decoration: none; color: #cd5759;">White Meat</a>
+		<p style="text-decoration: none; color: #cd5759;">White Meat</p>
 		<p>White meat involves different kinds of animals including poultry and fish.Atleast one trillion fish are slaughtered each year for human consumption. Some relatively human ways have been developed, including percussive and electric stunning...</p>
 	</div>
 </div>
 
 <hr class="hr" >
-<!-- form for comments or complaints
- -->
+<!-- form for comments or complaints -->
  	<h1>Have a query?</h1>
  <div class="contact">
-	<form action="" class="feedback" method="POST">
+	 <?php
+	 	if(isset($_GET['error'])){
+			if($_GET['error'] =="err"){
+				echo '<p>Not sent</p>';
+			}
+		 }
+	 ?>
+	<form action="app/auth/contact.php" class="feedback" method="POST">
 		<input type="text" name="fname" class="input-box" placeholder="First Name"></br>
 		<input type="text" name="lname" class="input-box" placeholder="Last Name"></br>
 		<input type="text" name="email" class="input-box" placeholder="Email"></br>
-		<textarea class="input-box" rows="5" placeholder="Message"></textarea></br>
-		<button type="button" class="sendbtn">Send</button>
+		<textarea class="input-box" rows="5" placeholder="Message" name="input"></textarea></br>
+		<button type="submit" name="feedback_submit" class="sendbtn">Send</button>
 	</form>
 </div>
 

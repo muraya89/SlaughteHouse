@@ -25,12 +25,13 @@ class Orders {
             unset($newDataArray['number']);
             // save the order
             $make_order = $this->db_instance->postData('orders', $newDataArray);
+            $number = (int)$data['number'] - (int)$newDataArray['quantity'];
             //updating the animals table
             $update_animals = $this->db_instance->updateData(
                 'animals', 
                 [
-                    'status' => 2, 
-                    'number' => (int)$data['number'] - (int)$newDataArray['quantity'],
+                    'status' => $number == 0 ? 'sold' : 'pending', 
+                    'number' => $number,
                     'id' => $newDataArray['product_id']
                 ]
             );
@@ -44,6 +45,34 @@ class Orders {
             }
         }
     }
+    public function EditOrder($data) {
+        if (isset($data['supply_submit'])) {
+            //new arrays
+            $newDataArray = [];
+            unset($data['supply_submit']);
+            unset($data['submitType']);
+            $keys = array_keys($data);
+            
+            // check for empty values
+            for ($i=0; $i < count($keys); $i++) { 
+                if (empty($data[$keys[$i]])) {
+                    $this->db_instance->errorFunction('emptyfields');
+                    break;
+                } else {
+                    $newDataArray[$keys[$i]] = $data[$keys[$i]];
+                }
+            }
+            $saveAnimal = $this->db_instance->updateData('orders', $newDataArray);
+            if (!$saveAnimal->response) {
+                $this->db_instance->errorFunction('notsaved');
+                exit();
+            } else {
+                header("Location: ../../customer/");
+                exit();
+            }
+        }
+    }
+
 
 }
 

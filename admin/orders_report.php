@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Landpage</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../public/css/adminstyles.css">
-</head>
-<body style="display: grid; grid-auto-columns: auto auto">
-<div class="nav">
-		<input type="checkbox" id="nav-check">
-		<div class="nav-header">
-			<div class="nav-title">
-				<a href=""><b><strong> The Meat Hook</strong></b></a>
-			</div>
-		</div>
-		<div class="nav-btn">
-			<label for="nav-check">
-				<span></span>
-				<span></span>
-				<span></span>
-			</label>
-		</div>
+<?php include_once('main.php'); ?>
 		<div class="nav-links">
 			<a href="admin.php">Dashboard</a>
 			<a href="users_report.php">Users</a>
@@ -34,12 +12,19 @@
 
 	<?php
 	include('../helpers/DbHelpers.php');
-	$value = $db_helpers->getAll('orders');
-    // $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
+	$value = $db_helpers->getOrders('orders');
+    $orders_by_month = mysqli_fetch_assoc($db_helpers->getByMonth('orders'));
+    
+    $months = ['Jan', 'Feb', 'March', 'April', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 	?>
 
 
-    <div class="table">
+    <div class="table orders">
+        <div>
+            <ul>
+                <li>Month: <?= $months[(int)$orders_by_month['month']-1]; ?>, Number of Orders: <?= $orders_by_month['count']; ?></li>
+            </ul>
+        </div>
 	 <div class="supplierTable">
         <table>
          <tr>
@@ -54,22 +39,36 @@
             <th>Delivery</th>
             <th>address</th>
             <th>Made on</th>
+            <th>Actions</th>
          </tr>
          <?php while($order = mysqli_fetch_assoc($value)) :?>
          <tr>
-             <td><?= $order['id']; ?></td>
+             <td><?= $order['order_id']; ?></td>
              <td><?= $order['price']; ?></td>
              <td><?= $order['product_id']; ?></td>
              <td><?= $order['breed']; ?></td>
-             <td><?= $order['number']; ?></td>
+             <td><?= $order['total_price']; ?>/=</td>
              <td><?= $order['type']; ?></td>
              <td><?= $order['quantity']; ?></td>
              <td><?= $order['mode_of_payment']; ?></td>
              <td><?= $order['delivery']; ?></td>
              <td><?= $order['address']; ?></td>
-             <td><?= $order['created_at']; ?></td>
+             <td><?= $order['made_on']; ?></td>
              <td>
-
+                <div class="td1">
+                    <form action="AdminClass.php" method="post" class=action1>
+                        <input type="hidden" name="id" value="<?= $order['order_id'] ?>"/>
+                        <input type="hidden" name="table" value="orders" />
+                        <input type="hidden" name="redirect_to" value="orders_report.php" />
+                        <button type="submit" name="deleteSubmit" class="btn">Delete</button>
+                    </form>
+                    <form action="../app/supplier/Products.php" method="post" class="action2">
+                    <input type="hidden" name="id" value="<?= $order['order_id'] ?>"/>
+                    <input type="hidden" name="table" value="categories" />
+                    <input type="hidden" name="redirect_to" value="orders_report.php" />
+                    <button type="submit" name="supply_submit" class="edit_btn">Edit</button>
+                    </form>
+                </div>
              </td>
          </tr>
          <?php endwhile; ?>

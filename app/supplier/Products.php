@@ -27,7 +27,7 @@ class Products {
             }
         }
 
-        $newDataArray['status'] = 1;
+        $newDataArray['status'] = 'new';
         $saveAnimal = $this->db_instance->postData('animals', $newDataArray);
         if (!$saveAnimal->response) {
             $this->db_instance->errorFunction('notsaved');
@@ -68,7 +68,7 @@ class Products {
                 header("Location: ../../supplier/");
                 exit();
             }
-          }
+        }
     }
 
     public function deleteProduct () {

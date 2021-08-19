@@ -23,7 +23,7 @@ $value = $db_helpers->getAll('animals');
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 			<div class="nav-title">
-				<a href="../index.php"><b><strong> Slaughterhouse</strong></b></a>
+				<a href="../index.php"><b><strong> The Meat Hook</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -34,13 +34,11 @@ $value = $db_helpers->getAll('animals');
 			</label>
 		</div>
 		<div class="nav-links">
-			<a href="about.php">About</a>
             <div class="div_logout">
                 <form method="post" action="../app/auth/Logout.php">
                     <button type="submit" name="logout" class="logout">Logout</button>
                 </form>
             </div>
-			<a href="../faq.php">FAQ</a>
 
 			<!-- search bar -->
 			<!-- <div class="search">
@@ -53,6 +51,12 @@ $value = $db_helpers->getAll('animals');
 			</div> -->
 		</div>
 	</div>
+
+    
+<div class="paragraph produce">
+    <p>My Produce</p>
+</div>
+
 	<div class="index">
         <div class="addp">
             <a href="../supplier/supply.php"><button class="btnClass">Add Product</button></a>
@@ -81,17 +85,7 @@ $value = $db_helpers->getAll('animals');
              <td><?= $product['number']; ?></td>
              <td><?= $product['price']; ?></td>
              <td><?= $product['type']; ?></td>
-             <td>
-                 <?php if ($product['status'] == 0): ?>
-                 <div>
-                     <span>pending</span>
-                  </div>
-                  <?php else: ?>
-                    <div>
-                     <span>sold</span>
-                    </div>
-                  <?php endif; ?>
-             </td>
+             <td><?= $product['status']; ?></td>
              <td>
                  <?php 
                     $base64UrlString = base64_encode(json_encode(array_merge($product, ['isEdit' => true]))); 

@@ -7,7 +7,7 @@ body {
 }
 /* navigation styling */
 .nav {
-  height: 55px;
+  height: 70px;
   width: 100%;
   background-color: #000000;
   position: relative;
@@ -72,8 +72,8 @@ body {
   padding: 5px;
 }
 .logo >img{
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 100px;
   margin-top: -7px;
 }
 
@@ -90,6 +90,9 @@ body {
     width: 50px;
     height: 50px;
     padding: 13px;
+  }
+  .nav > .nav-header > .nav-title a{
+    font-size: 24px;
   }
   .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
     background-color: rgba(0, 0, 0, 0.3);
@@ -121,6 +124,16 @@ body {
   .nav > #nav-check:checked ~ .nav-links {
     height: calc(100vh - 50px);
     overflow-y: auto;
+  }
+  .effect1{
+    width: 70%;
+    height: 60%;
+    overflow: scroll;
+  }
+  .effect{
+    width: 70%;
+    height: 60%;
+    overflow: scroll;
   }
 }
 
@@ -271,14 +284,29 @@ button{
   background-color: #cd5759;
   border-radius: 20px;
   align-items: center;
+  cursor: pointer;
 }
 .input-box{
-  border-radius: 20px;
+  /* border-radius: 20px;
   padding: 10px;
   margin: 10px 0;
   width: 80%;
   border: 1px solid #999;
+  outline: none; */
   outline: none;
+  background: #d3d3d3;
+  width: 80%;
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 0;
+  color: #000000;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: inherit;
+  transition: 0.3s ease;
 }
 
 .video{
@@ -303,6 +331,10 @@ button{
 }
 form{
   text-align: center;
+}
+.effect form{
+  height: 75%;
+  overflow-y: scroll;
 }
 input[type=text]:focus{
   border:3px solid #cd5759;
@@ -359,18 +391,14 @@ input[type=text]:focus{
   color: #cd5759;
 }
 
-/* .body{
-  background-image: url('../images/img17.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 
 .effect{
   padding: 20px;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #ffffff;
-  width: 1000px;
+  width: 50%;
+  height: 70%;
   /* margin-right: 200px;
   margin-left: 200px;
   margin-top: 10px; */
@@ -378,19 +406,21 @@ input[type=text]:focus{
   left: 50%;
   transform: translate3d(-45%,-50%, 0);
   position: absolute;
+  border-radius: 15px;
 }
 .effect1{
   padding: 20px;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #ffffff;
-  width: 1000px;
-  height: 500px;
+  width: 50%;
+  height: 45%;
   top:50%;
   left: 50%;
   transform: translate3d(-45%,-45%, 0);
   position: absolute;
   border-radius: 15px;
+  overflow-y: scroll;
 }
   /* .login {
   padding-top: 20px;

@@ -13,7 +13,7 @@ class Register {
         if (isset($postData['signup_submit'])) {
             if (empty($postData['cname'])) {
                 // $name_err = 'Please insert your username';
-                header("Location: ../../auth/signup.php?error=emptyfields&cname=".$postData['cname']."&email=".$postData['email'].
+                header("Location:" .$postData['redirect_to']."?error=emptyfields&cname=".$postData['cname']."&email=".$postData['email'].
                 "&address=".$postData['address']."&phoneno=".$postData['phoneno']);
                 exit();
             }
@@ -47,15 +47,15 @@ class Register {
                     'password' => password_hash($postData['password'], null)
                 ]);
                 if (!$saveUser->response) {
-                    header("Location: ../../auth/signup.php?error=dberror");
+                    header("Location: ".$postData['redirect_to']);
                     exit();
                 } else {
-                    header("Location: ../../index.php?signup=$saveUser->message");
+                    header("Location: ".$postData['redirect_to']);
                     exit();
                 }
             } 
         }else{
-            header("Location: ../../index.php");
+            header("Location: ".$postData['redirect_to']);
         }
     }
 }

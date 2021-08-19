@@ -16,7 +16,7 @@
             <img src="../public/images/slaughterhouse.jpeg" alt="">
           </div>
 			<div class="nav-title">
-				<a href="index.php"><b><strong> Slaughterhouse</strong></b></a>
+				<a href="index.php"><b><strong> The Meat Hook</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -27,13 +27,12 @@
 			</label>
 		</div>
 		<div class="nav-links">
-			<a href="../about.php">About</a>
+			<a href="index.php">My Produce</a>
 			<div class="div_logout">
 				<form method="post" action="../app/auth/Logout.php">
 					<button type="submit" name="logout" class="logout">Logout</button>
 				</form>
 			</div>
-			<a href="../faq.php">FAQ</a>
 
 			<!-- search bar -->
 			<!-- <div class="search">
@@ -64,6 +63,9 @@
 		//for decoding stored data
 		$data = json_decode(base64_decode($_GET['edit']));
 	}
+	
+	include('../helpers/DbHelpers.php');
+	$cat = $db_helpers->getCategory('categories');
 
 	?>
 	<div class="effect">
@@ -72,13 +74,9 @@
 			<select class="input-box" name="breed">
 				<option value="<?= isset($_GET['edit']) && isset($data->breed) ? $data->breed : ''; ?>">
 				<?= isset($_GET['edit']) && isset($data->breed) ? $data->breed : '--choose the breed of your supply--'; ?></option>
-				<option value="angus">Angus catle</option>
-				<option value="holstein">Holstein Cattle</option>
-				<option value="hereford">Hereford cattle</option>
-				<option value="shorthorn">Shorthorn</option>
-				<option value="jersey">Jersey cattle</option>
-				<option value="charolais">Charolais cattle</option>
-				<option value="simmental">Simmental cattle</option>
+        		<?php while($detail = mysqli_fetch_assoc($cat)) {
+					echo "<option value='". $detail['name'] ."'>" .$detail['name'] ."</option>";
+				}?>
 			</select>
 			<br>
 			<input type="text" value="<?= isset($_GET['edit']) && isset($data->weight) ? $data->weight : ''; ?>" name="weight" placeholder="Enter the weight" class="input-box">

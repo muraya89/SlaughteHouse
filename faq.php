@@ -8,6 +8,7 @@
 	body {
 		font-family: "Trirong", serif;
   		font-size: 20px;
+		  background-color: #fff !important;
 	}
 </style>
 </head>
@@ -21,7 +22,7 @@
 					<img src="public/images/slaughterhouse.jpeg" alt="">
 				</div>
 			<div class="nav-title">
-				<a href="index.php"><b><strong> Slaughterhouse</strong></b></a>
+				<a href="index.php"><b><strong> The Meat Hook</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">

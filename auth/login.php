@@ -10,18 +10,23 @@ session_start();
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../public/css/styles.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body{
+			background: linear-gradient(95deg,  #460645 0%,#ff5450 100%);
+		}
+	</style>
 
 </head>
-<body style="margin: auto; background-color: #F3EBF6;">
+<body>
 
 <div class="nav">
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
+			<div class="logo">
+				<img src="../public/images/slaughterhouse.jpeg" alt="">
+			</div>
 			<div class="nav-title">
-				<div class="logo">
-					<img src="../public/images/slaughterhouse.jpeg" alt="">
-				</div>
-				<a href="../index.php"><b><strong> Slaughterhouse</strong></b></a>
+				<a href="../index.php"><b><strong> The Meat Hook</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -52,6 +57,9 @@ session_start();
 		</div>
 	</div>
 
+<div class="effect1" >
+	<h1 class="login">LOGIN</h1>
+	<p class="login">Welcome back.</p>
 <?php 
 // create an error message if the user made an error when trying to login
 if (isset($_GET['error'])) {
@@ -71,9 +79,6 @@ if (isset($_GET['error'])) {
 }
 
  ?>
-<div class="effect1" >
-	<h1 class="login">LOGIN</h1>
-	<p class="login">Welcome back.</p>
 	<!-- insert session -->
 	<form action="../app/auth/Login.php" class="login" method="POST">
 		<input type="text" name="email" class="input-box" placeholder="Email"></br>

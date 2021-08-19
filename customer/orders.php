@@ -29,7 +29,7 @@ $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
 					<img src="../public/images/slaughterhouse.jpeg" alt="">
 				</div>
 			<div class="nav-title">
-				<a href="index.php">Slaughterhouse</a>
+				<a href="index.php">The Meat Hook</a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -40,9 +40,12 @@ $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
 			</label>
 		</div>
 		<div class="nav-links">
-			<a href="about.php">About</a>
-			<a href="auth/signup.php">Sign Up</a>
-			<a href="faq.php">FAQ</a>
+            <a href="index.php">Produce</a>
+			<div class="div_logout">
+				<form method="post" action="../app/auth/Logout.php">
+					<button type="submit" name="logout" class="logout">Logout</button>
+				</form>
+			</div>
 
 			<!-- search bar -->
 			<!-- <div class="search">
@@ -56,18 +59,22 @@ $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
 		</div>
 	</div>
 
+    <div class="paragraph">
+        <p> My Orders</p>
+    </div>
+
 	<div class="index">
 	 <div class="supplierTable">
         <table>
          <tr>
             <th>#</th>
-            <th>Price</th>
             <th>Product ID</th>
             <th>Breed</th>
             <th>Price Per Animal</th>
             <th>Type</th>
             <th>Quantity</th>
             <th>Mode Of Payment</th>
+            <th>Total Price</th>
             <th>Delivery</th>
             <th>address</th>
             <th>Made on</th>
@@ -76,18 +83,32 @@ $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
          <?php while($order = mysqli_fetch_assoc($value)) :?>
          <tr>
              <td><?= $order['id']; ?></td>
-             <td><?= $order['price']; ?></td>
              <td><?= $order['product_id']; ?></td>
              <td><?= $order['breed']; ?></td>
-             <td><?= $order['number']; ?></td>
+             <td><?= $order['price']; ?>/=</td>
              <td><?= $order['type']; ?></td>
              <td><?= $order['quantity']; ?></td>
              <td><?= $order['mode_of_payment']; ?></td>
+             <td><?= $order['total_price']; ?>/=</td>
              <td><?= $order['delivery']; ?></td>
              <td><?= $order['address']; ?></td>
              <td><?= $order['created_at']; ?></td>
              <td>
-
+                <div class="td1">
+                    <form action="../admin/AdminClass.php" method="post" class=action1>
+                        <input type="hidden" name="id" value="<?= $order['id'] ?>"/>
+                        <input type="hidden" name="table" value="orders" />
+                        <input type="hidden" name="redirect_to" value="../customer/orders.php" />
+                        <button type="submit" name="deleteSubmit" class="delete_btn">Delete</button>
+                    </form>
+                    <!-- <form action="../app/customer/Orders.php" method="post" class="action2">
+                        <input type="hidden" name="id" value="<?= $order['id'] ?>"/>
+                        <input type="hidden" name="table" value="orders" />
+                        <input type="hidden" name="redirect_to" value="../customer/orders.php" />
+                        <button type="submit" name="supply_submit" class="edit_btn">Edit</button>
+                    </form> -->                    
+                    <a href="buy.php?edit=<?=$base64UrlString;?>"><button class= "edit_btn"> Edit</button></a>
+                </div>
              </td>
          </tr>
          <?php endwhile; ?>

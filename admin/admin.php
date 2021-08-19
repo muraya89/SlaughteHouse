@@ -1,52 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Landpage</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../public/css/adminstyles.css">
-	<style>	
-		.chart-number {
-			font-size: 0.6em;
-			text-anchor: middle;
-			-moz-transform: translateY(-0.25em);
-			-ms-transform: translateY(-0.25em);
-			-webkit-transform: translateY(-0.25em);
-			transform: translateY(-0.25em);
-		}
-
-		.chart-label {
-			font-size: 0.2em;
-			text-transform: uppercase;
-			text-anchor: middle;
-			-moz-transform: translateY(0.7em);
-			-ms-transform: translateY(0.7em);
-			-webkit-transform: translateY(0.7em);
-			transform: translateY(0.7em);
-		}
-	</style>
-</head>
-<body>
-<div class="nav">
-		<input type="checkbox" id="nav-check">
-		<div class="nav-header">
-			<div class="nav-title">
-				<a href=""><b><strong> The Meat Hook</strong></b></a>
-			</div>
-		</div>
-		<div class="nav-btn">
-			<label for="nav-check">
-				<span></span>
-				<span></span>
-				<span></span>
-			</label>
-		</div>
+<?php include_once('main.php'); ?>
 		<div class="nav-links">
 			<a href="" style="background-color: #007bff; color: #FFF;">Dashboard</a>
 			<a href="users_report.php">Users</a>
 			<a href="product_report.php">Products</a>
 			<a href="orders_report.php">Orders</a>
 			<a href="categories_report.php">Categories</a>
+			<a href="feedback_report.php">Feedback</a>
 			<a href="admin_profile.php">Admin Profile</a>
 		</div>
 	</div>
@@ -69,7 +28,24 @@
 						<circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
 						<circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#b1c94e" stroke-width="3"></circle>
 
-						<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#377bbc" stroke-width="3" stroke-dasharray="30 70" stroke-dashoffset="65"></circle>
+						<?php 
+						
+						$allusers = mysqli_num_rows($result);
+						$s = 1;
+						$c = 1;
+						while($user = mysqli_fetch_assoc($result)) {
+							if ($user['account'] == 'supplier'){
+								$s++;
+							} elseif ($user['account'] == 'customer') {
+								$c++;
+							}
+						}
+						$suppliers = (int)((int)$s/(int)$allusers)*100;
+						$customers = (int)((int)$c/(int)$allusers)*100;
+						
+						?>
+						<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#377bbc" 
+						stroke-width="3" stroke-dasharray="30 70" stroke-dashoffset="65" data-per="<?= $supplier?>"></circle>
 						<!-- unused 10% -->
 						<g class="chart-text">
 							<text x="50%" y="50%" class="chart-label">
@@ -92,22 +68,33 @@
 		</div>
 		<div class="item4">
 			<div class="item2">
-				<a href="orders_report.php"><button type="button" class="item_btn">Number of customers</button></a>
-				<br>
+				<div class="card-title">					
+					<a href="orders_report.php"><button type="button" class="item_btn">Number of customers</button></a>
+				</div>
+				<div class="card-title">
+					<p  style="font-weight:50px;">
+						<?= mysqli_num_rows($db_helpers->getUsers('customer')); ?> Customers
+					</p>
+				</div>
 			</div>
 			<div class="item2">
-				<a href="orders_report.php"><button type="button" class="item_btn">Number of suppliers</button></a>
-				<br>
+				<div class="card-title">
+					<a href="orders_report.php"><button type="button" class="item_btn">Number of suppliers</button></a>
+				</div>
+				<div class="card_title">
+					<p  style="font-weight:50px;">
+					<?= mysqli_num_rows($db_helpers->getUsers('supplier')); ?> Suppliers
+					</p>
+				</div>
 			</div>
 			</div>
 		</div>
 	<div class="box">
-		<div class="item1">
+		<div class="item6">
 			<div class="item5">
 				<div class="card_title">
 					<a href="product_report.php"><button type="button" class="order_btn">Total supplied products</button></a>
-				</div>
-				<br><br>	
+				</div>	
 				<div class="card_title">
 					<p  style="font-weight:50px;">
 						<?php $product = mysqli_num_rows($value);	echo $product;?> products
@@ -125,8 +112,23 @@
 				</div>			
 			</div>
 		</div>
-		<div class="item">
-			<a href="creport.php"><button type="button" class="item_btn">Revenue</button></a>
+		<div class="item5">
+			<?php
+			
+				$revenue = 0;
+				while($order = mysqli_fetch_assoc($orders)) {
+					$revenue += (int)$order['total_price'];
+				}
+
+			?>
+			<div class="card_title">
+				<a href="creport.php"><button type="button" class="item_btn">Revenue</button></a>
+			</div>
+			<div class="card_title">
+					<p  style="font-weight:50px;">
+						Ksh <?= $revenue; ?>
+					</p>
+			</div>
 		</div>
 	</div>
 	</div>

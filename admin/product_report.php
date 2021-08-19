@@ -1,32 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Landpage</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../public/css/adminstyles.css">
-</head>
-<body style="display: grid; grid-auto-columns: auto auto">
-<div class="nav">
-		<input type="checkbox" id="nav-check">
-		<div class="nav-header">
-			<div class="nav-title">
-				<a href=""><b><strong> The Meat Hook</strong></b></a>
-			</div>
-		</div>
-		<div class="nav-btn">
-			<label for="nav-check">
-				<span></span>
-				<span></span>
-				<span></span>
-			</label>
-		</div>
+<?php include_once('main.php'); ?>
 		<div class="nav-links">
 			<a href="admin.php">Dashboard</a>
 			<a href="users_report.php">Users</a>
 			<a href="product_report.php" style="background-color: #007bff; color: #FFF">Products</a>
 			<a href="orders_report.php">Orders</a>
-			<a href="">Categories</a>
+			<a href="categories_report.php">Categories</a>
 			<a href="admin_profile.php">Admin Profile</a>
 		</div>
 	</div>
@@ -63,24 +41,17 @@
              <td><?= $product['number']; ?></td>
              <td><?= $product['price']; ?></td>
              <td><?= $product['type']; ?></td>
-             <td>
-                 <?php if ($product['status'] == 0): ?>
-                 <div>
-                     <span>pending</span>
-                  </div>
-                  <?php else: ?>
-                    <div>
-                     <span>sold</span>
-                    </div>
-                  <?php endif; ?>
-             </td>
+             <td><?= $product['status']; ?></td>
             <td>
-              <form action="deleteUser.php">
-                <button type="" name="delete_btn" class="btn">Delete</button>
+              <form action="AdminClass.php" method="post" class=action>
+                <input type="hidden" name="id" value="<?= $product['id'] ?>"/>
+                <input type="hidden" name="table" value="animals" />
+                <input type="hidden" name="redirect_to" value="product_report.php" />
+                <button type="submit" name="deleteSubmit" class="btn">Delete</button>
               </form>
             </td>
          </tr>
-         <?php endwhile; ?>
+         <?php endwhile;?>
         </table>
 	</div>
 </div>

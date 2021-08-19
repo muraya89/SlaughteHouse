@@ -26,10 +26,11 @@ class Login {
                         } else {
                             /** start session */
                             $_SESSION['id'] = $associativeArray['id'];
+                            header("Location: ../../admin/admin.php");
                         }
                 }
             }else {
-                header('Location:', '../../admin/admin.php');
+                header("Location: ../../admin/index.php");
             }
         }    
     }

@@ -23,42 +23,35 @@ $value = $db_helpers->getAll('animals');
 
 <!-- navigation bar -->
 <div class="nav">
-		<input type="checkbox" id="nav-check">
-		<div class="nav-header">
-				<div class="logo">
-					<img src="../public/images/slaughterhouse.jpeg" alt="">
-				</div>
-			<div class="nav-title">
-				<a href="index.php"><b><strong> Slaughterhouse</strong></b></a>
-			</div>
+	<input type="checkbox" id="nav-check">
+	<div class="nav-header">
+		<div class="logo">
+			<img src="../public/images/slaughterhouse.jpeg" alt="">
 		</div>
-		<div class="nav-btn">
-			<label for="nav-check">
-				<span></span>
-				<span></span>
-				<span></span>
-			</label>
-		</div>
-		<div class="nav-links">
-			<a href="about.php">About</a>
-              <div class="div_logout">
-                  <form method="post" action="../app/auth/Logout.php">
-                      <button type="submit" name="logout" class="logout">Logout</button>
-                  </form>
-              </div>
-			<a href="../faq.php">FAQ</a>
-
-			<!-- search bar -->
-			<!-- <div class="search">
-					<form action="">
-						<input type="text" placeholder="Search...">
-					<div class="searchbtn">
-						<button type="submit" name="Submit">Submit</button>
-					</div>
-					</form>
-			</div> -->
+		<div class="nav-title">
+			<a href="index.php"><b><strong> The Meat Hook</strong></b></a>
 		</div>
 	</div>
+	<div class="nav-btn">
+		<label for="nav-check">
+			<span></span>
+			<span></span>
+		    <span></span>
+		</label>
+	</div>
+	<div class="nav-links">
+        <a href="orders.php">Orders</a>
+        <div class="div_logout">
+            <form method="post" action="../app/auth/Logout.php">
+                <button type="submit" name="logout" class="logout">Logout</button>
+            </form>
+        </div>
+	</div>
+</div>
+
+<div class="paragraph produce">
+    <p>Available Produce</p>
+</div>
 
 	<div class="index">
 	 <div class="supplierTable">
@@ -83,19 +76,9 @@ $value = $db_helpers->getAll('animals');
              <td><?= $product['sex']; ?></td>
              <td><?= $product['age']; ?></td>
              <td><?= $product['number']; ?></td>
-             <td><?= $product['price']; ?></td>
+             <td><?= $product['price']; ?>/=</td>
              <td><?= $product['type']; ?></td>
-             <td>
-                 <?php if ($product['status'] == 0): ?>
-                 <div>
-                     <span>pending</span>
-                  </div>
-                  <?php else: ?>
-                    <div>
-                     <span>sold</span>
-                    </div>
-                  <?php endif; ?>
-             </td>
+             <td><?= $product['status']; ?></td>
              <td>
                  <?php 
                     $base64UrlString = base64_encode(json_encode(array_merge($product, ['isEdit' => true]))); 

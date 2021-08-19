@@ -23,10 +23,10 @@ if (!isset($_SESSION['id'])) {
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 				<div class="logo">
-					<img src="public/images/slaughterhouse.jpeg" alt="">
+					<img src="../public/images/slaughterhouse.jpeg" alt="">
 				</div>
 			<div class="nav-title">
-				<a href="index.php"><b><strong> Slaughterhouse</strong></b></a>
+				<a href="index.php"><b><strong> The Meat Hook</strong></b></a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -37,13 +37,11 @@ if (!isset($_SESSION['id'])) {
 			</label>
 		</div>
 		<div class="nav-links">
-			<a href="../about.php">About</a>
 			<div class="div_logout">
 				<form method="post" action="../app/auth/Logout.php">
 					<button type="submit" name="logout" class="logout">Logout</button>
 				</form>
 			</div>
-			<a href="../faq.php">FAQ</a>
 
 			<!-- search bar -->
 			<!-- <div class="search">
@@ -154,7 +152,7 @@ if (!isset($_SESSION['id'])) {
 					<br>
 					<label for="total">Total Cost (in Ksh):</label>
 					<br>
-					<input type="text" readonly name="price" class="disabled-box" id="total" />
+					<input type="text" readonly name="total_price" class="disabled-box" id="total" />
             </div>
         </section>
         <div class="container">

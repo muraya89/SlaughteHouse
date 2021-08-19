@@ -1,10 +1,10 @@
 <?php include_once('main.php'); ?>
 		<div class="nav-links">
 			<a href="admin.php">Dashboard</a>
-			<a href="users_report.php" style="background-color: #007bff; color: #FFF">Users</a>
+			<a href="users_report.php">Users</a>
 			<a href="product_report.php">Products</a>
 			<a href="orders_report.php">Orders</a>
-			<a href="categories_report.php">Categories</a>
+			<a href="categories_report.php" style="background-color: #007bff; color: #FFF;">Categories</a>
 			<a href="admin_profile.php">Admin Profile</a>
 		</div>
 	</div>
@@ -12,7 +12,7 @@
 
 
   <div class="box2">    
-    <h1>Add User</h1>  
+    <h1>Add Category</h1>  
     <!-- create an error message if the user made an error trying to create an account -->
       <?php
         if(isset($_GET['error'])) {
@@ -42,37 +42,15 @@
           }
         }
       ?>
-    <form method="POST" action="../app/auth/Register.php">
-        <label for="cname">Company name/First name *</label><br>
-        <input type="text" name="cname" class="input" >
+    <form method="POST" action="categories.php">
+        <label for="name">Name*</label><br>
+        <input type="text" name="name" class="input" >
         <br>
-        <label for="email">Email *</label><br>
-        <input type="text" name="email" class="input" >
+        <label for="type">Type *</label><br>
+        <input type="text" name="type" class="input" >
         <br>
-        <label for="phoneno">Phone Number *</label><br>
-        <input type="text" name="phoneno" class="input" >
-        <br>
-        <label for="address">Address</label><br>
-        <input type="text" name="address" class="input" >
-        <br>
-        <div class="radio">
-            <div class="radio1">
-                <input type="radio" value="supplier" name="accounttype">
-                <label for="supplier" class="role">Supplier</label>
-            </div>
-            <div class="radio1">
-                <input type="radio" value="customer" name="accounttype" >
-                <label for="customer" class="role">Customer</label>
-            </div>
-        </div>
-        <label for="password">Pasword *</label>
-        <input type="password" name="password" class="input" >
-        <br>
-        <label for="cpassword">Confirm Password *</label><br>
-        <input type="password" name="cpassword" class="input" >
-        <br>
-        <input type="hidden" name="table" value="users" />
-        <input type="hidden" name="redirect_to" value="../../admin/addUser.php" />
+        <input type="hidden" name="table" value="category" />
+        <input type="hidden" name="redirect_to" value="../../admin/addCategories.php" />
       <button type="submit" class="sendbtn" name="signup_submit">Add</button>
     </form>
   </div>
