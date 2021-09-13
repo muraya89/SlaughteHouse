@@ -8,14 +8,13 @@ if (!isset($_SESSION['id'])) {
 
 include('../helpers/DbHelpers.php');
 $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
-
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Apply to supply</title>
+	<title>My Orders</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../public/css/sstyles.css">
 </head>
@@ -94,20 +93,26 @@ $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
              <td><?= $order['address']; ?></td>
              <td><?= $order['created_at']; ?></td>
              <td>
-                <div class="td1">
+                <div class="td1">  
+                 <?php 
+                    $base64UrlString = base64_encode(json_encode(array_merge($order, ['isEdit' => true]))); 
+                 ?>
+                 <div class="flex-box">
+                    <a href="receipt.php?edit=<?=$base64UrlString;?>"><button class="receipt_btn"> Receipt</button></a>
+                 </div>
                     <form action="../admin/AdminClass.php" method="post" class=action1>
                         <input type="hidden" name="id" value="<?= $order['id'] ?>"/>
                         <input type="hidden" name="table" value="orders" />
                         <input type="hidden" name="redirect_to" value="../customer/orders.php" />
                         <button type="submit" name="deleteSubmit" class="delete_btn">Delete</button>
                     </form>
-                    <!-- <form action="../app/customer/Orders.php" method="post" class="action2">
-                        <input type="hidden" name="id" value="<?= $order['id'] ?>"/>
-                        <input type="hidden" name="table" value="orders" />
-                        <input type="hidden" name="redirect_to" value="../customer/orders.php" />
+                    <!-- <form action="../app/supplier/Products.php" method="post" class="action2">
+                        <input type="hidden" name="id" value=""/>
+                        <input type="hidden" name="table" value="categories" />
+                        <input type="hidden" name="redirect_to" value="orders_report.php" />
                         <button type="submit" name="supply_submit" class="edit_btn">Edit</button>
-                    </form> -->                    
-                    <a href="buy.php?edit=<?=$base64UrlString;?>"><button class= "edit_btn"> Edit</button></a>
+                    </form> -->
+                  
                 </div>
              </td>
          </tr>

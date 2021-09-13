@@ -4,11 +4,11 @@
 <title>Create an account</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../public/css/styles.css">
-	<style>
+	<!-- <style>
 		body{
       background: linear-gradient(95deg,  #a0609f ,#f59e9d );
 		}
-	</style>
+	</style> -->
 </head>
 <body>
 

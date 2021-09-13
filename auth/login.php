@@ -10,11 +10,11 @@ session_start();
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../public/css/styles.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
+	<!-- <style>
 		body{
 			background: linear-gradient(95deg,  #460645 0%,#ff5450 100%);
 		}
-	</style>
+	</style> -->
 
 </head>
 <body>

@@ -1,11 +1,11 @@
 <?php
 
 require('../helpers/DbHelpers.php');
-
+// define the class 
 class AdminClass {
 
     protected $db_instance;
-    
+    // first run the db_helpers file before the method
     public function __construct ($db_helpers) {
         $this->db_instance = $db_helpers;
     }

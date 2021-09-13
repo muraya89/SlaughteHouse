@@ -7,6 +7,7 @@ if (!isset($_SESSION['id'])) {
 
 
 include('../helpers/DbHelpers.php');
+// $value = $db_helpers->show('animals', ['user_id' => $_SESSION['id']]);
 $value = $db_helpers->getAll('animals');
 ?>
 <!DOCTYPE html>
@@ -73,11 +74,16 @@ $value = $db_helpers->getAll('animals');
             <th>Price</th>
             <th>Type</th>
             <th>Status</th>
+            <th>Supply date</th>
             <th>Actions</th>
          </tr>
          <?php while($product = mysqli_fetch_assoc($value)) :?>
+            
          <tr>
              <td><?= $product['id']; ?></td>
+             <!-- <td>
+                  $product['user_id']; ?>
+                </td> -->
              <td><?= $product['breed']; ?></td>
              <td><?= $product['weight']; ?></td>
              <td><?= $product['sex']; ?></td>
@@ -86,13 +92,19 @@ $value = $db_helpers->getAll('animals');
              <td><?= $product['price']; ?></td>
              <td><?= $product['type']; ?></td>
              <td><?= $product['status']; ?></td>
+             <td><?= $product['supply_date']; ?></td>
              <td>
-                 <?php 
-                    $base64UrlString = base64_encode(json_encode(array_merge($product, ['isEdit' => true]))); 
-                 ?>
-                 <div class="flex-box">
-                    <a href="supply.php?edit=<?=$base64UrlString;?>"><button class= "btn"> Edit</button></a>
-                 </div>
+                <div class="td1">
+                    <?php 
+                        $base64UrlString = base64_encode(json_encode(array_merge($product, ['isEdit' => true]))); 
+                    ?>
+                    <div class="flex-box">
+                        <a href="supply.php?edit=<?=$base64UrlString;?>"><button class= "receipt_btn"> Edit</button></a>
+                    </div>
+                    <div class="action1">
+                        <a href="invoice.php?edit=<?=$base64UrlString;?>"><button class=" receipt_btn invoice_btn"> Invoice</button></a>
+                    </div>
+                </div>
              </td>
          </tr>
          <?php endwhile; ?>

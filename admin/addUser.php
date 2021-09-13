@@ -1,3 +1,4 @@
+<!-- insert the navigation  -->
 <?php include_once('main.php'); ?>
 		<div class="nav-links">
 			<a href="admin.php">Dashboard</a>
@@ -5,6 +6,7 @@
 			<a href="product_report.php">Products</a>
 			<a href="orders_report.php">Orders</a>
 			<a href="categories_report.php">Categories</a>
+			<a href="feedback_report.php">Feedback</a>
 			<a href="admin_profile.php">Admin Profile</a>
 		</div>
 	</div>

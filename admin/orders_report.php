@@ -5,6 +5,7 @@
 			<a href="product_report.php">Products</a>
 			<a href="orders_report.php" style="background-color: #007bff; color: #FFF;">Orders</a>
 			<a href="categories_report.php">Categories</a>
+			<a href="feedback_report.php">Feedback</a>
 			<a href="admin_profile.php">Admin Profile</a>
 		</div>
 	</div>
@@ -18,18 +19,26 @@
     $months = ['Jan', 'Feb', 'March', 'April', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 	?>
 
-
-    <div class="table orders">
-        <div>
-            <ul>
-                <li>Month: <?= $months[(int)$orders_by_month['month']-1]; ?>, Number of Orders: <?= $orders_by_month['count']; ?></li>
-            </ul>
+    <div class="box1" style="height: 150px; background:linear-gradient(45deg, rgba(66, 183, 245,0.8) 0%,rgba(66, 245, 189,0.4) 100%); width:72%; ">
+        <div class="left" >
+            <p>Month: <?= $months[(int)$orders_by_month['month']-1]; ?>, Number of Orders: <?= $orders_by_month['count']; ?></p>
         </div>
+    </div>
+    <div class="table orders">
+        <!-- <div>
+            <ul>
+                <li>Month: <?php
+                //  $months[(int)$orders_by_month['month']-1]; 
+                 ?>, Number of Orders: 
+                 <?php 
+                //  $orders_by_month['count']; 
+                 ?></li>
+            </ul>
+        </div> -->
 	 <div class="supplierTable">
         <table>
          <tr>
             <th>#</th>
-            <th>Price</th>
             <th>Product ID</th>
             <th>Breed</th>
             <th>Price Per Animal</th>
@@ -39,21 +48,24 @@
             <th>Delivery</th>
             <th>address</th>
             <th>Made on</th>
+            <th>Buyer ID</th>
+            <th>Buyer Name</th>
             <th>Actions</th>
          </tr>
          <?php while($order = mysqli_fetch_assoc($value)) :?>
          <tr>
              <td><?= $order['order_id']; ?></td>
-             <td><?= $order['price']; ?></td>
              <td><?= $order['product_id']; ?></td>
              <td><?= $order['breed']; ?></td>
-             <td><?= $order['total_price']; ?>/=</td>
+             <td><?= $order['price']; ?></td>
              <td><?= $order['type']; ?></td>
              <td><?= $order['quantity']; ?></td>
              <td><?= $order['mode_of_payment']; ?></td>
              <td><?= $order['delivery']; ?></td>
              <td><?= $order['address']; ?></td>
              <td><?= $order['made_on']; ?></td>
+             <td><?= $order['user_id']; ?></td>
+             <td><?= $order['username']; ?></td>
              <td>
                 <div class="td1">
                     <form action="AdminClass.php" method="post" class=action1>

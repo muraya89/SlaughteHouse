@@ -5,6 +5,7 @@
 			<a href="product_report.php">Products</a>
 			<a href="orders_report.php">Orders</a>
 			<a href="categories_report.php" style="background-color: #007bff; color: #FFF;">Categories</a>
+			<a href="feedback_report.php">Feedback</a>
 			<a href="admin_profile.php">Admin Profile</a>
 		</div>
 	</div>
@@ -12,7 +13,7 @@
 
 
   <div class="box2">    
-    <h1>Add Category</h1>  
+    <h1><?= isset($_GET['edit']) ? 'Edit' : 'Add'; ?>Category</h1>  
     <!-- create an error message if the user made an error trying to create an account -->
       <?php
         if(isset($_GET['error'])) {
@@ -41,17 +42,23 @@
             echo '<p class = "err">Signup Successful!</p>';
           }
         }
+        $data = [];
+        if (isset($_GET['edit'])) {
+          //for decoding stored data when the edit button is selected
+          $data = json_decode(base64_decode($_GET['edit']));
+        }
       ?>
     <form method="POST" action="categories.php">
         <label for="name">Name*</label><br>
-        <input type="text" name="name" class="input" >
+        <input type="text" name="name" class="input" value="<?= isset($_GET['edit']) && isset($data->name) ? $data->name : ''; ?>" >
         <br>
         <label for="type">Type *</label><br>
-        <input type="text" name="type" class="input" >
+        <input type="text" name="type" class="input" value="<?= isset($_GET['edit']) && isset($data->type) ? $data->type : ''; ?>" >
         <br>
-        <input type="hidden" name="table" value="category" />
-        <input type="hidden" name="redirect_to" value="../../admin/addCategories.php" />
-      <button type="submit" class="sendbtn" name="signup_submit">Add</button>
+  			<input type="hidden" value="<?= isset($_GET['edit']) && isset($data->id) ? $data->id : ''; ?>" name="id" />
+		  	<input type="hidden" value="<?= isset($_GET['edit']) ? 'edit' : 'add'; ?>" name="submitType" />
+        <!-- <input type="hidden" name="redirect_to" value="../../admin/addCategories.php" /> -->
+      <button type="submit" class="sendbtn" name="supply_submit"><?= isset($_GET['edit']) ? 'Edit' : 'Submit'; ?></button>
     </form>
   </div>
 </body>

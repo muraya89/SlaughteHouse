@@ -22,10 +22,10 @@ class DbHelpers {
       return 'table not found';
     }
   }
-  
+    
   public function show ($table, $data) {
-    $result = mysqli_query($this->db, "SELECT orders.*, animals.breed, animals.number, animals.type, animals.price 
-    FROM $table JOIN animals ON animals.id = $table.product_id WHERE " . key($data) . " = " . $data[key($data)]);
+    $result = mysqli_query($this->db, "SELECT orders.*, animals.breed, animals.number, animals.type, animals.* FROM $table 
+    JOIN animals ON animals.id = $table.product_id WHERE " . key($data) . " = " . $data[key($data)]);
     if ($result) {
       return $result;
     } else {
@@ -34,7 +34,7 @@ class DbHelpers {
   }
   
   public function getOrders ($table) {
-    $result = mysqli_query($this->db, "SELECT orders.*, orders.id as order_id, orders.created_at as made_on, animals.* FROM $table JOIN animals ON animals.id = $table.product_id");
+    $result = mysqli_query($this->db, "SELECT orders.*, orders.id as order_id, orders.created_at as made_on, orders.user_id as buyer_id, animals.* FROM $table JOIN animals ON animals.id = $table.product_id");
     if ($result) {
       return $result;
     } else {
@@ -68,6 +68,14 @@ class DbHelpers {
       return 'table not found';
     }
   }
+  public function ordering(){
+    $result = mysqli_query($this->db, "SELECT animals.breed,animals.type, sum(quantity)from orders,animals where orders.product_id=animals.id group by breed order by sum(quantity) desc limit 4  ");
+    if($result){
+      return $result;
+    }else{
+      return 'table not found';
+    }
+  }
   
   public function showAdmin ($table, $data) {
     $result = mysqli_query($this->db, "SELECT * FROM $table  WHERE " . key($data) . " = " . $data[key($data)]);
@@ -78,6 +86,17 @@ class DbHelpers {
     }
   }
 
+  // public function insertStatus($table, $data){
+  //   $result = mysqli_query($this-> db, "UPDATE $table SET lastactivity = ".time()." WHERE". key($data) . " = " . $data[key($data)]);
+  //   if ($result) {
+  //     return $result;
+  //   } else {
+  //     return 'table not found';
+  //   }
+  // }
+
+
+  
   public function postData ($table, $data) {
     $fields = implode(", ", array_keys($data));
     $values  = "'".implode("', '", array_values($data))."'";
@@ -94,7 +113,8 @@ class DbHelpers {
         "message" => "success"
       ];
     }
-  }  
+  }
+
   
   // public function showCustomer ($table) {
   //   $result = mysqli_query($this->db, "SELECT * FROM $table  WHERE 'account' ='supplier'");
@@ -125,6 +145,15 @@ class DbHelpers {
     }
   }
   
+  public function getOnlineUsers ($status) {
+    $result = mysqli_query($this->db, "SELECT * FROM users WHERE status = '$status'");
+    if ($result) {
+      return $result;
+    } else {
+      return 'table not found';
+    }
+  }
+
   public function deleteData ($table, $id) {
     $result = mysqli_query($this->db, "DELETE FROM $table WHERE id = $id");
     mysqli_close($this->db);

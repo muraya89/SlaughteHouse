@@ -5,6 +5,7 @@
 			<a href="product_report.php" style="background-color: #007bff; color: #FFF">Products</a>
 			<a href="orders_report.php">Orders</a>
 			<a href="categories_report.php">Categories</a>
+			<a href="feedback_report.php">Feedback</a>
 			<a href="admin_profile.php">Admin Profile</a>
 		</div>
 	</div>

@@ -1,3 +1,12 @@
+<?php 
+
+session_start();
+
+if (!isset($_SESSION['id'])) {
+    header('Location: ../auth/login.php?error=403');
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -93,12 +102,13 @@
 				<option value="redmeat">Red meat</option>
 				<option value="whitemeat">White Meat</option>
 			</select>
-			<input type="number" value="<?= isset($_GET['edit']) && isset($data->number) ? $data->number : ''; ?>" name="number" placeholder="Enter the number of animals you want to sell" class="input-box">
+			<input type="number" value="<?= isset($_GET['edit']) && isset($data->number) ? $data->number : ''; ?>" name="number" placeholder="Enter the amount you want to sell" class="input-box">
 			<br>
-			<input type="number" value="<?= isset($_GET['edit']) && isset($data->price) ? $data->price : ''; ?>" name="price" placeholder="Enter the price to sell the animal" class="input-box">
+			<input type="number" value="<?= isset($_GET['edit']) && isset($data->price) ? $data->price : ''; ?>" name="price" placeholder="Enter the price to sell the animal per animal" class="input-box">
 			<br>
 			<input type="hidden" value="<?= isset($_GET['edit']) ? 'edit' : 'add'; ?>" name="submitType" />
 			<input type="hidden" value="<?= isset($_GET['edit']) && isset($data->id) ? $data->id : ''; ?>" name="id" />
+			<input type="hidden" value="<?= $_SESSION['id']; ?>" name="user_id" />
 
 			<button type="submit" name="supply_submit" class="sendbtn"><?= isset($_GET['edit']) ? 'Edit' : 'Submit'; ?></button>
 		</form>

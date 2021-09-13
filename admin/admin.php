@@ -15,65 +15,43 @@
 	$value = $db_helpers->getAll('animals');
 	$result = $db_helpers->getAll('users');
 	$orders = $db_helpers->getAll('orders');
+	$ordering = $db_helpers->ordering();
 	?>
 
 	<div class="box">
-		<div class="item">
-			<div class="item3">
-				<div class="card_title" style="text-align: center;">
-					<a href="users_report.php"><button type="button" class="item_btn">Total users</button></a>
-				</div>
-				<div class="card_title">
-					<svg width="200px" height="400px" viewBox="0 0 42 42" class="donut">
-						<circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-						<circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#b1c94e" stroke-width="3"></circle>
-
-						<?php 
-						
-						$allusers = mysqli_num_rows($result);
-						$s = 1;
-						$c = 1;
-						while($user = mysqli_fetch_assoc($result)) {
-							if ($user['account'] == 'supplier'){
-								$s++;
-							} elseif ($user['account'] == 'customer') {
-								$c++;
-							}
-						}
-						$suppliers = (int)((int)$s/(int)$allusers)*100;
-						$customers = (int)((int)$c/(int)$allusers)*100;
-						
-						?>
-						<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#377bbc" 
-						stroke-width="3" stroke-dasharray="30 70" stroke-dashoffset="65" data-per="<?= $supplier?>"></circle>
-						<!-- unused 10% -->
-						<g class="chart-text">
-							<text x="50%" y="50%" class="chart-label">
-							<?php $product = mysqli_num_rows($result);	echo $product;?> Users
-							</text>
-						</g>
-					</svg>
-				</div>
-				<div class="caption1">
-					<ul>
-						<li class="suppliers">Suppliers</li>
-					</ul>
-				</div>
-				<div class="caption2">
-					<ul>						
-						<li class="customers">Customers</li>
-					</ul>
-				</div>
+		<div class="item2">
+			<div class="card_title">
+				<p style="font-size: 17px; font-weight: 900; line-height: 1; text-transform: uppercase;"> Most ordered breed</p>
+			</div>
+			<div class="card_title">
+				<table>
+					<tr>
+						<th>Breed</th>
+						<th>Type</th>
+						<th>Quantity</th>
+					</tr>
+					<?php
+						// create a loop to get all the values in the database to the table
+						while($order = mysqli_fetch_assoc($ordering)) :?>
+					<tr>
+						<td><?= $order['breed']; ?></td>
+						<td><?= $order['type']; ?></td>
+						<td><?= $order['sum(quantity)']; ?></td>
+					</tr>
+					<?php endwhile; ?>
+				</table>
 			</div>
 		</div>
 		<div class="item4">
 			<div class="item2">
 				<div class="card-title">					
-					<a href="orders_report.php"><button type="button" class="item_btn">Number of customers</button></a>
+					<a href="customers_report.php"><button type="button" class="item_btn">Number of customers</button></a>
 				</div>
 				<div class="card-title">
 					<p  style="font-weight:50px;">
-						<?= mysqli_num_rows($db_helpers->getUsers('customer')); ?> Customers
+						<?=
+							// use the function to count the number of rows
+							mysqli_num_rows($db_helpers->getUsers('customer')); ?> Customers
 					</p>
 				</div>
 			</div>
@@ -114,7 +92,7 @@
 		</div>
 		<div class="item5">
 			<?php
-			
+				// declare the variable before giving the values to set the revenue as a total price which is picked from the database
 				$revenue = 0;
 				while($order = mysqli_fetch_assoc($orders)) {
 					$revenue += (int)$order['total_price'];

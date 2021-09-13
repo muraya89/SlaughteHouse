@@ -7,6 +7,7 @@ if (!isset($_SESSION['id'])) {
 
 
 include('../helpers/DbHelpers.php');
+// $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
 $value = $db_helpers->getAll('animals');
 
 ?>
@@ -15,7 +16,7 @@ $value = $db_helpers->getAll('animals');
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Apply to supply</title>
+	<title>Buy Produce</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../public/css/sstyles.css">
 </head>
@@ -58,6 +59,7 @@ $value = $db_helpers->getAll('animals');
         <table>
          <tr>
             <th>#</th>
+            <th>Supplier</th>
             <th>Breed</th>
             <th>Weight</th>
             <th>Sex</th>
@@ -71,6 +73,7 @@ $value = $db_helpers->getAll('animals');
          <?php while($product = mysqli_fetch_assoc($value)) :?>
          <tr>
              <td><?= $product['id']; ?></td>
+             <td><?= $product['supplier']; ?></td>
              <td><?= $product['breed']; ?></td>
              <td><?= $product['weight']; ?></td>
              <td><?= $product['sex']; ?></td>

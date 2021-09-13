@@ -39,10 +39,16 @@ class Login {
                                 $_SESSION['id'] = $associativeArray['id'];
                                 $_SESSION['name'] = $associativeArray['cname'];
                                 $_SESSION['account'] = $associativeArray['account'];
-                                // redirect here
-                                $associativeArray['account'] == 'supplier' 
-                                ? header('Location: ../../supplier/index.php') 
-                                : header('Location: ../../customer/index.php');
+                                $t = time();
+                                $value = $this->db_instance->updateData('users', ['id' => $_SESSION['id'],'last_activity'=> $t, 'status' => 'online']);
+                                if ($value->response) {
+                                    // redirect here
+                                    $associativeArray['account'] == 'supplier' 
+                                    ? header('Location: ../../supplier/index.php') 
+                                    : header('Location: ../../customer/index.php');                                    
+                                }else{
+                                    $value = $this->db_instance->updateData('users', ['id' => $_SESSION['id'],'status'=> 'offline']);
+                                }
                             }
                         }
                     }

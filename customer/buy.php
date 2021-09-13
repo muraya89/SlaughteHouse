@@ -5,14 +5,13 @@ session_start();
 if (!isset($_SESSION['id'])) {
     header('Location: ../auth/login.php?error=403');
 }
-
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
 	<meta charset="utf-8">
-	<title>Apply to supply</title>
+	<title>Buy Produce</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../public/css/sstyles.css">
 </head>
@@ -72,7 +71,7 @@ if (!isset($_SESSION['id'])) {
 		//for decoding stored data
 		$data = json_decode(base64_decode($_GET['edit']));
 	}
-
+	
 	?>
 	<div class="effect">
 		<h3>Buy products</h3>
@@ -127,6 +126,7 @@ if (!isset($_SESSION['id'])) {
                     <input type="hidden" value="<?= isset($_GET['edit']) && isset($data->id) ? $data->id : ''; ?>" name="product_id" />
                     <input type="hidden" value="<?= isset($_GET['edit']) && isset($data->number) ? $data->number : ''; ?>" name="number" />
 					<input type="hidden" value="<?= $_SESSION['id']; ?>" name="user_id" />
+					<input type="hidden" value="<?= $_SESSION['name']; ?>" name="username" />
             </div>
         </section>
         <section class="accordion">

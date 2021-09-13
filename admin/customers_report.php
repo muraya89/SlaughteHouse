@@ -1,7 +1,7 @@
 <?php include_once('main.php'); ?>
 		<div class="nav-links">
 			<a href="admin.php">Dashboard</a>
-			<a href="users_report.php" style="background-color: #007bff; color: #FFF">Users</a>
+			<a href="users_report.php" style="background-color: #007bff; color: #FFF;">Users</a>
 			<a href="product_report.php">Products</a>
 			<a href="orders_report.php">Orders</a>
 			<a href="categories_report.php">Categories</a>
@@ -13,38 +13,11 @@
 
 	<?php
 	include('../helpers/DbHelpers.php');
-	$value = $db_helpers->getAll('users');
-      
-// <!-- create an error message if the user made an error trying to create an account -->
-  if(isset($_GET['error'])) {
-    if($_GET['error']=="emptyfields"){
-      echo '<p class = "err">Fill in all fields!</p>';
-    }
-    elseif($_GET['error']== "invalidemail") {
-      echo '<p class = "err">Provide a valid email!</p>';  
-    }
-    elseif ($_GET['error'] == "invalidpassword") {
-       // code...
-      echo '<p class = "err">Enter password!</p>';
-    }
-    elseif ($_GET['error'] == "invalidPassword") {
-       // code...
-      echo '<p class = "err"> Password should be atleast 8 characters long and should include at least one number, one uppercase letter and one special character </p>';
-    }
-    elseif($_GET['error']== "passwordCheck") {
-      echo '<p class = "err">Your passwords do not match!</p>';
-    }elseif($_GET['error'] == "dberror") {
-        // code...
-    echo '<p class = "err">Unsuccessful Signup!</p>';
-    } elseif ($_GET['error'] == "accountError") {
-      echo '<p class = "err">Account type required!</p>';
-    } elseif($_GET['signup']== "success") {
-      echo '<p> class = "err"Signup Successful!</p>';
-    }
-  }
-?>
+	$value = $db_helpers->getUsers('customer');
+	?>
 
-    <div class="box1">
+
+<div class="box1">
         <div class="left">
             <a href="addUser.php"><button type="" class="addUser" name="add_user">+</button></a>
             <p>Add User</p>
@@ -52,7 +25,7 @@
     </div>
 
 
-    <div class="table">
+<div class="table">
 	 <div class="supplierTable">
         <table>
          <tr>
@@ -68,6 +41,8 @@
                 <ul class="dd-menu">
                   <li> <a href="customers_report.php">Customer</a> </li>
                   <li> <a href="suppliers_report.php">Supplier</a> </li>
+                  <hr>
+                  <li> <a href="users_report.php">All</a> </li>
                 </ul>
               </label>
             </th>
@@ -84,7 +59,7 @@
             </th>
             <th>Action</th>
          </tr>
-         <?php while($detail = mysqli_fetch_assoc($value)) : ?>
+         <?php while($detail = mysqli_fetch_assoc($value)) :?>
          <tr>
             <td><?= $detail['id']; ?></td>
             <td><?= $detail['cname']; ?></td>
@@ -92,9 +67,10 @@
             <td><?= $detail['phoneno']; ?></td>
             <td><?= $detail['address']; ?></td>
             <td><?= $detail['account']; ?></td>
-            <td><?= $detail['date_created']; ?></td>           
+            <td><?= $detail['date_created']; ?></td>          
             <td>
               <?php
+                // check whether the specific user is online/offline and show the respective image
                 if ($detail['status'] == "online") {?>
                   <img src="../public/images/online1.png" alt="" style="height: 20px; width: 20px; margin:auto;">
               <?php  

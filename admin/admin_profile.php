@@ -2,6 +2,7 @@
 include_once('main.php');
 
 include('../helpers/DbHelpers.php');
+// insert function to call the specific profile of the logged in user using the session ID
 $value = $db_helpers->showAdmin('admin', ['id' => $_SESSION['id']]);
 
 ?>
@@ -11,6 +12,7 @@ $value = $db_helpers->showAdmin('admin', ['id' => $_SESSION['id']]);
 			<a href="product_report.php">Products</a>
 			<a href="orders_report.php">Orders</a>
 			<a href="categories_report.php">Categories</a>
+			<a href="feedback_report.php">Feedback</a>
 			<a href="admin_profile.php" style="background-color: #007bff; color: #FFF;">Admin Profile</a>
 		</div>
 	</div>
@@ -22,6 +24,7 @@ $value = $db_helpers->showAdmin('admin', ['id' => $_SESSION['id']]);
 	<div class="table2">
 		<div class="table3">		
 			<?php 
+			// fetch the values within the specific array object
 				$admin_details = mysqli_fetch_assoc($value);
 			?>
 			<img src="../public/images/admin.png" alt=""><br>

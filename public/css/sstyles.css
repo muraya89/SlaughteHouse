@@ -265,7 +265,8 @@ input[type=text]:focus{
   width: 100px;
 }
 .index{
-  margin: 10px 7px 70px;
+  margin: auto;
+  width: 93%;
 }
 .addp{
   float: right;
@@ -277,14 +278,14 @@ input[type=text]:focus{
   padding-bottom: 20px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
-table{
+.supplierTable >table{
   border-collapse: collapse;
   width: 100%;
   height: 70px;
   text-align: center;
   margin: auto;
 }
-th, td{
+th,  td{
   padding: 20px;
   border-bottom: 1px solid #000;
 }
@@ -412,7 +413,7 @@ table tr:last-child td:first-child{
 }
 .td1{
   display: flex;
-  width: 160px;
+  width: 120px;
 }
 .delete_btn{
   background-color: #000;
@@ -441,4 +442,143 @@ td .action2{
 }
 td .action1{
   padding-left: 10px;
+}
+
+
+#receipt{
+  background-color: #D3E1E1;
+}
+.effect.receipt{
+  text-align: center;
+  border-radius: 30px;
+  width: 20%;
+  height: 600px !important;
+  position: relative;
+  box-shadow: 14px 14px 22px -18px;
+  padding: 20px;
+  margin: 6% 40%;
+}
+.header{
+  font-size: 21px;
+  margin: 35px 0;
+  letter-spacing: 1.5px;
+  color: #ca8a8b;;
+}
+h2{
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  color: #cd5759;
+}
+.orderDetails p{
+  font-size: 13px;
+  color: #aaa;
+  padding-left: 10px;
+  letter-spacing: .7px;
+  text-align: left;
+}
+.orderDetails input{
+  border: none;
+}
+h3{
+  font-weight: 400;
+  color: #ca8a8b;;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+span{
+  float: right;
+  margin-right: 17px;
+}
+.total{
+  font-weight: 400;
+  color: #ca8a8b;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.receipt_btn{
+  background-color: #5cb85c;
+  color: #f2f2f2;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  height: 35px;
+  width: 70px;
+  font-size: 16px;
+  cursor: pointer;
+  /* margin-left: 25px; */
+}
+.invoice_btn{
+  background-color: #5bc0de;
+}
+.invoice_logo{
+  text-align: left;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.invoice_logo img{
+  width: 216px;
+  height: 208px;
+  border-radius: 50%;
+}
+.effect.invoice{
+  border-radius: 30px;
+  width: 52%;
+  /* height: 884px; */
+  box-shadow: 14px 14px 22px -18px;
+  padding: 20px;
+  margin: auto;
+  margin-top: 3%;
+}
+.left_invoice p, input{
+  letter-spacing: 1.5px;
+  font-size: 20px;
+}
+.right_invoice{
+  text-align: right;
+}
+.right_invoice .header{
+  font-size: 50px;
+  font-weight: bold;
+}
+.right_invoice p,input{
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}
+.right_invoice input{
+  width: 160px;
+  background-color: #fff;
+  color: #000;
+}
+.Table table{
+  border-collapse: collapse;
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  margin: auto;
+  border: none;
+}
+.Table td, th{
+  border: none;
+}
+.Table td{
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}
+.total1{
+  font-weight: 400;
+  color: #fff;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  text-align: right;
+}
+.total1 button{
+  background-color: #ca8a8b;
+  color: #f2f2f2;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  height: 80px;
+  width: 400px;
+  font-size: 30px;
 }

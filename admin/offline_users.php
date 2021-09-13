@@ -13,7 +13,7 @@
 
 	<?php
 	include('../helpers/DbHelpers.php');
-	$value = $db_helpers->getAll('users');
+	$value = $db_helpers->getOnlineusers('offline');
       
 // <!-- create an error message if the user made an error trying to create an account -->
   if(isset($_GET['error'])) {
@@ -74,14 +74,14 @@
             <th>Date Created</th>
             <th>
               <label class="dropdown">
-                <div class="dd-button">status </div><div class="triangle"></div>
+                <div class="dd-button"> Offline Users</div><div class="triangle"></div>
                 <input type="checkbox" class="dd-input" id="test">
                 <ul class="dd-menu">
                   <li> <a href="online_users.php">Online Users</a> </li>
-                  <li> <a href="offline_users.php">Offline Users</a> </li>
+                  <hr>
+                  <li> <a href="users_report.php">All </a> </li>
                 </ul>
-              </label>
-            </th>
+              </label></th>
             <th>Action</th>
          </tr>
          <?php while($detail = mysqli_fetch_assoc($value)) : ?>
@@ -92,7 +92,8 @@
             <td><?= $detail['phoneno']; ?></td>
             <td><?= $detail['address']; ?></td>
             <td><?= $detail['account']; ?></td>
-            <td><?= $detail['date_created']; ?></td>           
+            <td><?= $detail['date_created']; ?></td>
+           
             <td>
               <?php
                 if ($detail['status'] == "online") {?>

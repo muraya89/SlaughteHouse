@@ -189,6 +189,8 @@ h1 {
   color: #0400ff;
   /* font-size: 17px; */
   margin: auto ;
+  text-align: center;
+  padding-top: 25px;
 }
 /* button{
   color: #fff;
@@ -310,7 +312,7 @@ h1 {
   padding: 10px;
   /* border-radius: 20px; */
   font-size: 17px;
-  margin: 40px;
+  margin: 10px 40%;
   border: none;
   outline: none;
   cursor: pointer;
@@ -381,11 +383,11 @@ h1 {
   margin: auto 370px;
   font-size: 18px;
   align-content: center;
-  width: 80%;
+  width: 75%;
   height: auto;
 }
 .table.orders{
-  width: 72%;
+  width: 67%;
 }
 .table1{
   margin: auto 370px;
@@ -469,9 +471,9 @@ hr{
   outline: none;
 }
 .item {
-  /* display: grid;
-  grid-template-columns: auto auto; */
-  /* padding: 20px; */
+  display: block;
+  grid-template-columns: auto auto;
+  padding: 20px;
   text-align: center;
   margin: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -663,4 +665,118 @@ td .action2{
 .pagination >a:hover:not(active){
   background-color: #eeeeee;
   border-radius: 5px;
+}
+
+
+
+
+
+/* dropdown */
+.dropdown{
+  display: flex;
+  position: relative;
+}
+.dd-button{
+  display: inline-block;
+  border: 1px solid #4285F4;
+  border-radius: 4px;
+  padding: 10px 30px 10px 20px;
+  background-color: #4285F4;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.dd-button::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid transparent;
+}
+.dd-input{
+  display: none;
+}
+.dd-menu{
+  position: absolute;
+  top: 100%;
+  border: 1px solid #4285F4;
+  border-radius: 4px;
+  padding: 0;
+  margin: 2px 0 0 0;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+  background-color: #fff;
+  list-style-type: none;
+  color: #000;
+}
+.dd-input + .dd-menu{
+  display: none;
+}
+.dd-input:checked + .dd-menu {
+  display: block;
+} 
+.dd-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.dd-menu li a {
+  display: block;
+  margin: -10px -20px;
+  padding: 10px 20px;
+}
+.triangle {
+  color: white;
+  width: 0px;
+  height: 0px;
+  border: 8px solid black;
+  border-top-color: #3c4044;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  margin: 20px 0px 0px -25px;
+}
+.dd-menu a{
+  text-decoration: none;
+}
+.accordion > input[type="checkbox"]{
+  position: absolute;
+  left: -100vw;
+}
+.accordion .content{
+  overflow-y: hidden;
+  height: 0;
+  transition: height 0.3s ease-in-out;
+}
+.accordion > input[type="checkbox"]:checked ~ .content{
+  height: auto;
+  overflow: visible;
+  padding: 15px;
+  border: 1px solid #e8e8e8;
+  border-top: 0;
+}
+.accordion label{
+  display: block;
+}
+.accordion{
+  margin-top: 16px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.accordion .handle{
+  margin: 0;
+  line-height: 19px;
+}
+.accordion label{
+  color: #333;
+  cursor: pointer;
+  padding: 15px;
+  background: #e7d4d4;
+}
+.end{
+  margin: 20px;
 }
