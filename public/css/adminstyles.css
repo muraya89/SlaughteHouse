@@ -779,6 +779,7 @@ td .action2{
 }
 .end{
   margin: 20px;
+}
 .body{
   /* background-color: #bce0ff ; */
   background: linear-gradient(45deg,  rgba(66, 183, 245,0.8) 0%,rgba(66, 245, 189,0.4) 100%);
