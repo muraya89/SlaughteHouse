@@ -1,10 +1,208 @@
-.input-box{
-  border-radius: 20px;
+body{
+  margin: 0;
+}
+.nav {
+  height: 70px;
+  width: 100%;
+  background-color: #000000;
+  position: relative;
+  opacity: 0.5;
+}
+.nav-title >a{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 40px;
+}
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: flex;
+  float: right;
+  font-size: 25px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: #cd5759;
+}
+
+.nav > #nav-check {
+  display: none;
+}
+/* logo styling */
+.logo{
+  display: inline-block;
+}
+.logo >img{
+  height: 70px;
+  width: 100px;
+  margin-top: -7px;
+}
+
+
+
+@media (max-width:600px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+  .index{
+    width: 70%;
+  }
+}
+
+
+
+input.input-box{
+  /* border-radius: 20px;
   padding: 10px;
   margin: 10px 0;
-  width: 100%;
+  width: 90%;
   border: 1px solid #999;
+  outline: none; */
   outline: none;
+  background: #d3d3d3;
+  width: 80%;
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 0;
+  color: #000000;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: inherit;
+  transition: 0.3s ease;
+}
+select.input-box{
+  /* border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 92%;
+  border: 1px solid #999;
+  outline: none; */
+  outline: none;
+  background: #d3d3d3;
+  width: 80%;
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 0;
+  color: #000000;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: inherit;
+  transition: 0.3s ease;
+}
+input.disabled-box{
+  /* border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 60%;
+  border: 1px solid #999;
+  outline: none; */
+  outline: none;
+  background: #d3d3d3;
+  width: 80%;
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 0;
+  color: #000000;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: inherit;
+  transition: 0.3s ease;
+}
+select.disabled-box{
+  /* border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 61%;
+  border: 1px solid #999;
+  outline: none; */
+  outline: none;
+  background: #d3d3d3;
+  width: 80%;
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 0;
+  color: #000000;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: inherit;
+  transition: 0.3s ease;
+}
+.content label{
+  display: inline-block;
+  width: 140px;
+  text-align: right;
 }
 .tapin{
   padding: 50px 50px;
@@ -21,6 +219,20 @@ input[type=text]:focus{
   color: #cd5759;
   text-align: center;
 }
+.logout{
+  color: #ffffff;
+  width: 100%;
+  padding: 4px;
+  background: none;
+  font-size: 20px;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+}
+.div_logout:hover{  
+  background-color: #cd5759;
+}
+
 /* button{
   color: #fff;
   width: 100%;
@@ -49,14 +261,15 @@ input[type=text]:focus{
   border-radius: 20px;
   border: none;
   outline: none;
-  height: 80px;
+  height: 30px;
   width: 100px;
 }
 .index{
-  margin: 10px 7px 70px;
+  margin: auto;
+  width: 93%;
 }
 .addp{
-  margin-left: 1100px;
+  float: right;
   width: 100px;
   padding: 20px;
 }
@@ -65,14 +278,14 @@ input[type=text]:focus{
   padding-bottom: 20px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
-table{
+.supplierTable >table{
   border-collapse: collapse;
   width: 100%;
   height: 70px;
   text-align: center;
   margin: auto;
 }
-th, td{
+th,  td{
   padding: 20px;
   border-bottom: 1px solid #000;
 }
@@ -106,16 +319,19 @@ table tr:last-child td:first-child{
   padding: 20px;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin-right: 200px;
-  margin-left: 200px;
-  margin-top: 20px;
+  width: 70%  ;
+  margin: auto;
   background-color: #ffffff;
 }
 
 /* pagination */
 .pagination{
-  display: inline-block;
-  margin: 0 450px;
+  display: flex;
+  margin: auto;
+  padding: inherit;
+  padding-right: inherit;
+  padding-left: inherit;
+  width: 20%;
 }
 .pagination >a{
   color: #000;
@@ -131,4 +347,238 @@ table tr:last-child td:first-child{
 .pagination >a:hover:not(active){
   background-color: #eeeeee;
   border-radius: 5px;
+}
+.container{
+  text-align: center;
+  padding: 20px;
+}
+
+
+.accordion > input[type="checkbox"]{
+  position: absolute;
+  left: -100vw;
+}
+.accordion > input[type="checkbox"]:checked ~ .content{
+  height: auto;
+  overflow: visible;
+  padding: 15px;
+  border: 1px solid #e8e8e8;
+  border-top: 0;
+}
+.accordion .content{
+  overflow-y: hidden;
+  height: 0;
+  transition: height 0.3s ease-in-out;
+}
+/* .accordion label{
+  display: block;
+} */
+.accordion{
+  margin-top: 16px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.handle2{
+  margin: 0;
+  line-height: 19px;
+}
+.handle{
+  color: #333;
+  cursor: pointer;
+  padding: 15px;
+  background: #e7d4d4;
+}
+
+.delivery{
+  width: 61%;
+  margin: auto;
+  text-align: left;
+  padding: 20px;
+  padding-bottom: 1px;
+}
+.delivery label{
+  text-align: left;
+}
+.paragraph{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 1em;
+  text-transform:uppercase;
+  text-decoration: underline;
+}
+.paragraph, .produce{
+  letter-spacing: 10px !important;
+}
+.td1{
+  display: flex;
+  width: 120px;
+}
+.delete_btn{
+  background-color: #000;
+  color: #f2f2f2;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  height: 35px;
+  width: 70px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.edit_btn{
+  background-color: #000;
+  color: #f2f2f2;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  height: 35px;
+  width: 70px;
+  font-size: 16px;
+  cursor: pointer;
+}
+td .action2{
+  padding-left: 60px;
+}
+td .action1{
+  padding-left: 10px;
+}
+
+
+#receipt{
+  background-color: #D3E1E1;
+}
+.effect.receipt{
+  text-align: center;
+  border-radius: 30px;
+  width: 20%;
+  height: 600px !important;
+  position: relative;
+  box-shadow: 14px 14px 22px -18px;
+  padding: 20px;
+  margin: 6% 40%;
+}
+.header{
+  font-size: 21px;
+  margin: 35px 0;
+  letter-spacing: 1.5px;
+  color: #ca8a8b;;
+}
+h2{
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  color: #cd5759;
+}
+.orderDetails p{
+  font-size: 13px;
+  color: #aaa;
+  padding-left: 10px;
+  letter-spacing: .7px;
+  text-align: left;
+}
+.orderDetails input{
+  border: none;
+}
+h3{
+  font-weight: 400;
+  color: #ca8a8b;;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+span{
+  float: right;
+  margin-right: 17px;
+}
+.total{
+  font-weight: 400;
+  color: #ca8a8b;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.receipt_btn{
+  background-color: #5cb85c;
+  color: #f2f2f2;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  height: 35px;
+  width: 70px;
+  font-size: 16px;
+  cursor: pointer;
+  /* margin-left: 25px; */
+}
+.invoice_btn{
+  background-color: #5bc0de;
+}
+.invoice_logo{
+  text-align: left;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.invoice_logo img{
+  width: 216px;
+  height: 208px;
+  border-radius: 50%;
+}
+.effect.invoice{
+  border-radius: 30px;
+  width: 52%;
+  /* height: 884px; */
+  box-shadow: 14px 14px 22px -18px;
+  padding: 20px;
+  margin: auto;
+  margin-top: 3%;
+}
+.left_invoice p, input{
+  letter-spacing: 1.5px;
+  font-size: 20px;
+}
+.right_invoice{
+  text-align: right;
+}
+.right_invoice .header{
+  font-size: 50px;
+  font-weight: bold;
+}
+.right_invoice p,input{
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}
+.right_invoice input{
+  width: 160px;
+  background-color: #fff;
+  color: #000;
+}
+.Table table{
+  border-collapse: collapse;
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  margin: auto;
+  border: none;
+}
+.Table td, th{
+  border: none;
+}
+.Table td{
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}
+.total1{
+  font-weight: 400;
+  color: #fff;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  text-align: right;
+}
+.total1 button{
+  background-color: #ca8a8b;
+  color: #f2f2f2;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  height: 80px;
+  width: 400px;
+  font-size: 30px;
 }

@@ -54,7 +54,6 @@ if (isset($_GET['edit'])) {
             <p class="subtotal">Delivery: 
                 <span> Kshs
                     <?php
-                    // show the amount to be charged if the customer decides to have goods delivered
                         $charge = 100;
                         if ($data->delivery == true) {
                             # code...
@@ -73,7 +72,7 @@ if (isset($_GET['edit'])) {
     <p class="total"> Total 
         <span> Kshs
 			<?php
-                // show the total amount to be paid 
+			
 				$total = 0;
 					$total += $data->total_price + $charge;
                     echo $total;

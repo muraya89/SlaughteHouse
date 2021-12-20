@@ -1,23 +1,22 @@
 /*select all elements*/
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0px;
-  font-family: "Assistant",Sans-serif;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
 }
-
+/* navigation styling */
 .nav {
-  height: 50px;
+  height: 70px;
   width: 100%;
   background-color: #000000;
-  position: fixed;
+  position: relative;
   opacity: 0.5;
 }
 .nav-title >a{
   text-decoration: none;
   color: #ffffff;
+  font-size: 45px;
 }
 .nav > .nav-header {
   display: inline;
@@ -35,9 +34,9 @@ body {
 }
 
 .nav > .nav-links {
-  display: inline;
+  display: flex;
   float: right;
-  font-size: 18px;
+  font-size: 25px;
 }
 
 .nav > .nav-links > a {
@@ -54,6 +53,30 @@ body {
 .nav > #nav-check {
   display: none;
 }
+.logout{
+  color: #ffffff;
+  width: 100%;
+  padding: 6px;
+  background: none;
+  font-size: 20px;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+}
+.div_logout:hover{  
+  background-color: #cd5759;
+}
+/* logo styling */
+.logo{
+  display: inline-block;
+  padding: 5px;
+}
+.logo >img{
+  height: 60px;
+  width: 100px;
+  margin-top: -7px;
+}
+
 
 @media (max-width:600px) {
   .nav > .nav-btn {
@@ -67,6 +90,9 @@ body {
     width: 50px;
     height: 50px;
     padding: 13px;
+  }
+  .nav > .nav-header > .nav-title a{
+    font-size: 24px;
   }
   .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
     background-color: rgba(0, 0, 0, 0.3);
@@ -98,6 +124,16 @@ body {
   .nav > #nav-check:checked ~ .nav-links {
     height: calc(100vh - 50px);
     overflow-y: auto;
+  }
+  .effect1{
+    width: 70%;
+    height: 60%;
+    overflow: scroll;
+  }
+  .effect{
+    width: 70%;
+    height: 60%;
+    overflow: scroll;
   }
 }
 
@@ -138,7 +174,7 @@ body {
 
 
 .top{
-  background-image: url("images/img15.jpg");
+  background-image: url('../images/img15.jpg');
   height: 300px;
   background-position: center;
   background-size: cover;
@@ -161,12 +197,14 @@ body {
 	display: grid;
 	grid-template-columns: auto auto;
 	align-content: center;
-	padding: 40px;
+  padding: 70px;
+  margin: auto;
+  width: 70%;
 }
 .item{
 	padding: 20px;
 	text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin: 12px;
 }
 .item >a, a:hover{
@@ -198,10 +236,10 @@ h3{
 
 
 .header{
-  background-image: url("images/img1.jpg");
-  height: 250px;
+  background-image: url("../images/img19.jpg");
+  height: 300px;
   background-position: center;
-  background-size: cover;
+  background-size: 100% 100%;
   padding: 20px 20px;
   color: #FFFFFF;
 }
@@ -231,7 +269,7 @@ h3{
   padding: 50px 50px;
   margin-right: 300px;
   margin-left: 300px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 button{
   color: #fff;
@@ -246,14 +284,29 @@ button{
   background-color: #cd5759;
   border-radius: 20px;
   align-items: center;
+  cursor: pointer;
 }
 .input-box{
-  border-radius: 20px;
+  /* border-radius: 20px;
   padding: 10px;
   margin: 10px 0;
   width: 80%;
   border: 1px solid #999;
+  outline: none; */
   outline: none;
+  background: #d3d3d3;
+  width: 80%;
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 0;
+  color: #000000;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: inherit;
+  transition: 0.3s ease;
 }
 
 .video{
@@ -278,6 +331,10 @@ button{
 }
 form{
   text-align: center;
+}
+.effect form{
+  height: 75%;
+  overflow-y: scroll;
 }
 input[type=text]:focus{
   border:3px solid #cd5759;
@@ -320,7 +377,7 @@ input[type=text]:focus{
 .item{
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin: 12px;
 }
 .item >a, a:hover{
@@ -334,28 +391,44 @@ input[type=text]:focus{
   color: #cd5759;
 }
 
-.body{
-  background-image: url('../images/img17.jpg');
-}
 
 .effect{
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin-right: 200px;
-  margin-left: 200px;
-  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #ffffff;
+  width: 50%;
+  height: 70%;
+  /* margin-right: 200px;
+  margin-left: 200px;
+  margin-top: 10px; */
+  top:50%;
+  left: 50%;
+  transform: translate3d(-45%,-50%, 0);
+  position: absolute;
+  border-radius: 15px;
 }
 .effect1{
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin-right: 200px;
-  margin-left: 200px;
-  margin-top: 100px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #ffffff;
+  width: 50%;
+  height: 45%;
+  top:50%;
+  left: 50%;
+  transform: translate3d(-45%,-45%, 0);
+  position: absolute;
+  border-radius: 15px;
+  overflow-y: scroll;
 }
+  /* .login {
+  padding-top: 20px;
+  color: #8C55AA;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 23px;
+} */
 .radio{
   text-align: left;
   display: grid;
@@ -369,14 +442,65 @@ input[type=text]:focus{
 }
 
 /* faq styling */
-.faq{
+/* .faq{
   padding: 20px;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 100px 200px 0;
   background-color: #ffffff;
+} */
+.lbl-toggle{
+  display: block;
+  text-transform: capitalize;
+  text-align: center;
+  padding: 1px;
+  color: #000;
+  background: #cd5759;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: all 0.25s ease-out;
+  width: 70%;
+  margin: auto;
 }
-
+/* faq page styling */
+.accordion > input[type="checkbox"]{
+  position: absolute;
+  left: -100vw;
+}
+.accordion .content{
+  overflow-y: hidden;
+  height: 0;
+  transition: height 0.3s ease-in-out;
+}
+.accordion > input[type="checkbox"]:checked ~ .content{
+  height: auto;
+  overflow: visible;
+  padding: 15px;
+  border: 1px solid #e8e8e8;
+  border-top: 0;
+}
+.accordion label{
+  display: block;
+}
+.accordion{
+  margin-top: 16px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.accordion .handle{
+  margin: 0;
+  line-height: 19px;
+}
+.accordion label{
+  color: #333;
+  cursor: pointer;
+  padding: 15px;
+  background: #e7d4d4;
+}
+.end{
+  margin: 20px;
+}
 
 
 /*footer style*/
@@ -407,3 +531,8 @@ input[type=text]:focus{
   text-align: left;
   padding-left: 10px;
 }*/
+
+/* faq styling */
+input[type='checkbox']{
+  display: none;
+}

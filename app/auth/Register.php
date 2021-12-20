@@ -13,7 +13,7 @@ class Register {
         if (isset($postData['signup_submit'])) {
             if (empty($postData['cname'])) {
                 // $name_err = 'Please insert your username';
-                header("Location: ../../auth/signup.php?error=emptyfields&cname=".$postData['cname']."&email=".$postData['email'].
+                header("Location:" .$postData['redirect_to']."?error=emptyfields&cname=".$postData['cname']."&email=".$postData['email'].
                 "&address=".$postData['address']."&phoneno=".$postData['phoneno']);
                 exit();
             }
@@ -33,24 +33,29 @@ class Register {
             elseif ($postData['password'] !== $postData['cpassword']) {
                 header("Location: ../../auth/signup.php?error=passwordCheck&cname=".$postData['cname']."&email=".$postData['email']."&address=".$postData['address']."&phoneno=".$postData['phoneno']);
                 exit();
-            }else{
-                $saveUser = $this->db_instance->postData(/** table name */'user', [
+            } elseif (!isset($postData['accounttype'])) {
+                header("Location: ../../auth/signup.php?error=accountError&cname=".$postData['cname']."&email=".$postData['email']."&address=".$postData['address']."&phoneno=".$postData['phoneno']);
+                exit();
+            }
+            else{
+                $saveUser = $this->db_instance->postData(/** table name */'users', [
                     'cname' => $postData['cname'],
                     'email' => $postData['email'],
                     'phoneno' => $postData['phoneno'],
                     'address' => $postData['address'],
+                    'account' => $postData['accounttype'],
                     'password' => password_hash($postData['password'], null)
                 ]);
                 if (!$saveUser->response) {
-                    header("Location: ../../auth/signup.php?error=dberror");
+                    header("Location: ".$postData['redirect_to']);
                     exit();
                 } else {
-                    header("Location: ../../index.php?signup=$saveUser->message");
+                    header("Location: ".$postData['redirect_to']);
                     exit();
                 }
             } 
         }else{
-            header("Location: ../../index.php");
+            header("Location: ".$postData['redirect_to']);
         }
     }
 }
