@@ -6,8 +6,9 @@ if (isset($_POST['login_submit'])) {
 
 	$email = $_POST['email'];
 	$password = $_POST['password'];
+	$accountype = $_POST['account'];
 
-	if (empty($email)|| empty($password)) {
+	if (empty($email)|| empty($password)|| empty($accountype)) {
 		// code...
 		header("Location: ../login.php?error=emptyfields");
 		exit();
