@@ -39,10 +39,6 @@ class Products {
         }
       }
 
-    public function showProduct () {
-
-    }
-
     public function EditProducts ($data) {
         if (isset($data['supply_submit'])) {
             //new arrays
@@ -69,10 +65,6 @@ class Products {
                 exit();
             }
         }
-    }
-
-    public function deleteProduct () {
-
     }
 }
 
