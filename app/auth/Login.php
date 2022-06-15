@@ -41,6 +41,7 @@ class Login {
                                 $_SESSION['account'] = $associativeArray['account'];
                                 $t = time();
                                 $value = $this->db_instance->updateData('users', ['id' => $_SESSION['id'],'last_activity'=> $t, 'status' => 'online']);
+                                
                                 if ($value->response) {
                                     // redirect here
                                     $associativeArray['account'] == 'supplier' 

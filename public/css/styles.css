@@ -282,9 +282,11 @@ button{
 }
 .sendbtn{
   background-color: #cd5759;
-  border-radius: 20px;
-  align-items: center;
+  border-radius: 3px;
+  align-items: right;
+  width: 150px;
   cursor: pointer;
+  font-size: large;
 }
 .input-box{
   /* border-radius: 20px;
