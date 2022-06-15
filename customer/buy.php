@@ -143,9 +143,9 @@ if (!isset($_SESSION['id'])) {
 						<br>
 						<div class="delivery">
 							<label for="delivery"> Delivery:</label><br><br>
-							<input type="radio" name="delivery" value="true">Yes
+							<input type="radio" name="delivery" value="yes">Yes
 							<br><br>
-							<input type="radio" name="delivery" value="false">No
+							<input type="radio" name="delivery" value="no">No
 						</div>
 						<br>
 						<input type="text" name="address" class="disabled-box" placeholder="Enter your delivery address">
