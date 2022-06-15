@@ -39,7 +39,11 @@
 			<br>
 			<input type="text" name="weight" placeholder="Enter the weight" class="input-box">
 			<br>
-			<input type="text" name="sex" placeholder="Enter the sex" class="input-box">
+			<select class="input-box" name="sex">
+				<option value="">--select the sex of the animal--</option>
+				<option value="female">Female</option>
+				<option value="male">Male</option>
+			</select>
 			<br>
 			<input type="number" name="age" placeholder="Enter the age" class="input-box">
 			<br>

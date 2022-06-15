@@ -25,6 +25,7 @@ class Orders {
             unset($newDataArray['number']);
             // save the order
             $make_order = $this->db_instance->postData('orders', $newDataArray);
+            // print_r($make_order);die;
             //updating the animals table which reduces the number
             $number = (int)$data['number'] - (int)$newDataArray['quantity'];
             $update_animals = $this->db_instance->updateData(

@@ -101,6 +101,7 @@ class DbHelpers {
     $fields = implode(", ", array_keys($data));
     $values  = "'".implode("', '", array_values($data))."'";
     $result = mysqli_query($this->db, "INSERT INTO `".$table."` ($fields) VALUES ($values)");
+    // print_r($result);die;
     // mysqli_close($this->db);
     if (!$result) {
       return (object)[
