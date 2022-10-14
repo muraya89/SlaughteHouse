@@ -24,8 +24,8 @@ class DbHelpers {
   }
     
   public function show ($table, $data) {
-    $result = mysqli_query($this->db, "SELECT orders.*, animals.breed, animals.number, animals.type, animals.* FROM $table 
-    JOIN animals ON animals.id = $table.product_id WHERE " . key($data) . " = " . $data[key($data)]);
+    $result = mysqli_query($this->db, "SELECT orders.*, animals.breed, animals.number, animals.type FROM $table 
+    JOIN animals ON animals.id = $table.product_id WHERE " .$table.'.'. key($data) . " = " . $data[key($data)]);
     if ($result) {
       return $result;
     } else {
@@ -68,6 +68,7 @@ class DbHelpers {
       return 'table not found';
     }
   }
+  
   public function ordering(){
     $result = mysqli_query($this->db, "SELECT animals.breed,animals.type, sum(quantity)from orders,animals where orders.product_id=animals.id group by breed order by sum(quantity) desc limit 4  ");
     if($result){

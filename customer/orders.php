@@ -20,43 +20,43 @@ $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
 </head>
 <body>
 
-<!-- navigation bar -->
-<div class="nav">
-		<input type="checkbox" id="nav-check">
-		<div class="nav-header">
-				<div class="logo">
-					<img src="../public/images/slaughterhouse.jpeg" alt="">
-				</div>
-			<div class="nav-title">
-				<a href="index.php">The Meat Hook</a>
-			</div>
-		</div>
-		<div class="nav-btn">
-			<label for="nav-check">
-				<span></span>
-				<span></span>
-				<span></span>
-			</label>
-		</div>
-		<div class="nav-links">
-            <a href="index.php">Produce</a>
-			<div class="div_logout">
-				<form method="post" action="../app/auth/Logout.php">
-					<button type="submit" name="logout" class="logout">Logout</button>
-				</form>
-			</div>
+    <!-- navigation bar -->
+    <div class="nav">
+            <input type="checkbox" id="nav-check">
+            <div class="nav-header">
+                    <div class="logo">
+                        <img src="../public/images/slaughterhouse.jpeg" alt="">
+                    </div>
+                <div class="nav-title">
+                    <a href="index.php">The Meat Hook</a>
+                </div>
+            </div>
+            <div class="nav-btn">
+                <label for="nav-check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+            <div class="nav-links">
+                <a href="index.php">Produce</a>
+                <div class="div_logout">
+                    <form method="post" action="../app/auth/Logout.php">
+                        <button type="submit" name="logout" class="logout">Logout</button>
+                    </form>
+                </div>
 
-			<!-- search bar -->
-			<!-- <div class="search">
-					<form action="">
-						<input type="text" placeholder="Search...">
-					<div class="searchbtn">
-						<button type="submit" name="Submit">Submit</button>
-					</div>
-					</form>
-			</div> -->
-		</div>
-	</div>
+                <!-- search bar -->
+                <!-- <div class="search">
+                        <form action="">
+                            <input type="text" placeholder="Search...">
+                        <div class="searchbtn">
+                            <button type="submit" name="Submit">Submit</button>
+                        </div>
+                        </form>
+                </div> -->
+            </div>
+    </div>
 
     <div class="paragraph">
         <p> My Orders</p>

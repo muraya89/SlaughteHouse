@@ -16,20 +16,20 @@
 		</div>
 		<!-- form for admin login -->
 		<?php 
-// create an error message if the user made an error when trying to login
-if (isset($_GET['error'])) {
-	// code...
-	if ($_GET['error']=="emptyfields") {
-		// code...
-		echo "<p class='err'>Fill in all fields</p>";
-	}elseif ($_GET['error']== "pwderr") {
-		echo "<p class='err'>Wrong password</p>";
-	}elseif ($_GET['error']== "403") {
-		echo "<p class='err'>Unauthorized</p>";
-	}
-}
+			// create an error message if the user made an error when trying to login
+			if (isset($_GET['error'])) {
+				// code...
+				if ($_GET['error']=="emptyfields") {
+					// code...
+					echo "<p class='err'>Fill in all fields</p>";
+				}elseif ($_GET['error']== "pwderr") {
+					echo "<p class='err'>Wrong password</p>";
+				}elseif ($_GET['error']== "403") {
+					echo "<p class='err'>Unauthorized</p>";
+				}
+			}
 
- ?>
+		?>
 		<form action="../app/auth/adminlogin.php" method="post">
 			<label for="username" class="label">Username</label>
 			<input type="text" name="username"class="input-box">

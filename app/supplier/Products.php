@@ -70,7 +70,7 @@ class Products {
 
 $products = new Products($db_helpers);
 if (isset($_POST['supply_submit'])) {
-    $_POST['submitType'] == 'edit' ? $products->EditProducts($_POST) : $products->storeProducts($_POST);
+    $_POST['submitType'] ? $products->EditProducts($_POST) : $products->storeProducts($_POST);
 }
 
 ?>
