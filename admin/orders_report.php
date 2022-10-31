@@ -46,13 +46,22 @@
 	?>
 
     <div class="container">
-        <div class="box1" style="height: 150px; background:linear-gradient(45deg, rgba(66, 183, 245,0.8) 0%,rgba(66, 245, 189,0.4) 100%); width:72%; ">
-            <div class="left" >
-                <p>Month: <?= $months[(int)$orders_by_month['month']-1]; ?>, Number of Orders: <?= $orders_by_month['count']; ?></p>
+        <div class="clearfix">
+            <div class="img2">
+                <?= 
+                    date('Y-M-D');
+                /**$months[(int)$orders_by_month['month']-1];*/
+                    
+                ?>
             </div>
+
+            <div class="item itemAdmin">
+                <?= $orders_by_month['count'];?>  Orders
+            </div>
+            
         </div>
 
-        <div class="table orders">
+        <!-- <div class="table orders"> -->
             <!-- <div>
                 <ul>
                     <li>Month: <?php
@@ -63,7 +72,7 @@
                     ?></li>
                 </ul>
             </div> -->
-            <div class="supplierTable">
+            <div class="supplierTable" style="overflow-x: auto;">
                 <table>
                     <tr>
                         <th>#</th>
@@ -80,9 +89,12 @@
                         <th>Buyer Name</th>
                         <th>Actions</th>
                     </tr>
+
                     <?php 
                         // create a while loop to fetch all the array values and display in a table
-                        while($order = mysqli_fetch_assoc($value)) :?>
+                        while($order = mysqli_fetch_assoc($value)) :
+                    ?>
+
                     <tr>
                         <td><?= $order['order_id']; ?></td>
                         <td><?= $order['product_id']; ?></td>
@@ -119,22 +131,11 @@
                             </div>
                         </td>
                     </tr>
+
                     <?php endwhile; ?>
                 </table>
             </div>
-        </div>
-    
-        <!-- <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href="" class="active">1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-            <a href="">4</a>
-            <a href="">5</a>
-            <a href="">6</a>
-            <a href="">7</a>
-            <a href="#">&raquo</a>
-        </div> -->
+        <!-- </div> -->
     </div>
 </body>
 </html>

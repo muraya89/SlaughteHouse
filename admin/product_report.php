@@ -36,14 +36,30 @@
     </div>
           
 
-	<?php
-	include('../helpers/DbHelpers.php');
-  // variable to call a function which fetches all data from the animals table
-	$value = $db_helpers->getAll('animals');
-	?>
+    <?php
+      include('../helpers/DbHelpers.php');
+      // variable to call a function which fetches all data from the animals table
+      $value = $db_helpers->getAll('animals');
+      $orders_by_month = mysqli_fetch_assoc($db_helpers->countData('animals'));
+    ?>
 
 
   <div class="container">
+    <div class="clearfix">
+        <div class="img2">
+            <?= 
+                date('Y-M-D');
+            /**$months[(int)$orders_by_month['month']-1];*/
+                
+            ?>
+        </div>
+
+        <div class="item itemAdmin">
+            <?= $orders_by_month['count'];?>  Products
+        </div>
+        
+    </div>
+
     <div class="table">
       <div class="supplierTable">
             <table>

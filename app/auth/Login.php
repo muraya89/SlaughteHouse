@@ -20,9 +20,8 @@ class Login {
                 $res = $this->db_instance->CheckIfMatch(/** table name */'users', ['email' => $postData['email']]);
                     if (mysqli_num_rows($res->response) < 1) {
                         // no email found
-                        echo "email not found $res";
+                        header("Location: ../../auth/login.php?error=404");
                     } else {
-                        
                         // check if the password matches
                         $associativeArray = mysqli_fetch_assoc($res->response);
                         $result = password_verify($postData['password'], $associativeArray['password']);

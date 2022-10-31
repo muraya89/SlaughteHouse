@@ -42,6 +42,24 @@ class DbHelpers {
     }
   }
 
+  public function countData ($table) {
+    $result = mysqli_query($this->db, "SELECT COUNT(*) as count FROM $table");
+    if ($result) {
+      return $result;
+    } else {
+      return 'table not found';
+    }
+  }
+
+  public function countUsers ($account_type) {
+    $result = mysqli_query($this->db, "SELECT COUNT(*) as count FROM users WHERE account = '$account_type'");
+    if ($result) {
+      return $result;
+    } else {
+      return 'table not found';
+    }
+  }
+
   public function getByMonth ($table) {
     $result = mysqli_query($this->db, "SELECT MONTH(created_at) as month, COUNT(*) as count FROM $table GROUP BY MONTH(created_at)");
     if ($result) {
@@ -71,6 +89,7 @@ class DbHelpers {
   
   public function ordering(){
     $result = mysqli_query($this->db, "SELECT animals.breed,animals.type, sum(quantity)from orders,animals where orders.product_id=animals.id group by breed order by sum(quantity) desc limit 4  ");
+    // var_dump(mysqli_fetch_assoc($result));die();
     if($result){
       return $result;
     }else{

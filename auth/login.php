@@ -70,6 +70,8 @@ if (isset($_GET['error'])) {
 		echo "<p class='err'>Account Type required</p>";
 	} elseif ($_GET['error'] == "accountError2") {
 		echo "<p class='err'>Sorry, you selected the wrong Account type</p>";
+	} elseif ($_GET['error'] === "404") {
+		echo "<p class='err'>Sorry, this user does not exist in our database</p>"; 
 	}
 }
 

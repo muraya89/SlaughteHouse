@@ -42,16 +42,19 @@
     ?>
 
     <div class="container">
-      <div class="box1">
-        <div class="left">
-          <a href="addCategories.php"><button type="" class="addUser" name="add_catefory">+</button></a>
-          <p>Add Category</p>
-        </div>
-      </div>
-
       <div class="table">
         <div class="supplierTable">
           <table>
+          <tr>
+              <div class="clearfix">
+                <div class="img2" style="padding: 2px; margin-right: 20px; height: 50px;">
+                  <a href="addCategories.php"><button type="" class="addUser" name="add_user" style="width: 150px;">+ &nbsp; Add Category</button></a>
+                  <p></p>
+                </div>
+                  <p style="display: inline-block; margin: 0px; font-size: xxx-large; margin-left: 10px; padding-bottom: 10px; padding-top: 10px;">Categories</p> 
+              </div>
+              
+            </tr>
             <tr>
               <th>#</th>
               <th>Breed name</th>
