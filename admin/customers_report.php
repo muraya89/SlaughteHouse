@@ -13,8 +13,8 @@
     <title>Products</title>
     <link rel="stylesheet" type="text/css" href="./adminstyles.css">
   </head>
-  <body class="body">
 
+  <body class="body">
     <!-- navigation bar -->
     <div class="nav">
       <input type="checkbox" id="nav-check">
@@ -34,98 +34,98 @@
         <a href="admin_profile.php">Admin Profile</a>
       </div>
     </div>
-    
 
-	<?php
-	include('../helpers/DbHelpers.php');
-  // using the the variable value call the function from the db_helpers file to fetch all the values from the customers table
-	$value = $db_helpers->getUsers('customer');
-	?>
+    <?php
+      include('../helpers/DbHelpers.php');
+      // using the the variable value call the function from the db_helpers file to fetch all the values from the customers table
+      $value = $db_helpers->getUsers('customer');
+    ?>
 
-  <div class="container">
-    <div class="box1">
-      <div class="left">
-          <a href="addUser.php"><button type="" class="addUser" name="add_user">+</button></a>
-          <p>Add User</p>
+    <div class="container">
+      <div class="table">
+        <div class="supplierTable">
+          <table>
+            <tr>
+              <div class="clearfix">
+                <div class="img2" style="padding: 2px; margin-right: 20px; height: 50px;">
+                  <a href="addUser.php"><button type="" class="addUser" name="add_user" style="width: 150px;">+ &nbsp; Add Customer</button></a>
+                  <p></p>
+                </div>
+                  <p style="display: inline-block; margin: 0px; font-size: xxx-large; margin-left: 10px; padding-bottom: 10px; padding-top: 10px;">Customers</p> 
+              </div>
+              
+            </tr>
+            <tr>
+                <th>#</th>
+                <th>Company name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>
+                  <label class="dropdown">
+                    <div class="dd-button">Account Type </div><div class="triangle"></div>
+                    <input type="checkbox" class="dd-input" id="test">
+                    <ul class="dd-menu">
+                      <li> <a href="customers_report.php">Customer</a> </li>
+                      <li> <a href="suppliers_report.php">Supplier</a> </li>
+                      <hr>
+                      <li> <a href="users_report.php">All</a> </li>
+                    </ul>
+                  </label>
+                </th>
+                <th>Date Created</th>
+                <th>
+                  <label class="dropdown">
+                    <div class="dd-button">status </div><div class="triangle"></div>
+                    <input type="checkbox" class="dd-input" id="test">
+                    <ul class="dd-menu">
+                      <li> <a href="online_users.php">Online Users</a> </li>
+                      <li> <a href="offline_users.php">Offline Users</a> </li>
+                    </ul>
+                  </label>
+                </th>
+                <th>Action</th>
+            </tr>
+            <?php 
+              // create a while loop to fetch all the array values and display in a table
+              while($detail = mysqli_fetch_assoc($value)) :
+            ?>
+            <tr>
+                <td><?= $detail['id']; ?></td>
+                <td><?= $detail['cname']; ?></td>
+                <td><?= $detail['email']; ?></td>
+                <td><?= $detail['phoneno']; ?></td>
+                <td><?= $detail['address']; ?></td>
+                <td><?= $detail['account']; ?></td>
+                <td><?= $detail['date_created']; ?></td>          
+                <td>
+                  <?php
+                    // check whether the specific user is online/offline and show the respective image
+                    if ($detail['status'] == "online") {?>
+                      <img src="../public/images/online1.png" alt="" style="height: 20px; width: 20px; margin:auto;">
+                  <?php  
+                    }else{?>
+                      <img src="../public/images/offline.png" alt="" style="height: 20px; width: 20px;margin:auto;">
+                  <?php  
+                    }
+                  ?>
+                </td>
+                <td>
+                  <form action="AdminClass.php" method="post">
+                    <!-- ensure that the product being deleted is the one with the id being selected -->
+                    <input type="hidden" name="id" value="<?= $detail['id'] ?>"/>
+                    <!-- and from the orders table -->
+                    <input type="hidden" name="table" value="users" />
+                    <!-- after deleting the redirect should go to the page and refreshed -->
+                    <input type="hidden" name="redirect_to" value="users_report.php" />
+                    <button type="submit" name="deleteSubmit" class="btn">Delete</button>
+                  </form>
+                </td>
+            </tr>
+            <?php endwhile; ?>
+          </table>
+        </div>
       </div>
     </div>
-
-    <div class="table">
-      <div class="supplierTable">
-        <table>
-          <tr>
-              <th>#</th>
-              <th>Company name</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-              <th>Address</th>
-              <th>
-                <label class="dropdown">
-                  <div class="dd-button">Account Type </div><div class="triangle"></div>
-                  <input type="checkbox" class="dd-input" id="test">
-                  <ul class="dd-menu">
-                    <li> <a href="customers_report.php">Customer</a> </li>
-                    <li> <a href="suppliers_report.php">Supplier</a> </li>
-                    <hr>
-                    <li> <a href="users_report.php">All</a> </li>
-                  </ul>
-                </label>
-              </th>
-              <th>Date Created</th>
-              <th>
-                <label class="dropdown">
-                  <div class="dd-button">status </div><div class="triangle"></div>
-                  <input type="checkbox" class="dd-input" id="test">
-                  <ul class="dd-menu">
-                    <li> <a href="online_users.php">Online Users</a> </li>
-                    <li> <a href="offline_users.php">Offline Users</a> </li>
-                  </ul>
-                </label>
-              </th>
-              <th>Action</th>
-          </tr>
-          <?php 
-            // create a while loop to fetch all the array values and display in a table
-            while($detail = mysqli_fetch_assoc($value)) :
-          ?>
-          <tr>
-              <td><?= $detail['id']; ?></td>
-              <td><?= $detail['cname']; ?></td>
-              <td><?= $detail['email']; ?></td>
-              <td><?= $detail['phoneno']; ?></td>
-              <td><?= $detail['address']; ?></td>
-              <td><?= $detail['account']; ?></td>
-              <td><?= $detail['date_created']; ?></td>          
-              <td>
-                <?php
-                  // check whether the specific user is online/offline and show the respective image
-                  if ($detail['status'] == "online") {?>
-                    <img src="../public/images/online1.png" alt="" style="height: 20px; width: 20px; margin:auto;">
-                <?php  
-                  }else{?>
-                    <img src="../public/images/offline.png" alt="" style="height: 20px; width: 20px;margin:auto;">
-                <?php  
-                  }
-                ?>
-              </td>
-              <td>
-                <form action="AdminClass.php" method="post">
-                  <!-- ensure that the product being deleted is the one with the id being selected -->
-                  <input type="hidden" name="id" value="<?= $detail['id'] ?>"/>
-                  <!-- and from the orders table -->
-                  <input type="hidden" name="table" value="users" />
-                  <!-- after deleting the redirect should go to the page and refreshed -->
-                  <input type="hidden" name="redirect_to" value="users_report.php" />
-                  <button type="submit" name="deleteSubmit" class="btn">Delete</button>
-                </form>
-              </td>
-          </tr>
-          <?php endwhile; ?>
-        </table>
-      </div>
-    </div>
-  </div>
-
- 
-</body>
+  </body>
 </html>

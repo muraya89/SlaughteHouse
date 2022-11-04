@@ -363,6 +363,11 @@ input[type=text]:focus{
   text-align: center;
 }
 
+.success{
+  color: #1d8f49;
+  text-align: center;
+}
+
 .paragraph{
   text-align: justify-all;
   margin-right: 200px;

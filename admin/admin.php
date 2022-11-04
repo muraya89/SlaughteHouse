@@ -46,7 +46,7 @@
 			
 			<div class="item">
 				<b></b> &nbsp; Revenue
-				<a href="salesreport.php"><button type="button" class="button-1"><i class='fas fa-arrow-right'></i></button></a>
+				<!-- <a href="salesreport.php"><button type="button" class="button-1"><i class='fas fa-arrow-right'></i></button></a> -->
 			</div>
 		</div>
 

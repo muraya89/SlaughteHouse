@@ -353,10 +353,10 @@ button{
   background-color: #fff;;
 }
 .table2{
-  margin: 200px 500px;
+  margin: 100px auto;
   font-size: 18px;
   text-align: center;
-  width: 40%;
+  width: 80%;
   height: 600px;
   top: 30px;
   background:  linear-gradient(45deg,  rgba(66, 183, 245,0.8) 0%,rgba(66, 245, 189,0.4) 100%);
@@ -383,7 +383,7 @@ img{
 .table3 .logout{
   color: #000;
   background: linear-gradient(45deg,  rgba(66, 183, 245,0.8) 0%,rgba(66, 245, 189,0.4) 100%) !important;
-  width: 50%;
+  width: 80%;
   padding: 15px;
   background: none;
   font-size: 20px;

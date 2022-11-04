@@ -55,7 +55,8 @@ $value = $db_helpers->showAdmin('admin', ['id' => $_SESSION['id']]);
 				<p><?=  $admin_details['username'];?></p><br>
 
 			</div>
-			<div class="table3" style="background-color: #fff;">
+
+			<div class="table3" style="background-color: #fff; width: 100%">
 				<p>Information</p>
 				<hr>
 				<label for="" class="label">ID</label><br>

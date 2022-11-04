@@ -26,10 +26,10 @@
       </div>
       <div class="nav-links">
         <a href="admin.php">Dashboard</a>
-        <a href="users_report.php">Users</a>
+        <a href="users_report.php" class="active">Users</a>
         <a href="product_report.php">Products</a>
         <a href="orders_report.php">Orders</a>
-        <a href="categories_report.php" class="active">Categories</a>
+        <a href="categories_report.php">Categories</a>
         <a href="feedback_report.php">Feedback</a>
         <a href="admin_profile.php">Admin Profile</a>
       </div>
