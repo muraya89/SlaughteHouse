@@ -102,7 +102,7 @@ $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
                      <!-- call variable with the encoded data -->
                     <a href="receipt.php?edit=<?=$base64UrlString;?>"><button class="receipt_btn"> Receipt</button></a>
                  </div>
-                    <form action="../admin/AdminClass.php" method="post" class=action1>
+                    <form action="../admin/AdminClass.php" method="post" class="action1">
                         <input type="hidden" name="id" value="<?= $order['id'] ?>"/>
                         <input type="hidden" name="table" value="orders" />
                         <input type="hidden" name="redirect_to" value="../customer/orders.php" />

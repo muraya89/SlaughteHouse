@@ -336,14 +336,6 @@ button{
   border-radius: 50px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
 }
-/* .table{
-  font-size: 18px;
-  align-content: center;
-  height: auto;
-} */
-/* .table.orders{
-  width: 67%;
-} */
 .table1{
   /* margin: auto 370px; */
   font-size: 18px;
@@ -356,10 +348,11 @@ button{
   margin: 100px auto;
   font-size: 18px;
   text-align: center;
-  width: 80%;
-  height: 600px;
+  width: 90%;
+  height: auto;
   top: 30px;
-  background:  linear-gradient(45deg,  rgba(66, 183, 245,0.8) 0%,rgba(66, 245, 189,0.4) 100%);
+  background:  linear-gradient(45deg,  #4285F4 0%,rgba(66, 245, 189,0.4) 100%);
+  color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 20px;
   display: grid;
@@ -367,7 +360,7 @@ button{
 }
 .table3 p{
   padding: 30px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   
 }
 .table3{
@@ -376,20 +369,19 @@ button{
 img{
   margin-top: 120px;
 }
-.table3 .label{
-  text-decoration: underline;
-  margin-left: 50px;
-}
 .table3 .logout{
-  color: #000;
-  background: linear-gradient(45deg,  rgba(66, 183, 245,0.8) 0%,rgba(66, 245, 189,0.4) 100%) !important;
-  width: 80%;
-  padding: 15px;
-  background: none;
+  color: white;
+  /* background: green; */
+  width: 20%;
+  background-color: #4285F4;
   font-size: 20px;
   margin: 30px 0;
+  margin-left: 0px;
+  margin-left: 60%;
   border: none;
+  border-radius: 5px;
   outline: none;
+  height: 45px;
 }
 .profile{
   outline: none;

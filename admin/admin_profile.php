@@ -12,6 +12,13 @@
     <meta charset="utf-8">
     <title>Admin Profile</title>
     <link rel="stylesheet" type="text/css" href="./adminstyles.css">
+	<style>
+		img {
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+		}
+	</style>
   </head>
   <body class="body">
 
@@ -56,18 +63,18 @@ $value = $db_helpers->showAdmin('admin', ['id' => $_SESSION['id']]);
 
 			</div>
 
-			<div class="table3" style="background-color: #fff; width: 100%">
+			<div class="table3" style="background-color: #fff; color: black; width: 100%">
 				<p>Information</p>
 				<hr>
-				<label for="" class="label">ID</label><br>
+				<label for="" class="label">ID: &nbsp;</label>
 				<input class="profile" value="<?=  $admin_details['id'];?>"><br>
-				<label for="" class="label">Date Created</label><br>
+				<label for="" class="label">Date Created: &nbsp;</label>
 				<input class="profile" value="<?=  $admin_details['date_created'];?>"><br>
-				<label for="" class="label">Role</label><br>
+				<label for="" class="label">Role:&nbsp;</label>
 				<input class="profile" value="<?=  $admin_details['role'];?>"><br>
 			
 				<form method="post" action="logout.php">
-				<input type="hidden" name="redirect" value="admin_profile.php">
+					<input type="hidden" name="redirect" value="admin_profile.php">
 					<button type="submit" name="logout" class="logout">Logout</button>
 				</form>
 			</div>

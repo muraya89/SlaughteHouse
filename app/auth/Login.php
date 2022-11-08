@@ -13,7 +13,7 @@ class Login {
         // login logic
         if (isset($postData['login_submit'])) {
             if (!isset($postData['accounttype'])) {
-                header("Location: ../../auth/login.php?error=accountError");
+                header("Location: ../../auth/login.php?error=accountError&value=".base64_encode(json_encode(array_merge($postData, ['error'=>true]))));
                 exit();
             } else {
                 // check if the email match
@@ -28,7 +28,7 @@ class Login {
                         
                         if ($postData['accounttype'] !== $associativeArray['account']) {
                             // account type validation
-                            header("Location: ../../auth/login.php?error=accountError2");
+                            header("Location: ../../auth/login.php?error=accountError2&value=".base64_encode(json_encode(array_merge($postData, ['error'=>true]))));
                             exit();
                         } else {
                             if (!$result) {

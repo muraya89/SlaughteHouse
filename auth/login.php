@@ -55,40 +55,46 @@
 <div class="effect1" >
 	<h1 class="login">LOGIN</h1>
 	<p class="login">Welcome back.</p>
-<?php 
-// create an error message if the user made an error when trying to login
-if (isset($_GET['error'])) {
-	// code...
-	if ($_GET['error']=="emptyfields") {
+	<?php 
+	// create an error message if the user made an error when trying to login
+	if (isset($_GET['error'])) {
 		// code...
-		echo "<p class='err'>Fill in all fields</p>";
-	}elseif ($_GET['error']== "pwderr") {
-		echo "<p class='err'>Wrong password</p>";
-	}elseif ($_GET['error']== "403") {
-		echo "<p class='err'>Unauthorized</p>";
-	} elseif ($_GET['error'] == "accountError") {
-		echo "<p class='err'>Account Type required</p>";
-	} elseif ($_GET['error'] == "accountError2") {
-		echo "<p class='err'>Sorry, you selected the wrong Account type</p>";
-	} elseif ($_GET['error'] === "404") {
-		echo "<p class='err'>Sorry, this user does not exist in our database</p>"; 
+		if ($_GET['error']=="emptyfields") {
+			// code...
+			echo "<p class='err'>Fill in all fields</p>";
+		}elseif ($_GET['error']== "pwderr") {
+			echo "<p class='err'>Wrong password</p>";
+		}elseif ($_GET['error']== "403") {
+			echo "<p class='err'>Unauthorized</p>";
+		} elseif ($_GET['error'] == "accountError") {
+			echo "<p class='err'>Account Type required</p>";
+		} elseif ($_GET['error'] == "accountError2") {
+			echo "<p class='err'>Sorry, the details do not match</p>";
+		} elseif ($_GET['error'] === "404") {
+			echo "<p class='err'>Sorry, this user does not exist in our database</p>"; 
+		}
 	}
-}
+	$data = [];
+	if (isset($_GET['error'])) {
+	//   for decoding stored data when the edit button is selected
+	  $data = json_decode(base64_decode($_GET['value']));
+	//   var_dump($data);die();
+	}
 
- ?>
-	<!-- insert session -->
+	?>
+ 
 	<form action="../app/auth/Login.php" class="login" method="POST">
-		<input type="text" name="email" class="input-box" placeholder="Email"></br>
-      <div class="radio">
-        <div class="radio1">
-        <input type="radio" value="supplier" name="accounttype">
-        <label for="supplier">Supplier</label>
-        </div>
-        <div class="radio1">
-        <input type="radio" value="customer" name="accounttype" >
-        <label for="customer">Customer</label>
-        </div>
-      </div>
+		<input type="text" name="email" class="input-box" placeholder="Email" value="<?= isset($_GET['value']) && isset($data->email) ? $data->email : ''; ?>"></br>
+		<div class="radio">
+			<div class="radio1">
+				<input type="radio" value="supplier" name="accounttype" value="<?= isset($_GET['edit']) && isset($data->accounttype) ? $data->accounttype : ''; ?>">
+				<label for="supplier">Supplier</label>
+			</div>
+			<div class="radio1">
+				<input type="radio" value="customer" name="accounttype" value="<?= isset($_GET['edit']) && isset($data->accounttype) ? $data->accounttype : ''; ?>">
+				<label for="customer">Customer</label>
+			</div>
+		</div>
 		<input type="password" name="password" class="input-box" placeholder="Password"></br>
 		<button name="login_submit" class="sendbtn" type="submit">Login</button>
 	</form>
