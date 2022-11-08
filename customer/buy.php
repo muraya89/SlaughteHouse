@@ -65,10 +65,12 @@
 		<h3>Buy products</h3>
 		<form id="orders_form" method="POST" action="../app/customer/Orders.php">
 			<section class="accordion">
-				<input type="checkbox" name="collapse" id="handle1">
+				<input type="checkbox" name="collapse" id="handle1" checked>
+
 				<h2 class="handle">
 					<label for="handle1" class="handle2">Product description</label>
 				</h2>
+				
 				<div class="content">
 					<label for="breed">Breed: </label>
 					<select class="disabled-box" name="breed" disabled>
