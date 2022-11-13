@@ -11,7 +11,7 @@ class Orders {
 
     public function MakeOrders ($data) {
         if (isset($data['order_submit'])) {
-            if($data['total_price'] && $data['delivery']){
+            if($data['total_price']){
                 unset($data['collapse']);
                 unset($data['order_submit']);
                 
@@ -22,18 +22,23 @@ class Orders {
                 for ($i=0; $i < count($keys); $i++) { 
                     $newDataArray[$keys[$i]] = $data[$keys[$i]];
                 }
+                if($newDataArray['delivery'] === 'yes' && !$newDataArray['address']){
+                    header('Location: '.$newDataArray['redirect_to'].'&error=emptyaddress'.'&value='.base64_encode(json_encode(array_merge($newDataArray, ['error'=>true]))));
+                    exit();
+                }
 
-                unset($newDataArray['number']);
+                unset($newDataArray['available_quantity']);
                 unset($newDataArray['redirect_to']);
                 // save the order
                 $make_order = $this->db_instance->postData('orders', $newDataArray);
+                // if($make_order->response === false ) var_dump($newDataArray);die();
                 //updating the animals table which reduces the number
-                $number = (int)$data['number'] - (int)$newDataArray['quantity'];
+                $number = (int)$data['available_quantity'] - (int)$newDataArray['quantity'];
                 $update_animals = $this->db_instance->updateData(
                     'animals', 
                     [
-                        'status' => $number == 0 ? 'sold' : 'pending', 
-                        'number' => $number,
+                        'status' => $number == 0 ? 'sold' : 'available', 
+                        'available_quantity' => $number,
                         'id' => $newDataArray['product_id']
                     ]
                 );

@@ -10,8 +10,7 @@
 <body>
 	<div class="effect">
 		<h3>Add Products</h3>
-		<?php 
-
+		<?php
 			if(isset($_GET['error'])) {
     			if($_GET['error'] == "emptyfields") {
       				echo '<p class=err>Fill in all fields</p>';
@@ -21,42 +20,57 @@
    			 	}
 				if($_GET['error'] == "notsaved") {
       				echo '<p class=err>Data not saved, please try again</p>';
-   			 	}
+   			 	}	
+				// var_dump($data);die();
    			}
-
+			if(isset($_GET['edit'])){
+				$data = json_decode(base64_decode($_GET['edit']));
+				// var_dump($data);die();
+			}
+			include('../helpers/DbHelpers.php');
+			$breed =  $db_helpers->getAll('categories');
 		 ?>
+
 		<form method="POST" action="../app/supplier/Products.php">
-			<select class="input-box" name="breed">
-				<option value="">--choose the breed of your supply--</option>
-				<option value="angus">Angus catle</option>
-				<option value="holstein">Holstein Cattle</option>
-				<option value="hereford">Hereford cattle</option>
-				<option value="shorthorn">Shorthorn</option>
-				<option value="jersey">Jersey cattle</option>
-				<option value="charolais">Charolais cattle</option>
-				<option value="simmental">Simmental cattle</option>
+			<label for="breed">Breed: </label>
+			<select class="input-box" name="breed" required>
+				<option value="<?= isset($_GET['edit']) && isset($data->breed) ? $data->breed : ''; ?>"><?= isset($_GET['edit']) && isset($data->breed) ? $data->breed : ''; ?><?= isset($_GET['edit']) && isset($data->breed) ? $data->breed : '--choose the breed of your supply--'; ?></option>
+				<?php while($product = mysqli_fetch_assoc($breed)) :?>
+					<option value="<?=$product['name']?>"><?=$product['name']?></option>
+				<?php endwhile; ?>
 			</select>
 			<br>
-			<input type="text" name="weight" placeholder="Enter the weight" class="input-box">
+
+			<label for="weight">Weight: (kg)</label>
+			<input type="number	" name="weight" min="550" max="1800" placeholder="Enter the weight" class="input-box" value="<?= isset($_GET['edit']) && isset($data->weight) ? $data->weight : ''; ?>">
 			<br>
-			<select class="input-box" name="sex">
-				<option value="">--select the sex of the animal--</option>
+
+			<label for="sex">Sex: </label>
+			<select class="input-box" name="sex" required>
+				<option value="<?= isset($_GET['edit']) && isset($data->sex) ? $data->sex : ''; ?>"><?= isset($_GET['edit']) && isset($data->sex) ? $data->sex : '--select the sex of the animal--'; ?></option>
 				<option value="female">Female</option>
 				<option value="male">Male</option>
 			</select>
 			<br>
-			<input type="number" name="age" placeholder="Enter the age" class="input-box">
+
+			<label for="age">Age: </label>
+			<input type="number" name="age" min="30" max="70" placeholder="Enter the age" class="input-box" required value="<?= isset($_GET['edit']) && isset($data->age) ? $data->age : ''; ?>">
 			<br>
-			<select class="input-box" name="type">
-				<option value="">--select the type of meat--</option>
-				<option value="redmeat">Red meat</option>
-				<option value="whitemeat">White Meat</option>
-			</select>
-			<input type="number" name="number" placeholder="Enter the number of animals you want to sell" class="input-box">
+
+			<label for="number">Number: (months)</label>
+			<input type="number" name="number" placeholder="Enter the number of animals you want to sell" class="input-box" required value="<?= isset($_GET['edit']) && isset($data->number) ? $data->number : ''; ?>">
 			<br>
-			<input type="number" name="price" placeholder="Enter the price to sell the animal" class="input-box">
+
+			<label for="price">Price: </label>
+			<input type="number" name="price" placeholder="Enter the price to sell the animal" class="input-box" required value="<?= isset($_GET['edit']) && isset($data->price) ? $data->price : ''; ?>">
+
+			<input type="text" name="submitType" hidden value="<?= isset($_GET['edit']) ?'edit' : 'new'; ?>">
+			<input type="text" name="id" hidden value="<?= isset($_GET['edit']) && isset($data->id)? $data->id : ''; ?>">
 			<br>
-			<button type="submit" name="supply_submit" class="sendbtn">Submit</button>
+
+			<div>
+				<button type="submit" name="supply_submit" class="sendbtn">Submit</button>
+			</div>
 		</form>
 	</div>
 </body>

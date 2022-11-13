@@ -215,8 +215,8 @@ class DbHelpers {
     return !$uppercase || !$number ||!$lowercase || !$specialChars || strlen($password)<8;
   }
   
-  public function errorFunction ($errorMessage) {
-    header("Location: ../../supplier/supply.php?error=$errorMessage");
+  public function errorFunction ($errorMessage, $data) {
+    header("Location: ../../supplier/supply.php?error=$errorMessage&edit=$data");
     exit();
   }
 }

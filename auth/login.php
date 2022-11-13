@@ -87,11 +87,11 @@
 		<input type="text" name="email" class="input-box" placeholder="Email" value="<?= isset($_GET['value']) && isset($data->email) ? $data->email : ''; ?>"></br>
 		<div class="radio">
 			<div class="radio1">
-				<input type="radio" value="supplier" name="accounttype" value="<?= isset($_GET['edit']) && isset($data->accounttype) ? $data->accounttype : ''; ?>">
+				<input type="radio" value="supplier" name="accounttype" value="<?= isset($_GET['value']) && isset($data->accounttype) ? $data->accounttype : ''; ?>">
 				<label for="supplier">Supplier</label>
 			</div>
 			<div class="radio1">
-				<input type="radio" value="customer" name="accounttype" value="<?= isset($_GET['edit']) && isset($data->accounttype) ? $data->accounttype : ''; ?>">
+				<input type="radio" value="customer" name="accounttype" value="<?= isset($_GET['value']) && isset($data->accounttype) ? $data->accounttype : ''; ?>">
 				<label for="customer">Customer</label>
 			</div>
 		</div>

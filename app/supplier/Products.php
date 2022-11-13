@@ -20,7 +20,7 @@ class Products {
           // check for empty values
           for ($i=0; $i < count($keys); $i++) { 
               if (empty($data[$keys[$i]])) {
-                  $this->db_instance->errorFunction('emptyfields');
+                  $this->db_instance->errorFunction('emptyfields',$data);
                   break;
               } else {
                   $newDataArray[$keys[$i]] = $data[$keys[$i]];
@@ -28,6 +28,7 @@ class Products {
           }
   
           $newDataArray['status'] = 'new';
+          $newDataArray['available_quantity'] = $newDataArray['number'];
           $saveAnimal = $this->db_instance->postData('animals', $newDataArray);
           if (!$saveAnimal->response) {
               $this->db_instance->errorFunction('notsaved');
@@ -50,7 +51,7 @@ class Products {
             // check for empty values
             for ($i=0; $i < count($keys); $i++) { 
                 if (empty($data[$keys[$i]])) {
-                    $this->db_instance->errorFunction('emptyfields');
+                    $this->db_instance->errorFunction('emptyfields',base64_encode(json_encode(array_merge($data, ['error'=>true]))));
                     break;
                 } else {
                     $newDataArray[$keys[$i]] = $data[$keys[$i]];
@@ -58,7 +59,7 @@ class Products {
             }
             $saveAnimal = $this->db_instance->updateData('animals', $newDataArray);
             if (!$saveAnimal->response) {
-                $this->db_instance->errorFunction('notsaved');
+                $this->db_instance->errorFunction('notsaved',base64_encode(json_encode(array_merge($data, ['error'=>true]))));
                 exit();
             } else {
                 header("Location: ../../supplier/");
@@ -70,7 +71,7 @@ class Products {
 
 $products = new Products($db_helpers);
 if (isset($_POST['supply_submit'])) {
-    $_POST['submitType'] ? $products->EditProducts($_POST) : $products->storeProducts($_POST);
+    $_POST['submitType'] === 'edit' ? $products->EditProducts($_POST) : $products->storeProducts($_POST);
 }
 
 ?>

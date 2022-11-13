@@ -37,9 +37,9 @@ if (isset($_GET['edit'])) {
 
             <br><br>
             
-            <strong> Bill to:</strong>
-            <p> ID: <input type="text" value="<?= isset($_GET['edit']) && isset($data->id) ? $data->id : ''; ?> " style="border: none; background-color:#fff; color:black;" disabled></p>
-            <p>Name: <input type="text" value="<?= isset($_GET['edit']) && isset($data->supplier) ? $data->supplier : ''; ?> " style="border: none;background-color:#fff; color:black;" disabled></p>
+            <strong> Billing:</strong>
+            <p> Order Id: &nbsp;<input type="text" value="<?= isset($_GET['edit']) && isset($data->id) ? $data->id : ''; ?> " style="border: none; background-color:#fff; color:black;" disabled></p>
+            <p>Supplier Name: &nbsp;<input type="text" value="<?= isset($_GET['edit']) && isset($data->supplier) ? $data->supplier : ''; ?> " style="border: none;background-color:#fff; color:black;" disabled></p>
 
 
         </div>
@@ -75,11 +75,10 @@ if (isset($_GET['edit'])) {
     <p class="total1"> 
         <Button> Grand Total: 
         <span> Kshs
-			<?php
-			
+			<?php			
 				$total = 0;
-					$total += $data->price ;
-                    echo $total;
+                $total += $data->price*$data->number ;
+                echo $total;
 			?>
         </span></Button>
     </p>

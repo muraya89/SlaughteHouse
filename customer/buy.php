@@ -54,11 +54,17 @@
 			if ($_GET['error'] == "notsaved") {
 				echo '<p class=err>Data not saved, please try again</p>';
 			}
+			if ($_GET['error'] == "emptyaddress") {
+				echo '<p class=err>Please add an address for your delivery</p>';
+			}
 		}
 		$data = [];
 		if (isset($_GET['edit'])) {
 			//for decoding stored data
 			$data = json_decode(base64_decode($_GET['edit']));
+		}
+		if(isset($_GET['error'])){
+			$customer_data = json_decode(base64_decode($_GET['value']));
 		}
 	?>
 	<div class="effect">
@@ -98,33 +104,37 @@
 					<label for="age">Age: </label>
 					<input type="number" value="<?= isset($_GET['edit']) && isset($data->age) ? $data->age : ''; ?>" name="age" placeholder="Enter the age" class="disabled-box" disabled >
 					<br>
-					<label for="type">Type: </label>
+					<!-- <label for="type">Type: </label>
 					<select class="disabled-box" name="type" disabled>
 						<option value="<?= isset($_GET['edit']) && isset($data->type) ? $data->type : ''; ?>"><?= isset($_GET['edit']) && isset($data->type) ? $data->type : '--select the type of meat--'; ?></option>
 						<option value="redmeat">Red meat</option>
 						<option value="whitemeat">White Meat</option>
 					</select>
-					<br>
+					<br> -->
 					
-					<label for="number">Number of animals: </label>
+					<label for="number">Available quantity: </label>
+					<input type="number" id="number" value="<?= isset($_GET['edit']) && isset($data->available_quantity) ? $data->available_quantity : ''; ?>" name="available_quantity" placeholder="Remaining animals" class="disabled-box" disabled>
 					<!-- <p style="padding: 10px; color: red;" id="qError"></p> -->
 					<br>
 					<label for="price">Price per animal: </label>
 					<input type="number" id="price" value="<?= isset($_GET['edit']) && isset($data->price) ? $data->price : ''; ?>" name="price" placeholder="Enter the price to sell the animal" class="disabled-box" disabled>
 					<br>
 					<input type="hidden" value="<?= isset($_GET['edit']) && isset($data->id) ? $data->id : ''; ?>" name="product_id" />
-					<input type="hidden" value="<?= isset($_GET['edit']) && isset($data->number) ? $data->number : ''; ?>" name="number" />
+					<input type="hidden" value="<?= isset($_GET['edit']) && isset($data->price) ? $data->price : ''; ?>" name="price" />
+					<input type="hidden" value="<?= isset($_GET['edit']) && isset($data->breed) ? $data->breed : ''; ?>" name="breed" />
+					<input type="hidden" value="<?= isset($_GET['edit']) && isset($data->available_quantity) ? $data->available_quantity : ''; ?>" name="available_quantity" />
 					<input type="hidden" value="<?= $_SESSION['id']; ?>" name="user_id" />
 					<input type="hidden" value="<?= $_SESSION['name']; ?>" name="username" />
 				</div>
 			</section>
+
 			<section class="accordion">
 				<input type="checkbox" name="collapse" id="handle2" checked>
 				<h2 class="handle">
 					<label for="handle2" class="handle2">Customer details</label>
 				</h2>
 				<div class="content">
-					<select name="mode_of_payment" class="disabled-box">
+					<select name="mode_of_payment" class="disabled-box" required value="<?= isset($_GET['value']) && isset($customer_data->mode_of_payment) ? $customer_data->mode_of_payment : ''; ?>">
 						<option value="">--choose mode of payment--</option>
 						<option value="cash">Cash</option>
 						<option value="mpesa">M-pesa</option>
@@ -132,22 +142,23 @@
 					<br>
 					<div class="delivery">
 						<label for="delivery"> Delivery:</label><br><br>
-						<input type="radio" name="delivery" value="yes">Yes
+						<input type="radio" name="delivery" value="yes" required>Yes
 						<br><br>
 						<input type="radio" name="delivery" value="no">No
 					</div>
 					<br>
-					<input type="text" name="address" class="disabled-box" placeholder="Enter your delivery address">
+					<input type="text" name="address" class="disabled-box" placeholder="Enter your delivery address" value="<?= isset($_GET['value']) && isset($customer_data->address) ? $customer_data->address : ''; ?>">
 					<br>
-					<input type="number" id="quantity" onkeyup="displayTotal()" name="quantity" placeholder="Enter the number of animals you want to buy" max="<?= (int)$data->number; ?>" min="1" class="disabled-box">
+					<input type="number" required id="quantity" onkeyup="displayTotal()" name="quantity" placeholder="Enter the number of animals you want to buy" max="<?= (int)$data->available_quantity; ?>" min="1" class="disabled-box" value="<?= isset($_GET['value']) && isset($customer_data->quantity) ? $customer_data->quantity : ''; ?>">
 					<br>
 					<div style="margin-left: -25px;">
 						<label for="total">Total Cost (in Ksh):</label>
-						<input type="text" readonly name="total_price" class="disabled-box" id="total" />
+						<input type="text" readonly name="total_price" class="disabled-box" id="total" value="<?= isset($_GET['value']) && isset($customer_data->total_price) ? $customer_data->total_price : ''; ?>"/>
 					</div>
 					<input type="hidden" name="redirect_to" value="../../customer/buy.php?edit=<?=$_GET['edit'];?>" />
 				</div>
 			</section>
+			
 			<div class="container">
 				<button name="order_submit" type="submit" class="sendbtn">BUY</button>
 			</div>
