@@ -1,18 +1,18 @@
 <?php 
-session_start();
+    session_start();
 
-if (!isset($_SESSION['id'])) {
-    header('Location: ../auth/login.php?error=403');
-}
+    if (!isset($_SESSION['id'])) {
+        header('Location: ../auth/login.php?error=403');
+    }
+var_dump($_SESSION);die();
 
+    include('../helpers/DbHelpers.php');
 
-include('../helpers/DbHelpers.php');
-
-$data = [];
-if (isset($_GET['edit'])) {
-    //for decoding stored data
-    $data = json_decode(base64_decode($_GET['edit']));
-}
+    $data = [];
+    if (isset($_GET['edit'])) {
+        //for decoding stored data
+        $data = json_decode(base64_decode($_GET['edit']));
+    }
 ?>
 
 <!DOCTYPE html>

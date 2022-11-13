@@ -1,4 +1,11 @@
+<?php 
+    session_start();
 
+    if (!isset($_SESSION)) {
+        header('Location: ../auth/login.php?error=403');
+    }
+// var_dump($_SESSION);die();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +32,6 @@
    			}
 			if(isset($_GET['edit'])){
 				$data = json_decode(base64_decode($_GET['edit']));
-				// var_dump($data);die();
 			}
 			include('../helpers/DbHelpers.php');
 			$breed =  $db_helpers->getAll('categories');
@@ -66,6 +72,7 @@
 
 			<input type="text" name="submitType" hidden value="<?= isset($_GET['edit']) ?'edit' : 'new'; ?>">
 			<input type="text" name="id" hidden value="<?= isset($_GET['edit']) && isset($data->id)? $data->id : ''; ?>">
+			<input type="text" name="supplier" hidden value="<?= $_SESSION['name']?>">
 			<br>
 
 			<div>
