@@ -75,7 +75,7 @@
 		}
 	}
 	$data = [];
-	if (isset($_GET['error'])) {
+	if (isset($_GET['value'])) {
 	//   for decoding stored data when the edit button is selected
 	  $data = json_decode(base64_decode($_GET['value']));
 	//   var_dump($data);die();
@@ -84,7 +84,7 @@
 	?>
  
 	<form action="../app/auth/Login.php" class="login" method="POST">
-		<input type="text" name="email" class="input-box" placeholder="Email" value="<?= isset($_GET['value']) && isset($data->email) ? $data->email : ''; ?>"></br>
+		<input type="email" name="email" class="input-box" placeholder="Email" value="<?= isset($_GET['value']) && isset($data->email) ? $data->email : ''; ?>"></br>
 		<div class="radio">
 			<div class="radio1">
 				<input type="radio" value="supplier" name="accounttype" value="<?= isset($_GET['value']) && isset($data->accounttype) ? $data->accounttype : ''; ?>">

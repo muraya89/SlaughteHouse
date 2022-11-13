@@ -64,7 +64,7 @@ $value = $db_helpers->getAll('animals');
                 <th>Weight</th>
                 <th>Sex</th>
                 <th>Age</th>
-                <th>Quantity</th>
+                <th>Available Quantity</th>
                 <th>Price</th>
                 <th>Status</th>
                 <th>Actions</th>

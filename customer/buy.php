@@ -67,7 +67,7 @@
 			$customer_data = json_decode(base64_decode($_GET['value']));
 		}
 	?>
-	<div class="effect">
+	<div class="effect" style="margin-top: 5px;">
 		<h3>Buy products</h3>
 		<form id="orders_form" method="POST" action="../app/customer/Orders.php">
 			<section class="accordion">

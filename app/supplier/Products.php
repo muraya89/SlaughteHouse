@@ -38,7 +38,7 @@ class Products {
               exit();
           }
         }
-      }
+    }
 
     public function EditProducts ($data) {
         if (isset($data['supply_submit'])) {

@@ -70,7 +70,6 @@ $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
             <th>Product ID</th>
             <th>Breed</th>
             <th>Price Per Animal</th>
-            <th>Type</th>
             <th>Quantity</th>
             <th>Mode Of Payment</th>
             <th>Total Price</th>
@@ -84,11 +83,10 @@ $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
              <td><?= $order['id']; ?></td>
              <td><?= $order['product_id']; ?></td>
              <td><?= $order['breed']; ?></td>
-             <td><?= $order['price']; ?>/=</td>
-             <td><?= $order['type']; ?></td>
+             <td><?= $order['price']; ?>&nbsp;/=</td>
              <td><?= $order['quantity']; ?></td>
              <td><?= $order['mode_of_payment']; ?></td>
-             <td><?= $order['total_price']; ?>/=</td>
+             <td><?= $order['total_price']; ?>&nbsp;/=</td>
              <td><?= $order['delivery']; ?></td>
              <td><?= $order['address']; ?></td>
              <td><?= $order['created_at']; ?></td>
@@ -102,10 +100,10 @@ $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
                      <!-- call variable with the encoded data -->
                     <a href="receipt.php?edit=<?=$base64UrlString;?>"><button class="receipt_btn"> Receipt</button></a>
                  </div>
-                    <form action="../admin/AdminClass.php" method="post" class="action1">
-                        <input type="hidden" name="id" value="<?= $order['id'] ?>"/>
+                    <form action="../app/customer/Orders.php" method="post" class="action1">
+                        <input type="hidden" name="order" value="<?= base64_encode(json_encode($order)) ?>"/>
                         <input type="hidden" name="table" value="orders" />
-                        <input type="hidden" name="redirect_to" value="../customer/orders.php" />
+                        <input type="hidden" name="redirect_to" value="../../customer/orders.php" />
                         <button type="submit" name="deleteSubmit" class="delete_btn">Delete</button>
                     </form>
                     <!-- <form action="../app/supplier/Products.php" method="post" class="action2">

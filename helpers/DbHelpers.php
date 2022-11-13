@@ -22,6 +22,15 @@ class DbHelpers {
       return 'table not found';
     }
   }
+  
+  public function showOne ($table, $data) {
+    $result = mysqli_query($this->db, "SELECT * FROM $table WHERE " .$table.'.'. key($data) . " = " . $data[key($data)]);
+    if ($result) {
+      return $result;
+    } else {
+      return 'table not found';
+    }
+  }
     
   public function show ($table, $data) {
     $result = mysqli_query($this->db, "SELECT orders.*, animals.breed, animals.number, animals.type FROM $table 
