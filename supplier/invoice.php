@@ -4,7 +4,6 @@
     if (!isset($_SESSION['id'])) {
         header('Location: ../auth/login.php?error=403');
     }
-var_dump($_SESSION);die();
 
     include('../helpers/DbHelpers.php');
 
