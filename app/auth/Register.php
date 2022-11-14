@@ -17,7 +17,11 @@ class Register {
                 "&address=".$postData['address']."&phoneno=".$postData['phoneno']."&value=".base64_encode(json_encode(array_merge($postData, ['error'=>true]))));
                 exit();
             }
-            elseif (!filter_var($postData['email'], FILTER_VALIDATE_EMAIL)) {
+            elseif(!preg_match('/^\pL+$/u', $postData['cname'])){
+                header("Location:" .$postData['redirect_to']."?error=wrongFormat&cname=".$postData['cname']."&email=".$postData['email'].
+                "&address=".$postData['address']."&phoneno=".$postData['phoneno']."&value=".base64_encode(json_encode(array_merge($postData, ['error'=>true]))));
+                exit();
+            }elseif (!filter_var($postData['email'], FILTER_VALIDATE_EMAIL)) {
                 header("Location: ../../auth/signup.php?error=invalidemail&cname=".$postData['cname'].
                 "&address=".$postData['address']."&phoneno=".$postData['phoneno']."&value=".base64_encode(json_encode(array_merge($postData, ['error'=>true]))));
                 exit();

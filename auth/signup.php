@@ -64,6 +64,9 @@
           elseif($_GET['error']== "invalidemail") {
             echo '<p class = "err">Provide a valid email!</p>';  
           }
+          elseif($_GET['error']== "wrongFormat") {
+            echo '<p class = "err">Company name should contain letters only</p>';  
+          }
           elseif ($_GET['error'] == "invalidpassword") {
             // code...
             echo '<p class = "err">Enter password!</p>';
@@ -95,7 +98,7 @@
       <br>
       <input type="email" name="email" class="input-box" placeholder="Email" required value="<?= isset($_GET['value']) && isset($data->email) ? $data->email : ''; ?>">
       <br>
-      <input type="text" name="phoneno" class="input-box" placeholder="Phone Number" value="<?= isset($_GET['value']) && isset($data->phoneno) ? $data->phoneno : ''; ?>">
+      <input type="tel" name="phoneno" class="input-box" placeholder="Phone Number" value="<?= isset($_GET['value']) && isset($data->phoneno) ? $data->phoneno : ''; ?>">
       <br>
       <input type="text" name="address" class="input-box" placeholder="Address" value="<?= isset($_GET['value']) && isset($data->address) ? $data->address : ''; ?>">
       <br>

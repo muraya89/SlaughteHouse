@@ -57,13 +57,15 @@
          <tr>
             <th>#</th>
             <th>Details</th>
-            <th>Quantity</th>
+            <th>Initial Quantity</th>
+            <th>Quantity sold</th>
             <th>Price</th>
          </tr>            
          <tr>
              <td><?= isset($_GET['edit']) && isset($data->id) ? $data->id : ''; ?></td>
              <td><?= isset($_GET['edit']) && isset($data->breed) ? $data->breed : ''; ?> </td>
-             <td><?= isset($_GET['edit']) && isset($data->number) ? $data->number : ''; ?></td>
+             <td><?= isset($_GET['edit']) && isset($data->number) ? $data->number    : ''; ?></td>
+             <td><?= isset($_GET['edit']) && isset($data->available_quantity) && isset($data->number) ? $data->number - $data->available_quantity    : ''; ?></td>
              <td><?= isset($_GET['edit']) && isset($data->price) ? number_format($data->price) : ''; ?></td>
          </tr>
         </table>
@@ -76,7 +78,7 @@
         <span> Kshs
 			<?php			
 				$total = 0;
-                $total += $data->price*$data->number ;
+                $total += $data->price*$data->available_quantity ;
                 echo number_format($total);
 			?>
         </span></Button>
