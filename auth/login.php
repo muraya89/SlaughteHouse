@@ -99,6 +99,8 @@
 		<button name="login_submit" class="sendbtn" type="submit">Login</button>
 	</form>
 	<p>Don't have an account?<a href="signup.php">JOIN</a></p>
+    <p>Or</p>
+	<p><a href="forgotPassword.php">Forgot Password</a></p>
 </div>
 </body>
 

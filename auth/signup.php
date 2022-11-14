@@ -117,7 +117,9 @@
       <input type="hidden" name="redirect_to" value=" ../../auth/signup.php" />
       <button type="submit" class="sendbtn" name="signup_submit">Sign up</button>
     </form>
-    <p>Already have an account? <a href="login.php">LOGIN</a></p>  
+    <p>Already have an account? <a href="login.php">LOGIN</a></p>
+    <p>Or</p>
+    <p><a href="forgotPassword.php">Forgot Password</a></p>
   </div>
 </body>
 
