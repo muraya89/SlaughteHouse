@@ -71,8 +71,7 @@
                 <th>Sex</th>
                 <th>Age</th>
                 <th>Quantity</th>
-                <th>Price</th>
-                <th>Type</th>
+                <th>Price (kshs)</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -87,8 +86,7 @@
                 <td><?= $product['sex']; ?></td>
                 <td><?= $product['age']; ?></td>
                 <td><?= $product['number']; ?></td>
-                <td><?= $product['price']; ?></td>
-                <td><?= $product['type']; ?></td>
+                <td><?= number_format($product['price']); ?></td>
                 <td><?= $product['status']; ?></td>
                 <td>
                   <form action="AdminClass.php" method="post" class=action>

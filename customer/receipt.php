@@ -42,11 +42,11 @@ if (isset($_GET['edit'])) {
 
             <p>Quantity:  <input type="text" value="<?= isset($_GET['edit']) && isset($data->quantity) ? $data->quantity : ''; ?> " style="border: none;"></p>
 
-            <p>Price-per-animal:  Kshs<input type="text" value="<?= isset($_GET['edit']) && isset($data->price) ? $data->price : ''; ?> " style="border: none;"></p>
+            <p>Price-per-animal:  Kshs<input type="text" value="<?= isset($_GET['edit']) && isset($data->price) ? number_format($data->price) : ''; ?> " style="border: none;"></p>
 
             <p class="subtotal">Subtotal: 
                 <span> Kshs 
-                    <input type="text" value="<?= isset($_GET['edit']) && isset($data->total_price) ? $data->total_price : ''; ?>" name="subtotal">
+                    <input type="text" value="<?= isset($_GET['edit']) && isset($data->total_price) ? number_format($data->total_price) : ''; ?>" name="subtotal">
                 </span>
             </p>
             
@@ -75,7 +75,7 @@ if (isset($_GET['edit'])) {
 			
 				$total = 0;
 					$total += $data->total_price + $charge;
-                    echo $total;
+                    echo number_format($total);
 			?>
         </span>
     </p>

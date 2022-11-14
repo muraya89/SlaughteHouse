@@ -71,8 +71,8 @@ $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
             <th>Breed</th>
             <th>Price Per Animal</th>
             <th>Quantity</th>
-            <th>Mode Of Payment</th>
             <th>Total Price</th>
+            <th>Mode Of Payment</th>
             <th>Delivery</th>
             <th>address</th>
             <th>Made on</th>
@@ -83,10 +83,10 @@ $value = $db_helpers->show('orders', ['user_id' => $_SESSION['id']]);
              <td><?= $order['id']; ?></td>
              <td><?= $order['product_id']; ?></td>
              <td><?= $order['breed']; ?></td>
-             <td><?= $order['price']; ?>&nbsp;/=</td>
+             <td><?=number_format( $order['price']); ?>&nbsp;/=</td>
              <td><?= $order['quantity']; ?></td>
+             <td><?= number_format($order['total_price']); ?>&nbsp;/=</td>
              <td><?= $order['mode_of_payment']; ?></td>
-             <td><?= $order['total_price']; ?>&nbsp;/=</td>
              <td><?= $order['delivery']; ?></td>
              <td><?= $order['address']; ?></td>
              <td><?= $order['created_at']; ?></td>

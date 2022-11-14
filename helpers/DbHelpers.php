@@ -214,6 +214,18 @@ class DbHelpers {
       ];
     }
   }
+
+  public function sumRevenue(){
+    $result  = mysqli_query($this->db, "SELECT sum(total_price) from orders;");
+    if($result){
+      return $result;
+    }else{
+      return (object)[
+        "response" => $result,
+        "message" => "success"
+      ];
+    }
+  }
   
   public function PasswordChecker ($password) {
     // password variables

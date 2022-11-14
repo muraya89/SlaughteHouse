@@ -90,7 +90,7 @@ $value = $db_helpers->getAll('animals');
                 <td><?= $product['age']; ?></td>
                 <td><?= $product['number']; ?></td>
                 <td><?= $product['available_quantity']; ?></td>
-                <td><?= $product['price']; ?></td>
+                <td><?= number_format($product['price']); ?></td>
                 <td><?= $product['status']; ?></td>
                 <td><?= $product['supply_date']; ?></td>
                 <td>

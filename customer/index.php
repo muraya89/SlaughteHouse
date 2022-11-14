@@ -78,7 +78,7 @@ $value = $db_helpers->getAll('animals');
                 <td><?= $product['sex']; ?></td>
                 <td><?= $product['age']; ?></td>
                 <td><?= $product['available_quantity']; ?></td>
-                <td><?= $product['price']; ?>&nbsp;/=</td>
+                <td><?= number_format($product['price']); ?>&nbsp;/=</td>
                 <td><?= $product['status']; ?></td>
                 <td>
                     <?php 

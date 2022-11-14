@@ -64,7 +64,7 @@
              <td><?= isset($_GET['edit']) && isset($data->id) ? $data->id : ''; ?></td>
              <td><?= isset($_GET['edit']) && isset($data->breed) ? $data->breed : ''; ?> </td>
              <td><?= isset($_GET['edit']) && isset($data->number) ? $data->number : ''; ?></td>
-             <td><?= isset($_GET['edit']) && isset($data->price) ? $data->price : ''; ?></td>
+             <td><?= isset($_GET['edit']) && isset($data->price) ? number_format($data->price) : ''; ?></td>
          </tr>
         </table>
      </div>
@@ -77,7 +77,7 @@
 			<?php			
 				$total = 0;
                 $total += $data->price*$data->number ;
-                echo $total;
+                echo number_format($total);
 			?>
         </span></Button>
     </p>

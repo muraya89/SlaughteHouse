@@ -13,6 +13,7 @@
 		include('../helpers/DbHelpers.php');
 		// variable to call a function which fetches all data from the orders table
 		$value = $db_helpers->getOrders('orders');
+		$revenue = mysqli_fetch_assoc($db_helpers->sumRevenue());
 		$orders = mysqli_fetch_assoc($db_helpers->countData('orders'));
 		$products = mysqli_fetch_assoc($db_helpers->countData('animals'));
 		$customers = mysqli_fetch_assoc($db_helpers->countUsers('customer'));
@@ -45,8 +46,8 @@
 			</div>
 			
 			<div class="item">
-				<b></b> &nbsp; Revenue
-				<!-- <a href="salesreport.php"><button type="button" class="button-1"><i class='fas fa-arrow-right'></i></button></a> -->
+				<b>kshs&nbsp;<?=number_format($revenue['sum(total_price)'])?></b> &nbsp; Revenue
+				<a href="salesreport.php"><button type="button" class="button-1"></button></a>
 			</div>
 		</div>
 

@@ -78,14 +78,13 @@
                         <th>#</th>
                         <th>Product ID</th>
                         <th>Breed</th>
-                        <th>Price Per Animal</th>
-                        <th>Type</th>
+                        <th>Price Per Animal (kshs)</th>
                         <th>Quantity</th>
+                        <th>Total Price (kshs)</th>
                         <th>Mode Of Payment</th>
                         <th>Delivery</th>
                         <th>address</th>
                         <th>Made on</th>
-                        <th>Buyer ID</th>
                         <th>Buyer Name</th>
                         <th>Actions</th>
                     </tr>
@@ -99,14 +98,13 @@
                         <td><?= $order['order_id']; ?></td>
                         <td><?= $order['product_id']; ?></td>
                         <td><?= $order['breed']; ?></td>
-                        <td><?= $order['price']; ?></td>
-                        <td><?= $order['type']; ?></td>
+                        <td><?= number_format($order['price']); ?></td>
                         <td><?= $order['quantity']; ?></td>
+                        <td><?= number_format($order['total_price']); ?></td>
                         <td><?= $order['mode_of_payment']; ?></td>
                         <td><?= $order['delivery']; ?></td>
                         <td><?= $order['address']; ?></td>
                         <td><?= $order['made_on']; ?></td>
-                        <td><?= $order['user_id']; ?></td>
                         <td><?= $order['username']; ?></td>
                         <td>
                             <div class="td1">
