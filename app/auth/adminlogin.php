@@ -24,7 +24,8 @@ class Login {
             } else {                        
                 // check if the password matches
                 $associativeArray = mysqli_fetch_assoc($res->response);
-                $result = password_verify($postData['password'], $associativeArray['password']);
+                $result = sha1($postData['password']) === $associativeArray['password'];
+                var_dump($result);
                     if (!$result) {
                         header("Location: ../../admin/index.php?error=403");
                     } else {
