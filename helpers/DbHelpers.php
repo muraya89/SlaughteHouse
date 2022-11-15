@@ -22,6 +22,15 @@ class DbHelpers {
       return 'table not found';
     }
   }
+
+  public function get($table, $id){
+    $result = mysqli_query($this->db, "SELECT * FROM animals WHERE supplier = '$id'");
+    if ($result) {
+      return $result;
+    } else {
+      return 'table not found';
+    }
+  }
   
   public function showOne ($table, $data) {
     $result = mysqli_query($this->db, "SELECT * FROM $table WHERE " .$table.'.'. key($data) . " = " . $data[key($data)]);

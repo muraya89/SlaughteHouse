@@ -4,11 +4,13 @@ session_start();
 if (!isset($_SESSION['id'])) {
     header('Location: ../auth/login.php?error=403');
 }
+$name = $_SESSION['name'];
+// var_dump($_SESSION);die();
 
 
 include('../helpers/DbHelpers.php');
 // $value = $db_helpers->show('animals', ['user_id' => $_SESSION['id']]);
-$value = $db_helpers->getAll('animals');
+$value = $db_helpers->get('animals', $name);
 ?>
 <!DOCTYPE html>
 <html>
